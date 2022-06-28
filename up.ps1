@@ -73,6 +73,16 @@ if ($LASTEXITCODE -ne 0) {
     Write-Error "Unexpected error installing Sitecore CLI Plugins"
 }
 
+#####  Remove before production #####
+Write-Host "Set staging configuration for XMCLoud plugin"
+$targetPluginlocation = "$PSScriptRoot\.sitecore\package-cache\nuget\Sitecore.DevEx.Extensibility.XMCloud*\plugin\plugin.json"
+$stagingConfig = "$PSScriptRoot\xmcloud.plugin.staging.json"
+$targetLocationFullName = (gi $targetPluginlocation).FullName
+
+Copy-Item $stagingConfig $targetLocationFullName  -Force
+
+#####################################
+
 Write-Host "Logging into Sitecore..." -ForegroundColor Green
 if ($ClientCredentialsLogin -eq "true") {
     dotnet sitecore cloud login --client-id $xmCloudClientCredentialsLoginClientId --client-secret $xmCloudClientCredentialsLoginClientSecret --client-credentials true
@@ -98,6 +108,9 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "Rebuilding indexes ..." -ForegroundColor Green
 dotnet sitecore index rebuild
 
+Write-Host "Pushing Default rendering host configuration" -ForegroundColor Green
+dotnet sitecore ser push
+
 Write-Host "Pushing sitecore API key" -ForegroundColor Green
 & docker\build\cm\templates\import-templates.ps1 -RenderingSiteName "xmcloudpreview" -SitecoreApiKey $sitecoreApiKey
 
@@ -105,7 +118,7 @@ if ($ClientCredentialsLogin -ne "true") {
     Write-Host "Opening site..." -ForegroundColor Green
     
     Start-Process https://xmcloudcm.localhost/sitecore/
-    Start-Process https://www.xmcloudpreview.localhost/
+    Start-Process https://www.sxastarter.localhost/
 }
 
 Write-Host ""
