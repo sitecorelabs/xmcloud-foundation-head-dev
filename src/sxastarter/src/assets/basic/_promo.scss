@@ -1,0 +1,37 @@
+@import "@sass/abstracts/vars";
+@import "@sass/abstracts/mixins";
+/**PROMO**/
+
+.promo {
+  &.promo-no-border {
+    padding-left: 0;
+    padding-right: 0;
+
+    >.component-content {
+      border: 0;
+      
+      .promo-text {
+        .field-promotext {
+          font-size: 14px;
+
+          h3 {
+            font-size: 18px;
+            margin: 10px 0;
+          }
+          p {
+            margin: 10px 0;
+          }
+        }
+      }
+      @include respond-to(all-mobile) {
+        > div {
+          padding: 0;
+        }
+  
+        .promo-text {
+          padding: 15px 10px 10px 25px;
+        }
+      }
+    }
+  }
+}
