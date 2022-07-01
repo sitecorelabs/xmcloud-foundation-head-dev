@@ -98,7 +98,7 @@ finally {
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 
 Add-HostsEntry "xmcloudcm.localhost"
-Add-HostsEntry "www.xmcloudpreview.localhost"
+Add-HostsEntry "www.sxastarter.localhost"
 
 ###############################
 # Generate scjssconfig
