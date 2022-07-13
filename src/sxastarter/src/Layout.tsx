@@ -8,7 +8,6 @@ import {
   VisitorIdentification,
   getPublicUrl,
   LayoutServiceData,
-  Field,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 // Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
@@ -19,19 +18,12 @@ interface LayoutProps {
   layoutData: LayoutServiceData;
 }
 
-interface RouteFields {
-  [key: string]: unknown;
-  Title?: Field;
-}
-
 const Layout = ({ layoutData }: LayoutProps): JSX.Element => {
   const { route } = layoutData.sitecore;
-  const fields = route?.fields as RouteFields;
-
   return (
     <>
       <Head>
-        <title>{fields?.Title?.value.toString() || 'Page'}</title>
+        <title>{route?.fields?.Title?.value || 'Page'}</title>
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
       </Head>
 
