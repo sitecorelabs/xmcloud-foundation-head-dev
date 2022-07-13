@@ -2,13 +2,12 @@ import {
   LayoutService,
   RestLayoutService,
   GraphQLLayoutService,
-  constants,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 
 export class LayoutServiceFactory {
   create(): LayoutService {
-    return process.env.FETCH_WITH === constants.FETCH_WITH.GRAPHQL
+    return process.env.FETCH_WITH === 'GraphQL'
       ? new GraphQLLayoutService({
           endpoint: config.graphQLEndpoint,
           apiKey: config.sitecoreApiKey,
