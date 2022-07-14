@@ -110,7 +110,6 @@ if ($ClientCredentialsLogin -ne "true") {
     Write-Host "Opening site..." -ForegroundColor Green
     
     Start-Process https://xmcloudcm.localhost/sitecore/
-    Start-Process https://www.sxastarter.localhost/
 }
 
 Write-Host ""
