@@ -1,4 +1,4 @@
-# XM Cloud Style Guide (Next JS)
+# XM Cloud Starter Kit (Next JS)
 
 ## QUICK START
 
