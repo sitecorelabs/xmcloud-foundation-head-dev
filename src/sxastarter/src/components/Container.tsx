@@ -15,7 +15,7 @@ interface ComponentProps {
   params: ComponentParams;
 }
 
-const Container = (props: ComponentProps): JSX.Element => {
+export const Default = (props: ComponentProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
   const containerStyles = props.params && props.params.Styles ? props.params.Styles : '';
   const styles = `${props.params.GridParameters} ${containerStyles}`.trimEnd();
@@ -43,5 +43,3 @@ const Container = (props: ComponentProps): JSX.Element => {
     </div>
   );
 };
-
-export default Container;
