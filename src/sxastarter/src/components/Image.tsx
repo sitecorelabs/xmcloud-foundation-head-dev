@@ -29,9 +29,11 @@ const ImageDefault = (props: ImageProps): JSX.Element => (
 );
 
 export const Banner = (props: ImageProps): JSX.Element => {
+  const backgroundStyle = { backgroundImage: `url('${props?.fields?.Image?.value?.src}')` };
+
   return (
-    <div className="component image-banner">
-      <Default {...props} />
+    <div className={`component hero-banner ${props.params.styles}`}>
+      <div className="component-content" style={backgroundStyle} />
     </div>
   );
 };

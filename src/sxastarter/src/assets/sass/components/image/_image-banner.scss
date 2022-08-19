@@ -1,22 +1,12 @@
-.image-banner {
-  .image {
-    .component-content {
-      position: relative;
-      height: 800px;
-      overflow: hidden;
+.hero-banner {
+  .component-content {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
 
-      @include respond-to(mobile-large) {
-        height: 300px;
-      }
-
-      img {
-        position: absolute;
-        top: -50%;
-
-        @include respond-to(mobile-large) {
-          top: 0;
-        }
-      }
+    @include respond-to(mobile-large) {
+      height: 300px;
     }
   }
 }
