@@ -56,16 +56,6 @@ main {
       padding-top: 0;
       padding-bottom: 0;
     }
-    > .component-content .row {
-      height: 800px;
-      overflow: hidden;
-      position: relative;
-
-      img {
-        position: absolute;
-        top: -50%;
-      }
-    }
   }
 
   @include respond-to(mobile-large) {
@@ -73,9 +63,7 @@ main {
     margin-bottom: 0;
 
     .banner-background {
-      > .component-content .row {
-        height: 300px;
-
+      .component-content {
         img {
           max-width: 120%;
           top: 0;

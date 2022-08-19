@@ -28,6 +28,14 @@ const ImageDefault = (props: ImageProps): JSX.Element => (
   </div>
 );
 
+export const Banner = (props: ImageProps): JSX.Element => {
+  return (
+    <div className="component image-banner">
+      <Default {...props} />
+    </div>
+  );
+};
+
 export const Default = (props: ImageProps): JSX.Element => {
   const { sitecoreContext } = useSitecoreContext();
 

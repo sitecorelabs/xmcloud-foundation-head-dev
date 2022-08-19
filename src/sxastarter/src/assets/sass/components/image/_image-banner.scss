@@ -1,0 +1,22 @@
+.image-banner {
+  .image {
+    .component-content {
+      position: relative;
+      height: 800px;
+      overflow: hidden;
+
+      @include respond-to(mobile-large) {
+        height: 300px;
+      }
+
+      img {
+        position: absolute;
+        top: -50%;
+
+        @include respond-to(mobile-large) {
+          top: 0;
+        }
+      }
+    }
+  }
+}
