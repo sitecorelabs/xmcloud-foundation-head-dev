@@ -21,13 +21,11 @@ export const Default = (props: ComponentProps): JSX.Element => {
   const styles = `${props.params.GridParameters} ${containerStyles}`.trimEnd();
   const phKey = `container-${props.params.DynamicPlaceholderId}`;
   let backgroundImage = props.params.BackgroundImage as string;
-  let backgroundStyle: { [key: string]: string } = { backgroundImage: '' };
-  let backgroundClass = '';
+  let backgroundStyle: { [key: string]: string } = {};
 
   if (backgroundImage) {
     const prefix = `${sitecoreContext.pageState !== 'normal' ? '/sitecore/shell' : ''}/-/media/`;
     backgroundImage = `${backgroundImage?.match(BACKGROUND_REG_EXP)?.pop()?.replace(/-/gi, '')}`;
-    backgroundClass = 'not-empty-placholder';
     backgroundStyle = {
       backgroundImage: `url('${prefix}${backgroundImage}')`,
     };
@@ -35,7 +33,7 @@ export const Default = (props: ComponentProps): JSX.Element => {
 
   return (
     <div className={`component container ${styles}`}>
-      <div className={`component-content ${backgroundClass}`} style={backgroundStyle}>
+      <div className="component-content" style={backgroundStyle}>
         <div className="row">
           <Placeholder name={phKey} rendering={props.rendering} />
         </div>

@@ -62,15 +62,6 @@ main {
     padding-top: 0;
     margin-bottom: 0;
 
-    .banner-background {
-      .component-content {
-        img {
-          max-width: 120%;
-          top: 0;
-        }
-      }
-    }
-
     .main-header {
       margin-top: 10px;
 
@@ -79,6 +70,7 @@ main {
         line-height: 32px;
       }
     }
+    
     .main-news-header {
       padding-bottom: 35px;
 
