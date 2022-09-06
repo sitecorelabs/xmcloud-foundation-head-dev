@@ -14,7 +14,7 @@ import { componentFactory, editingComponentFactory } from 'temp/componentFactory
 
 const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
-    // Since Sitecore editors do not support Fast Refresh, need to refresh EE chromes after Fast Refresh finished
+    // Since Sitecore editors do not support Fast Refresh, need to refresh editor chromes after Fast Refresh finished
     handleEditorFastRefresh();
   }, []);
 
@@ -40,6 +40,13 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
 // This function gets called at request time on server-side.
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const props = await sitecorePagePropsFactory.create(context);
+
+  // Check if we have a redirect (e.g. custom error page)
+  if (props.redirect) {
+    return {
+      redirect: props.redirect,
+    };
+  }
 
   return {
     props,
