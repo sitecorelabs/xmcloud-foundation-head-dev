@@ -13,4 +13,5 @@ export type SitecorePageProps = {
   componentProps: ComponentPropsCollection;
   notFound: boolean;
   layoutData: LayoutServiceData;
+  redirect?: Redirect;
 };
