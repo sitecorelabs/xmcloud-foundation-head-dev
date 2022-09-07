@@ -1,3 +1,4 @@
+import { Redirect } from 'next';
 import {
   DictionaryPhrases,
   ComponentPropsCollection,
