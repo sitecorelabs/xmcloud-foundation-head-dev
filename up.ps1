@@ -24,7 +24,10 @@ if ($ClientCredentialsLogin -eq "true") {
 
 #set nuget version
 $xmCloudBuild = Get-Content "xmcloud.build.json" | ConvertFrom-Json
-Set-EnvFileVariable "NODEJS_VERSION" -Value $xmCloudBuild.renderingHosts.xmcloudpreview.nodeVersion
+$nodeVersion = $xmCloudBuild.renderingHosts.xmcloudpreview.nodeVersion
+if (![string]::IsNullOrWhitespace($nodeVersion)) {
+    Set-EnvFileVariable "NODEJS_VERSION" -Value $xmCloudBuild.renderingHosts.xmcloudpreview.nodeVersion
+}
 
 # Double check whether init has been run
 $envCheckVariable = "HOST_LICENSE_FOLDER"
