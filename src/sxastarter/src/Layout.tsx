@@ -1,5 +1,5 @@
 /**
- * This Layout needs for SXA example.
+ * This Layout is needed for Starter Kit.
  */
 import React from 'react';
 import Head from 'next/head';
