@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { RedirectsMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
+import { RedirectsMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/edge';
 import config from 'temp/config';
-import { MiddlewarePlugin } from '..';
+import { MiddlewarePlugin } from './middleware';
 
 class RedirectsPlugin implements MiddlewarePlugin {
   private redirectsMiddleware: RedirectsMiddleware;
