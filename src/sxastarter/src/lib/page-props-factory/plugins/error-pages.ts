@@ -6,7 +6,6 @@ import { isServerSidePropsContext } from '..';
 import config from 'temp/config';
 
 class ErrorPagesPlugin implements Plugin {
-  set = 0;
   order = 3;
 
   async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
@@ -37,7 +36,6 @@ class ErrorPagesPlugin implements Plugin {
       context.res.statusCode <= 511
     ) {
       const resultErrorPages = await errorPagesService.fetchErrorPages();
-      this.set = 1;
 
       if (resultErrorPages?.serverErrorPagePath) {
         return {
