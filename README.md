@@ -2,7 +2,7 @@
 
 ## QUICK START
 
-1. Copy your license file to the license folde:
+1. Copy your license file to the license folder
 
 2. In an ADMIN terminal:
 
