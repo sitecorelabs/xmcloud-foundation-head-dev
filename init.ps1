@@ -92,6 +92,20 @@ finally {
 
 
 ################################
+# Create the .env file if needed
+################################
+try {
+    Push-Location $workinDirectoryPath
+    if (-not (Test-Path ".\.env")) {
+        Copy-Item ".\.env.template" ".\.env"
+    }
+}
+finally {
+    Pop-Location
+}
+
+
+################################
 # Add Windows hosts file entries
 ################################
 
