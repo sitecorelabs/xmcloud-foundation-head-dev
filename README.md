@@ -20,16 +20,16 @@
 
 5. Create Edge token and [query from edge](#query-edge)
 
-*** 
-
-## About this Solution
-This solution is designed to help developers learn and get started quickly
-with XMCLoud + SXA.
-
-## License File
+### License File
 
 If you store your license file in a central location, you can pass a LicenseXmlPath paramter to the init command to use that location. 
 
     ```ps1
     .\init.ps1 -InitEnv -LicenseXmlPath "C:\path\to\license.xml" -AdminPassword "DesiredAdminPassword"
     ```
+
+*** 
+
+## About this Solution
+This solution is designed to help developers learn and get started quickly
+with XMCLoud + SXA.
