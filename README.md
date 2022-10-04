@@ -24,9 +24,9 @@
 
 If you store your license file in a central location, you can pass a LicenseXmlPath paramter to the init command to use that location. 
 
-    ```ps1
-    .\init.ps1 -InitEnv -LicenseXmlPath "C:\path\to\license.xml" -AdminPassword "DesiredAdminPassword"
-    ```
+```ps1
+.\init.ps1 -InitEnv -LicenseXmlPath "C:\path\to\license.xml" -AdminPassword "DesiredAdminPassword"
+```
 
 *** 
 
