@@ -1,13 +1,32 @@
 {
-    "renderingHosts": {
-        "xmcloudpreview": {
-            "path": "./src/sxastarter",
-            "nodeVersion": "16.15.1",
-            "jssDeploymentSecret":"110F1C44A496B45478640DD36F80C18C9",
-            "enabled": true,
-            "type": "sxa",
-            "lintCommand": "lint",
-            "startCommand": "start:production"
-        }
-    }
+	"renderingHosts": {
+		"xmcloudpreview": {
+			"path": "./src/sxastarter",
+			"nodeVersion": "16.15.1",
+			"jssDeploymentSecret": "110F1C44A496B45478640DD36F80C18C9",
+			"enabled": true,
+			"type": "sxa",
+			"lintCommand": "lint",
+			"startCommand": "start:production"
+		}
+	},
+	"postActions": {
+		"actions": {
+			"warmUpCm": {
+				"urls": [
+					"/sitecore/shell",
+					"/sitecore/shell/Applications/Content%20Editor.aspx?sc_bw=1",
+					"/sitecore/client/Applications/Launchpad",
+					"/sitecore/client/Applications/ControlPanel.aspx?sc_bw=1"
+				]
+			},
+			"populateSchema": {
+				"indexNames": [
+					"sitecore_core_index",
+					"sitecore_master_index",
+					"sitecore_web_index"
+				]
+			}
+		}
+	}
 }
