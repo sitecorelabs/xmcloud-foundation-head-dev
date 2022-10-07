@@ -44,7 +44,7 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
         {isComponentRendering ? (
           <EditingComponentPlaceholder rendering={layoutData.sitecore.route} />
         ) : (
-        <Layout layoutData={layoutData} />
+          <Layout layoutData={layoutData} />
         )}
       </SitecoreContext>
     </ComponentPropsContext>
