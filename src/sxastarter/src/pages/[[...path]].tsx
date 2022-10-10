@@ -3,9 +3,11 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import NotFound from 'src/NotFound';
 import Layout from 'src/Layout';
 import {
+  RenderingType,
   SitecoreContext,
   ComponentPropsContext,
   handleEditorFastRefresh,
+  EditingComponentPlaceholder,
   StaticPath,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
@@ -26,6 +28,8 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
   }
 
   const isEditing = layoutData.sitecore.context.pageEditing;
+  const isComponentRendering =
+    layoutData.sitecore.context.renderingType === RenderingType.Component;
 
   return (
     <ComponentPropsContext value={componentProps}>
@@ -33,7 +37,15 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
         componentFactory={isEditing ? editingComponentFactory : componentFactory}
         layoutData={layoutData}
       >
-        <Layout layoutData={layoutData} />
+        {/*
+          Sitecore Pages supports component rendering to avoid refreshing the entire page during component editing.
+          If you are using Experience Editor only, this logic can be removed, Layout can be left.
+        */}
+        {isComponentRendering ? (
+          <EditingComponentPlaceholder rendering={layoutData.sitecore.route} />
+        ) : (
+          <Layout layoutData={layoutData} />
+        )}
       </SitecoreContext>
     </ComponentPropsContext>
   );
