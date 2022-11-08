@@ -1,5 +1,5 @@
 {
-	"$schema": "./XmCloudBuildJson.schema.json",
+	"$schema": "./.sitecore/schemas/XmCloudBuildJson.schema.json",
     "renderingHosts": {
         "xmcloudpreview": {
             "path": "./src/sxastarter",
