@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "deployItems": {
+      "type": "object",
+      "properties": {
+        "modules": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    "buildTargets": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "renderingHosts": {
+      "type": "object",
+      "properties": {
+        "xmcloudpreview": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "nodeVersion": {
+              "type": "string"
+            },
+            "jssDeploymentSecret": {
+              "type": "string"
+            },
+            "enabled": {
+              "type": "boolean"
+            },
+            "type": {
+              "type": ["string", "null"],
+			  "enum": ["sxa", "jss", null]
+            },
+            "lintCommand": {
+              "type": "string"
+            },
+            "startCommand": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "transforms": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "xdtPath": {
+              "type": "string"
+            },
+            "targetPath": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "xdtPath": {
+              "type": "string"
+            },
+            "targetPath": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "xdtPath": {
+              "type": "string"
+            },
+            "targetPath": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "postActions": {
+      "type": "object",
+      "properties": {
+        "actions": {
+          "type": "object",
+          "properties": {
+            "warmUpCm": {
+              "type": "object",
+              "properties": {
+                "urls": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                }
+              }
+            },
+            "populateSchema": {
+              "type": "object",
+              "properties": {
+                "indexNames": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            },
+            "reindex": {
+              "type": "object",
+              "properties": {
+                "indexNames": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            },
+            "publish": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "languages": {
+                  "type": "array",
+                  "items": {}
+                },
+                "itemIds": {
+                  "type": "array",
+                  "items": {}
+                },
+                "targets": {
+                  "type": "array",
+                  "items": {}
+                },
+                "republish": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

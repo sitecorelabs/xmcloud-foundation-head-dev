@@ -1,4 +1,5 @@
 {
+	"$schema": "./XmCloudBuildJson.schema.json",
     "renderingHosts": {
         "xmcloudpreview": {
             "path": "./src/sxastarter",
