@@ -3,7 +3,7 @@ import { EditingRenderMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editi
 /**
  * This Next.js API route is used to handle POST requests from Sitecore editors.
  * This route should match the `serverSideRenderingEngineEndpointUrl` in your Sitecore configuration,
- * which is set to "http://localhost:3000/api/editing/render" by default (see \sitecore\config\headless.config).
+ * which is set to "http://localhost:3000/api/editing/render" by default (see \sitecore\config\sxastarter.config).
  *
  * The `EditingRenderMiddleware` will
  *  1. Extract editing data from the Sitecore editor POST request
