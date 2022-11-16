@@ -6,6 +6,7 @@
     padding-left: $default-padding / 2;
     padding-right: $default-padding / 2;
     max-width: none;
+    display: flex;
 
     > div {
        padding-left: $default-padding;
