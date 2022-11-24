@@ -1,16 +1,6 @@
 @import "@sass/abstracts/mixins";
 @import "variables";
 
-.prod-mode {
-  #footer {
-    padding-top: 80px;
-
-    @include respond-to(mobile-large) {
-      padding-top: 0;
-    }
-  }
-}
-
 footer {
   @include respond-to(mobile-large) {
     padding-top: 0;
@@ -26,10 +16,8 @@ footer {
       color: $text-white;
     }
 
-    p {
-      span {
-        color: $text-white;
-      }
+    p, span {
+      color: $text-white;
     }
   }
 
