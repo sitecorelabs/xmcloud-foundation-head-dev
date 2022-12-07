@@ -2179,7 +2179,7 @@
           },
           {
             "kind": "OBJECT",
-            "name": "C__Page",
+            "name": "C__AppRoute",
             "ofType": null
           },
           {
@@ -17760,7 +17760,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "Page",
+            "name": "AppRoute",
             "ofType": null
           },
           {
@@ -18219,8 +18219,8 @@
       },
       {
         "kind": "OBJECT",
-        "name": "C__Page",
-        "description": "/sitecore/templates/Project//-Page template (ID: {787584C0-A057-5876-9836-F8B3708F0CAF}). NOTE: This is a concrete type. Favor using interfaces instead of this type (e.g. Page) for reliable querying.",
+        "name": "C__AppRoute",
+        "description": "/sitecore/templates/Project//-App Route template (ID: {787584C0-A057-5876-9836-F8B3708F0CAF}). NOTE: This is a concrete type. Favor using interfaces instead of this type (e.g. AppRoute) for reliable querying.",
         "fields": [
           {
             "name": "ancestors",
@@ -18643,7 +18643,7 @@
         "interfaces": [
           {
             "kind": "INTERFACE",
-            "name": "Page",
+            "name": "AppRoute",
             "ofType": null
           },
           {
@@ -21496,8 +21496,8 @@
       },
       {
         "kind": "INTERFACE",
-        "name": "Page",
-        "description": "/sitecore/templates/Project//-Page template (ID: {787584C0-A057-5876-9836-F8B3708F0CAF}). Also implements Route.",
+        "name": "AppRoute",
+        "description": "/sitecore/templates/Project//-App Route template (ID: {787584C0-A057-5876-9836-F8B3708F0CAF}). Also implements Route.",
         "fields": [
           {
             "name": "pageTitle",
@@ -21523,7 +21523,7 @@
           },
           {
             "kind": "OBJECT",
-            "name": "C__Page",
+            "name": "C__AppRoute",
             "ofType": null
           }
         ]
