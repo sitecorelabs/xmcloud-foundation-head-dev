@@ -5,7 +5,6 @@ import {
   Placeholder,
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import config from 'temp/config';
 
 const BACKGROUND_REG_EXP = new RegExp(
   /[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/gi
@@ -42,10 +41,10 @@ const DefaultContainer = (props: ComponentProps): JSX.Element => {
       </div>
     </div>
   );
-}
+};
 
 export const Default = (props: ComponentProps): JSX.Element => {
-  const splitStyles = props.params?.Styles?.split(" ");;  
+  const splitStyles = props.params?.Styles?.split(' ');
 
   if (splitStyles && splitStyles.includes('container')) {
     return (
@@ -55,5 +54,5 @@ export const Default = (props: ComponentProps): JSX.Element => {
     );
   }
 
-  return <DefaultContainer {...props} />
+  return <DefaultContainer {...props} />;
 };
