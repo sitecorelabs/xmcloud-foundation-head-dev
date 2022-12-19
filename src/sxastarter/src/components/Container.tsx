@@ -41,10 +41,10 @@ const DefaultContainer = (props: ComponentProps): JSX.Element => {
       </div>
     </div>
   );
-}
+};
 
 export const Default = (props: ComponentProps): JSX.Element => {
-  const splitStyles = props.params?.Styles?.split(" ");;  
+  const splitStyles = props.params?.Styles?.split(' ');
 
   if (splitStyles && splitStyles.includes('container')) {
     return (
@@ -54,5 +54,5 @@ export const Default = (props: ComponentProps): JSX.Element => {
     );
   }
 
-  return <DefaultContainer {...props} />
+  return <DefaultContainer {...props} />;
 };
