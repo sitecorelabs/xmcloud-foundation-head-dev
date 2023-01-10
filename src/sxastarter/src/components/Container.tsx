@@ -33,12 +33,10 @@ export const Default = (props: ComponentProps): JSX.Element => {
   }
 
   return (
-    <div className="container-wrapper" id={id ? id : undefined}>
-      <div className={`component container ${styles}`}>
-        <div className="component-content" style={backgroundStyle}>
-          <div className="row">
-            <Placeholder name={phKey} rendering={props.rendering} />
-          </div>
+    <div className={`container-wrapper component ${styles}`} id={id ? id : undefined}>
+      <div className="component-content" style={backgroundStyle}>
+        <div className="row">
+          <Placeholder name={phKey} rendering={props.rendering} />
         </div>
       </div>
     </div>

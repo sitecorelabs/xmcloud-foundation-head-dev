@@ -9,7 +9,6 @@
 
     @include respond-to(mobile-large) {
       padding-bottom: 0;
-      flex-direction: column-reverse;
     }
   }
 }
@@ -31,7 +30,6 @@ header {
     @include respond-to(mobile-large) {
       padding-bottom: 0;
       padding-top: 0;
-      flex-direction: column-reverse;
 
       .title {
         padding-left: 0;

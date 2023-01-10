@@ -2,3 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+
+@layer components {
+  .offset-0 {
+    margin-left: 0;
+  }
+  .offset-1 {
+    margin-left: 8.33333%;
+  }
+  .offset-2 {
+    margin-left: 16.66667%;
+  }
+  .offset-3 {
+    margin-left: 25%;
+  }
+  .offset-4 {
+    margin-left: 33.33333%;
+  }
+  .offset-5 {
+    margin-left: 41.66667%;
+  }
+  .offset-6 {
+    margin-left: 50%;
+  }
+  .offset-7 {
+    margin-left: 58.33333%;
+  }
+  .offset-8 {
+    margin-left: 66.66667%;
+  }
+  .offset-9 {
+    margin-left: 75%;
+  }
+  .offset-10 {
+    margin-left: 83.33333%;
+  }
+  .offset-11 {
+    margin-left: 91.66667%;
+  }
+}

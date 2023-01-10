@@ -20,6 +20,10 @@ module.exports = {
       variants: ['sm', 'md', 'lg'],
     },
     {
+      pattern: /offset-/,
+      variants: ['sm', 'md', 'lg'],
+    },
+    {
       pattern: /grow/,
       variants: ['sm', 'md', 'lg'],
     },
@@ -44,11 +48,5 @@ module.exports = {
       lg: '1200px',
       ...defaultTheme.screens,
     },
-    extend: {
-      maxWidth: {
-        30: '30rem',
-      },
-    },
   },
-  plugins: [],
 };
