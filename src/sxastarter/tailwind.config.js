@@ -9,37 +9,105 @@ module.exports = {
   safelist: [
     {
       pattern: /basis-/,
-      variants: ['sm', 'md', 'lg'],
+      variants: ['sm', 'md'],
     },
     {
       pattern: /self-/,
-      variants: ['sm', 'md', 'lg'],
+      variants: ['sm', 'md'],
     },
     {
       pattern: /order-/,
-      variants: ['sm', 'md', 'lg'],
+      variants: ['sm', 'md'],
     },
     {
       pattern: /offset-/,
-      variants: ['sm', 'md', 'lg'],
+      variants: ['sm', 'md'],
     },
     {
       pattern: /grow/,
-      variants: ['sm', 'md', 'lg'],
+      variants: ['sm', 'md'],
     },
     {
       pattern: /(m|p)(y|x|t|b|l|r)-/,
-      variants: ['sm', 'md', 'lg'],
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /flex/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /block/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /hidden/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /inline/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /inline-block/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /block/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /table/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /table-row/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /table-cell/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /inline-flex/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /gap/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /columns/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /grid/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /h/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /items/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /rounded/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /w/,
+      variants: ['sm', 'md'],
+    },
+    {
+      pattern: /text-/,
+      variants: ['sm', 'md'],
     },
     {
       pattern: /bg-/,
     },
     {
-      pattern: /text-/,
-    },
-    {
-      pattern: /flex|block|hidden|inline|inline-block|block|table|table-row|table-cell|inline-flex/,
-      variants: ['sm', 'md', 'lg'],
+      pattern: /font-/,
     },
   ],
   theme: {
@@ -48,5 +116,6 @@ module.exports = {
       lg: '1200px',
       ...defaultTheme.screens,
     },
+    colors: {},
   },
 };
