@@ -9,44 +9,115 @@ module.exports = {
   safelist: [
     {
       pattern: /basis-/,
-      variants: ['sm', 'md', 'lg'],
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
     },
     {
       pattern: /self-/,
-      variants: ['sm', 'md', 'lg'],
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
     },
     {
       pattern: /order-/,
-      variants: ['sm', 'md', 'lg'],
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
     },
     {
       pattern: /offset-/,
-      variants: ['sm', 'md', 'lg'],
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
     },
     {
       pattern: /grow/,
-      variants: ['sm', 'md', 'lg'],
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
     },
     {
       pattern: /(m|p)(y|x|t|b|l|r)-/,
-      variants: ['sm', 'md', 'lg'],
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /flex/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /block/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /hidden/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /inline/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /inline-block/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /block/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /table/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /table-row/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /table-cell/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /inline-flex/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /gap/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /columns/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /grid/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /h/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /items/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /rounded/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /w/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /text-/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
     },
     {
       pattern: /bg-/,
     },
     {
-      pattern: /text-/,
-    },
-    {
-      pattern: /flex|block|hidden|inline|inline-block|block|table|table-row|table-cell|inline-flex/,
-      variants: ['sm', 'md', 'lg'],
+      pattern: /font-/,
     },
   ],
   theme: {
     screens: {
+      sm: '576px',
       md: '768px',
-      lg: '1200px',
-      ...defaultTheme.screens,
+      lg: '992px',
+      xl: '1200px',
+      '2xl': '1400px',
     },
+    colors: {},
   },
 };
