@@ -9,7 +9,7 @@ import {
   Image as JssImageField,
   Link as JssLink,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { Box, Flex, Text, Button } from '@chakra-ui/react';
+import { Box, Flex, Button } from '@chakra-ui/react';
 
 const VISIBLE_SLOTS = 3;
 const LINK_CLASS_NAME = 'sc-sxa-link-with-reload';
@@ -66,16 +66,12 @@ const SlotsItem = ({ field }: SlotsItemProps) => {
         height={285}
       />
       <Box className="flex-1 px-5 py-5">
-        <JssTextField
-          className="font-bold text-xl md:text-2xl"
-          field={field.targetItem?.title.jsonValue}
-        />
-        <Text as="div" color="gray.500">
-          <JssRichText
-            className="flex-1 mt-5 text-sm md:text-lg"
-            field={field.targetItem?.content.jsonValue}
-          />
-        </Text>
+        <Box className="font-bold text-xl md:text-2xl">
+          <JssTextField field={field.targetItem?.title.jsonValue} />
+        </Box>
+        <Box className="flex-1 mt-5 text-sm md:text-lg" color="gray.500">
+          <JssRichText field={field.targetItem?.content.jsonValue} />
+        </Box>
       </Box>
       <Flex className="pt-0 md:pt-5 pb-5 px-5">
         <Button
@@ -112,10 +108,9 @@ export const Default = ({ params, fields }: SlotsProps): JSX.Element => {
 
   return (
     <div className={`component slots ${params.styles.trimEnd()}`} id={id ? id : undefined}>
-      <JssTextField
-        className="font-bold text-2xl md:text-5xl"
-        field={fields?.data?.datasource.field.title}
-      />
+      <Box className="font-bold text-2xl md:text-5xl">
+        <JssTextField field={fields?.data?.datasource.field.title} />
+      </Box>
       <Flex className="grid columns-1 md:columns-3 flex-col md:flex-row gap-0 md:gap-8 mt-6 md:mt-12">
         {slots}
       </Flex>
