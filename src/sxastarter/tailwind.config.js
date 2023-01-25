@@ -30,9 +30,14 @@ module.exports = {
     {
       pattern: /(m|p)(y|x|t|b|l|r)-/,
       variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+      important: true,
     },
     {
       pattern: /flex/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /justify-/,
       variants: ['sm', 'md', 'lg', 'xl', '2xl'],
     },
     {
@@ -108,6 +113,12 @@ module.exports = {
     },
     {
       pattern: /font-/,
+    },
+    {
+      pattern: /absolute/,
+    },
+    {
+      pattern: /opacity/,
     },
   ],
   theme: {
