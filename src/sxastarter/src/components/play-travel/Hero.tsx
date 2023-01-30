@@ -90,11 +90,11 @@ export const Default = (props: HeroProps): JSX.Element => {
         ) : (
           ''
         )}
-        <div className="container flex items-center z-10 justify-between flex-col md:flex-row">
+        <div className="flex container mx-auto items-center z-10 justify-between flex-col md:flex-row">
           <Box
             maxWidth="600px"
             minWidth={{ md: '50%' }}
-            className="order-2 m-w-full md:order-none flex-1 pt-7 md:pt-0"
+            className="order-2 m-w-full md:order-none flex-1 pt-7 md:pt-0 md:mr-2.5"
           >
             <Box
               fontFamily="Lora"
@@ -119,7 +119,7 @@ export const Default = (props: HeroProps): JSX.Element => {
           props?.fields?.Image?.value?.class === 'scEmptyImage' ? (
             ''
           ) : (
-            <Flex width={{ md: '630px' }}>
+            <Flex width={{ base: '295px', md: '330px', lg: '630px' }}>
               <JssImage
                 className="rounded-3xl hero-component__primary-picture mt-20 md:mt-0"
                 field={props?.fields?.Image}
