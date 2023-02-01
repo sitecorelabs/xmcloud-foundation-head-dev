@@ -4,6 +4,10 @@
   width: 100%;
 }
 
+.component {
+  position: relative;
+}
+
 .container {
   padding: 0;
 
@@ -14,4 +18,5 @@
   .component-content {
     @include clearfix();
   }
+
 }
