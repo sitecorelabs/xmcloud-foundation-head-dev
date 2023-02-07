@@ -64,7 +64,7 @@ export const Default = (props: FeaturesProps): JSX.Element => {
     features && features.children.results.length > 0 ? (
       <FeatureRender {...features} />
     ) : (
-      <span className="is-empty-hint">Features</span>
+      <span className="is-empty-hint">[Features]</span>
     );
 
   return (

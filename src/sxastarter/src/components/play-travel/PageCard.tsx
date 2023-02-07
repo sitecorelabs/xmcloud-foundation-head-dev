@@ -84,7 +84,7 @@ export const Default = ({ params, fields }: PageCardProps): JSX.Element => {
             </Link>
           </Flex>
         </Box>
-      )) || <h3 className="text-center">Choose a Page as the data source for this component</h3>}
+      )) || <h3 className="text-center">[Choose a Page as the data source for this component]</h3>}
     </div>
   );
 };
