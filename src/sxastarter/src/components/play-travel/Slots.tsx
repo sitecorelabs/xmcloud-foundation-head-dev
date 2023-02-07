@@ -103,7 +103,7 @@ export const Default = ({ params, fields }: SlotsProps): JSX.Element => {
       ))}
     </>
   ) : (
-    <span className="is-empty-hint">Slots</span>
+    <span className="is-empty-hint">[Slots]</span>
   );
 
   return (

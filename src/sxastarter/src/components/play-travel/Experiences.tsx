@@ -49,7 +49,7 @@ export const Default = (props: ExperiencesProps): JSX.Element => {
   const experiences = datasource ? (
     <ExperiencesRender {...datasource} />
   ) : (
-    <span className="is-empty-hint">Experiences</span>
+    <span className="is-empty-hint">[Experiences]</span>
   );
 
   return (

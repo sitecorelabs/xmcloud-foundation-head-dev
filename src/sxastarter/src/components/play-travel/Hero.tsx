@@ -29,7 +29,7 @@ type HeroProps = {
 const HeroDefaultComponent = (props: HeroProps): JSX.Element => (
   <div className={`component hero ${props?.params?.styles}`}>
     <div className="component-content">
-      <span className="is-empty-hint">Hero</span>
+      <span className="is-empty-hint">[Hero]</span>
     </div>
   </div>
 );

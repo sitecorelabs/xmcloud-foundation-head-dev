@@ -91,7 +91,7 @@ export const Default = (props: AccordionProps) => {
       ))}
     </Accordion>
   ) : (
-    <span className="is-empty-hint">Accordion</span>
+    <span className="is-empty-hint">[Accordion]</span>
   );
 
   return (

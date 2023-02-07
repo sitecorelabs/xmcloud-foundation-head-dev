@@ -38,7 +38,7 @@ export const Button = (props: LinkProps): JSX.Element => {
   return (
     <CommonLinkComponent {...props}>
       <div className="component-content justify-center button-link px-6 py-1 text-lg rounded-full font-medium">
-        {(datasource && <JssLink field={props.fields.Link} />) || <h3>Link</h3>}
+        {(datasource && <JssLink field={props.fields.Link} />) || <h3>[Link]</h3>}
       </div>
     </CommonLinkComponent>
   );
@@ -50,7 +50,7 @@ export const Default = (props: LinkProps): JSX.Element => {
   return (
     <CommonLinkComponent {...props}>
       <div className="component-content">
-        {(datasource && <JssLink field={props.fields.Link} />) || <h3>Link</h3>}
+        {(datasource && <JssLink field={props.fields.Link} />) || <h3>[Link]</h3>}
       </div>
     </CommonLinkComponent>
   );
