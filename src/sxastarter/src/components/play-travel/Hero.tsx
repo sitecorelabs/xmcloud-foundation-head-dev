@@ -1,15 +1,15 @@
-import { Button, Box, Flex } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import {
   Field,
   ImageField,
   Image as JssImage,
   LinkField,
   RichText as JssRichText,
-  Link as JssLink,
   useSitecoreContext,
+  ComponentRendering,
+  ComponentParams,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import Image from 'next/future/image';
-import Arrow from '../../assets/images/arrow.svg';
+import { ButtonWithArrow } from './Link';
 
 interface Fields {
   'Background Image': ImageField;
@@ -23,37 +23,8 @@ interface Fields {
 type HeroProps = {
   params: { [key: string]: string };
   fields: Fields;
+  rendering: ComponentRendering & { params: ComponentParams };
 };
-
-type ButtonProps = {
-  field: LinkField;
-  showArrow?: boolean | string;
-};
-
-const ButtonComponent = (props: ButtonProps): JSX.Element => (
-  <Button
-    fontFamily="Inter"
-    background={'linear-gradient(135deg, #F9EC7D 0%, #F5B100 100%)'}
-    transition={'0.25s all'}
-    _hover={{
-      background: 'linear-gradient(135deg, #F9EC7D 0%, #F5B100 100%)',
-    }}
-    color={'#0C111F'}
-    borderRadius={'999px'}
-    height={{base: '32px', lg: '64px'}}
-    padding={'0 16px 0 24px'}
-    fontSize={{base: '14px', lg: '18px'}}
-    className="font-semibold md:text-lg"
-  >
-    <JssLink field={props.field} />
-    <Flex
-      backgroundColor="#0C111F"
-      className="h-6 w-6 lg:h-8 lg:w-8 justify-center rounded-full align-center ml-3.5"
-    >
-      <Image className="inline" alt={props.field.value.text || ''} src={Arrow} />
-    </Flex>
-  </Button>
-);
 
 const HeroDefaultComponent = (props: HeroProps): JSX.Element => (
   <div className={`component hero ${props?.params?.styles}`}>
@@ -64,32 +35,17 @@ const HeroDefaultComponent = (props: HeroProps): JSX.Element => (
 );
 
 export const Default = (props: HeroProps): JSX.Element => {
-  const id = props.params?.RenderingIdentifier;
+  const id = props.params.RenderingIdentifier;
 
   if (props) {
     const { sitecoreContext } = useSitecoreContext();
-    const backgroundImageProps = props?.fields['Background Image'];
 
     return (
       <Box
-        id={id}
-        backgroundImage={
-          backgroundImageProps?.value?.class !== 'scEmptyImage'
-            ? `url('${backgroundImageProps?.value?.src}')`
-            : ''
-        }
+        id={id ? id : undefined}
         minHeight={{ base: '325px', lg: '820px' }}
         className={`flex bg-no-repeat bg-center bg-cover md:items-center pb-6 md:pb-0 items-end w-full md:px-8 lg:px-20 lg:py-5 md:py-0 px-6 overflow-hidden relative ${props.params?.styles}`}
       >
-        {sitecoreContext.pageEditing ? (
-          <JssImage
-            style={{ backgroundColor: 'white' }}
-            className="absolute top-0 left-0 h-full !min-h-full !min-w-full !max-h-full !max-w-full"
-            field={props?.fields['Background Image']}
-          />
-        ) : (
-          ''
-        )}
         <div className="flex container mx-auto items-center z-10 justify-between flex-col md:flex-row">
           <Box
             maxWidth="600px"
@@ -113,10 +69,9 @@ export const Default = (props: HeroProps): JSX.Element => {
             >
               <JssRichText field={props.fields?.Description} />
             </Box>
-            <ButtonComponent field={props.fields?.Link} />
+            <ButtonWithArrow {...props} />
           </Box>
-          {!sitecoreContext.pageEditing &&
-          props?.fields?.Image?.value?.class === 'scEmptyImage' ? (
+          {!sitecoreContext.pageEditing && props?.fields?.Image?.value?.class === 'scEmptyImage' ? (
             ''
           ) : (
             <Flex width={{ base: '295px', md: '330px', lg: '630px' }}>
