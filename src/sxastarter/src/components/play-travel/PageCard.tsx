@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
   ImageField,
-  LinkField,
   RichTextField,
   RichText as JssRichText,
   Image as JssImageField,
@@ -9,7 +8,7 @@ import {
   Text as JssTextField,
   useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { Box, Button, Flex } from '@chakra-ui/react';
+import { Box, Flex, Link } from '@chakra-ui/react';
 import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
 import config from 'temp/config';
 
@@ -18,7 +17,9 @@ interface Fields {
     item: {
       description: { jsonValue: RichTextField };
       image: { jsonValue: ImageField };
-      link: LinkField;
+      link: {
+        url: string;
+      };
       title: { jsonValue: TextField };
     };
   };
@@ -66,16 +67,21 @@ export const Default = ({ params, fields }: PageCardProps): JSX.Element => {
             </Box>
           </Box>
           <Flex className="pt-0 md:pt-5 pb-5 px-5">
-            <Button
-              bgGradient="linear(135deg, #8482FF, #7723FE)"
-              className="text-sm mb-3 basis-full"
-              _hover={{ bg: '#7723FE' }}
-              colorScheme="purple"
+            <Link
+              className="text-sm mb-3 basis-full flex justify-center link-button items-center transition-shadow"
+              href={sitecoreContext.pageEditing ? undefined : fields.data.item.link.url}
+              bgGradient="linear(135deg, #8482ff 0%, #7723fe 100%)"
+              _hover={{
+                bgGradient: 'linear(135deg, #7723fe 0%, #7723fe 100%)',
+                textDecoration: 'none',
+                color: 'white',
+              }}
               borderRadius="45"
+              color="white"
               height="43px"
             >
               {buttonText}
-            </Button>
+            </Link>
           </Flex>
         </Box>
       )) || <h3 className="text-center">Choose a Page as the data source for this component</h3>}
