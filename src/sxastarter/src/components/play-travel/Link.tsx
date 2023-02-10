@@ -11,10 +11,10 @@ import Arrow from '../../assets/images/arrow.svg';
 type LinkProps = {
   params: { [key: string]: string };
   rendering: ComponentRendering & { params: ComponentParams };
-  children: JSX.Element;
   fields: {
     Link: LinkField;
   };
+  children?: JSX.Element;
 };
 
 export const ButtonWithArrow = (props: LinkProps): JSX.Element => {
