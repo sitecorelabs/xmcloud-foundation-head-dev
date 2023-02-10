@@ -1,0 +1,11 @@
+.features {
+  .component-content {
+    .feature-item {
+      border-bottom: 2px solid #f7f7f7;
+
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+}
