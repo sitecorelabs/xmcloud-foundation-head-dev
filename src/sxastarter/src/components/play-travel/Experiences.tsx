@@ -28,7 +28,7 @@ export type ExperiencesProps = {
 const ExperiencesRender = (datasource: TargetItem): JSX.Element => {
   return (
     <>
-      <div className="font-bold leading-tight text-2xl md:text-5xl pr-24 sm:pr-0 xl:pr-40 md:leading-tight">
+      <div className="font-bold leading-tight text-2xl md:text-5xl md:leading-tight">
         <JssTextField field={datasource.title.jsonValue} />
       </div>
       <div className="flex-1 mt-5 mb-6 md:mt-6 text-sm md:text-xl">
