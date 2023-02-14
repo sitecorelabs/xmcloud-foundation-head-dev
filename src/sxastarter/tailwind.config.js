@@ -1,5 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
-
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
@@ -20,6 +18,10 @@ module.exports = {
       variants: ['sm', 'md', 'lg', 'xl', '2xl'],
     },
     {
+      pattern: /object-/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
       pattern: /offset-/,
       variants: ['sm', 'md', 'lg', 'xl', '2xl'],
     },
@@ -30,14 +32,9 @@ module.exports = {
     {
       pattern: /(m|p)(y|x|t|b|l|r)-/,
       variants: ['sm', 'md', 'lg', 'xl', '2xl'],
-      important: true,
     },
     {
       pattern: /flex/,
-      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
-    },
-    {
-      pattern: /justify-/,
       variants: ['sm', 'md', 'lg', 'xl', '2xl'],
     },
     {
@@ -109,16 +106,27 @@ module.exports = {
       variants: ['sm', 'md', 'lg', 'xl', '2xl'],
     },
     {
+      pattern: /z-/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
+      pattern: /justify/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
       pattern: /bg-/,
     },
     {
       pattern: /font-/,
     },
     {
-      pattern: /absolute/,
+      pattern: /leading-/,
     },
     {
-      pattern: /opacity/,
+      pattern: /underline/,
+    },
+    {
+      pattern: /static|fixed|relative|absolute/,
     },
   ],
   theme: {
@@ -128,6 +136,11 @@ module.exports = {
       lg: '992px',
       xl: '1200px',
       '2xl': '1400px',
+    },
+    extend: {
+      zIndex: {
+        top: '2100000012', // value is needed to overcome "sc-frame" element on the page
+      },
     },
     colors: {},
   },
