@@ -1,13 +1,8 @@
-import {
-  GraphQLSitemapService,
-  StaticPath,
-  constants,
-  SiteInfo,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { GraphQLSitemapService } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 import { SitemapFetcherPlugin } from '..';
 import { GetStaticPathsContext } from 'next';
-import { siteResolver } from 'lib/site-resolver';
+import { StaticPath, constants } from '@sitecore-jss/sitecore-jss-nextjs';
 
 class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
   _graphqlSitemapService: GraphQLSitemapService;
@@ -16,7 +11,7 @@ class GraphqlSitemapServicePlugin implements SitemapFetcherPlugin {
     this._graphqlSitemapService = new GraphQLSitemapService({
       endpoint: config.graphQLEndpoint,
       apiKey: config.sitecoreApiKey,
-      sites: siteResolver.sites.map((site: SiteInfo) => site.name),
+      siteName: config.jssAppName,
     });
   }
 
