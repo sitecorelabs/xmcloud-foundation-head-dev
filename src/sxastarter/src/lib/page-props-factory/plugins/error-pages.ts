@@ -9,12 +9,10 @@ class ErrorPagesPlugin implements Plugin {
   order = 3;
 
   async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
-    if (context.preview) return props;
-
     const errorPagesService = new GraphQLErrorPagesService({
       endpoint: config.graphQLEndpoint,
       apiKey: config.sitecoreApiKey,
-      siteName: props.site.name,
+      siteName: config.jssAppName,
       language: props.locale,
     });
 

@@ -3,7 +3,6 @@ import { PersonalizeMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middlew
 import { MiddlewarePlugin } from '..';
 import config from 'temp/config';
 import { PosResolver } from 'lib/pos-resolver';
-import { siteResolver } from 'lib/site-resolver';
 
 /**
  * This is the personalize middleware plugin for Next.js.
@@ -26,6 +25,7 @@ class PersonalizePlugin implements MiddlewarePlugin {
       edgeConfig: {
         endpoint: config.graphQLEndpoint,
         apiKey: config.sitecoreApiKey,
+        siteName: config.jssAppName,
         timeout:
           (process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT &&
             parseInt(process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT)) ||
@@ -51,8 +51,6 @@ class PersonalizePlugin implements MiddlewarePlugin {
       // This function resolves point of sale for cdp calls.
       // Point of sale may differ by locale and middleware will use request language to get the correct value every time it's invoked
       getPointOfSale: PosResolver.resolve,
-      // This function resolves site based on hostname
-      getSite: siteResolver.getByHost,
     });
   }
 
