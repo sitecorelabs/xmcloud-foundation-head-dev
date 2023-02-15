@@ -6,20 +6,13 @@ import {
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 
-/**
- * Factory responsible for creating a DictionaryService instance
- */
 export class DictionaryServiceFactory {
-  /**
-   * @param {string} siteName site name
-   * @returns {DictionaryService} service instance
-   */
-  create(siteName: string): DictionaryService {
+  create(): DictionaryService {
     return process.env.FETCH_WITH === constants.FETCH_WITH.GRAPHQL
       ? new GraphQLDictionaryService({
           endpoint: config.graphQLEndpoint,
           apiKey: config.sitecoreApiKey,
-          siteName,
+          siteName: config.jssAppName,
           jssAppTemplateId: '{9ED66404-64C9-4122-90E1-869CB3CEA566}',
           /*
             The Dictionary Service needs a root item ID in order to fetch dictionary phrases for the current
@@ -31,10 +24,9 @@ export class DictionaryServiceFactory {
       : new RestDictionaryService({
           apiHost: config.sitecoreApiHost,
           apiKey: config.sitecoreApiKey,
-          siteName,
+          siteName: config.jssAppName,
         });
   }
 }
 
-/** DictionaryServiceFactory singleton */
 export const dictionaryServiceFactory = new DictionaryServiceFactory();
