@@ -35,7 +35,7 @@ const DefaultContainer = (props: ComponentProps): JSX.Element => {
   return (
     <div className={`component container-default ${styles}`} id={id ? id : undefined}>
       <div className="component-content" style={backgroundStyle}>
-        <div className="row">
+        <div className="row flex-wrap">
           <Placeholder name={phKey} rendering={props.rendering} />
         </div>
       </div>
