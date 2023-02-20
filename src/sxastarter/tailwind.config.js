@@ -114,13 +114,14 @@ module.exports = {
       variants: ['sm', 'md', 'lg', 'xl', '2xl'],
     },
     {
+      pattern: /leading/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
       pattern: /bg-/,
     },
     {
       pattern: /font-/,
-    },
-    {
-      pattern: /leading-/,
     },
     {
       pattern: /underline/,
@@ -131,11 +132,11 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: '576px',
+      sm: '640px',
       md: '768px',
-      lg: '992px',
-      xl: '1200px',
-      '2xl': '1400px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
     },
     extend: {
       zIndex: {
