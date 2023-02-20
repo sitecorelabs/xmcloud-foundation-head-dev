@@ -5,7 +5,6 @@
 .prod-mode {
   #header {
     display: flex;
-    flex-direction: column;
 
     @include respond-to(mobile-large) {
       padding-bottom: 0;
@@ -31,7 +30,7 @@ header {
       padding-bottom: 0;
       padding-top: 0;
 
-      .title {
+      .bs-title {
         padding-left: 0;
         text-align: center;
         margin-top: -5px;
