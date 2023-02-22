@@ -130,6 +130,9 @@ module.exports = {
       pattern: /static|fixed|relative|absolute/,
     },
   ],
+  corePlugins: {
+    preflight: false,
+  },
   theme: {
     screens: {
       sm: '640px',
