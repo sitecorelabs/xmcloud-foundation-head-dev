@@ -31,8 +31,7 @@ const LogosRender = (logos: Logos): JSX.Element => {
           _hover={{ filter: 'grayscale(0)', boxShadow: '0 45px 35px rgba(0, 0, 0, 0.05)' }}
           filter={{ base: '', lg: 'grayscale(1)' }}
           className="px-4 transition rounded-lg"
-          h={{ base: '80px', lg: '100px' }}
-          height={100}
+          h={{ base: '80px', sm: '100px' }}
           key={idx}
         >
           <JssImageField
