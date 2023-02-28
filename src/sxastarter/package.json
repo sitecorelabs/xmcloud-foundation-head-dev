@@ -1,10 +1,10 @@
 {
-  "name": "sxastarter",
+  "name": "playtravel",
   "description": "Application utilizing Sitecore JavaScript Services and Next.js",
   "version": "21.0.7",
   "private": true,
   "config": {
-    "appName": "sxastarter",
+    "appName": "Play Travel",
     "rootPlaceholders": [
       "jss-main"
     ],
