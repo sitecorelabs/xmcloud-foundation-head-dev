@@ -1,0 +1,41 @@
+$input-field-height: 46px;
+
+.contact-form {
+  .field-name {
+    color: $text-white;
+
+    span {
+      color: $text-red;
+    }
+  }
+
+  .input-field,
+  .textarea-field {
+    border: 1px solid $border-gray;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .input-field {
+    height: $input-field-height;
+    line-height: $input-field-height;
+  }
+
+  .textarea-field {
+    height: 160px;
+  }
+
+  .submit-button {
+    height: 43px;
+    padding: 0 50px;
+    color: $text-white;
+    background: #7a39fe;
+    background: linear-gradient(180deg, #8062ff, #7a39fe);
+
+    &:hover {
+      background: #8062ff;
+    }
+  }
+}
