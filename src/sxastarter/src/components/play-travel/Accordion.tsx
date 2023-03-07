@@ -38,7 +38,7 @@ interface AccordionProps {
   fields: Fields;
 }
 
-const AccordionItemRendering = (props: AccordionItemProps) => {
+const AccordionItemRendering = (props: AccordionItemProps): JSX.Element => {
   const SIZE_OF_IMAGE = 123;
 
   return (
@@ -77,7 +77,7 @@ const AccordionItemRendering = (props: AccordionItemProps) => {
   );
 };
 
-export const Default = (props: AccordionProps) => {
+export const Default = (props: AccordionProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const accordionData = props.fields?.data?.accordion?.children?.results;
   const accordion = accordionData.length ? (
