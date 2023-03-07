@@ -29,7 +29,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@chakra-ui/react": "^2.4.9",
+    "@chakra-ui/react": "^2.5.1",
     "@sitecore-jss/sitecore-jss-nextjs": "^21.0.7",
     "@sitecore/engage": "^0.3.2",
     "bootstrap": "^5.1.3",
