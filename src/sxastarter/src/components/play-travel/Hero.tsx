@@ -36,10 +36,9 @@ const HeroDefaultComponent = (props: HeroProps): JSX.Element => (
 
 export const Default = (props: HeroProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
+  const { sitecoreContext } = useSitecoreContext();
 
   if (props) {
-    const { sitecoreContext } = useSitecoreContext();
-
     return (
       <Box
         id={id ? id : undefined}

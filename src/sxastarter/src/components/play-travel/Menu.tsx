@@ -218,8 +218,8 @@ const MobileNav = (props: MenuFields) => {
               {ancestor?.NavigationTitle.value?.toString() || ''}
             </MobileBackButton>
             {currentItem.map((navItem) => (
-              <div className="sc-menu-level-item">
-                <MobileNavItem key={navItem.Id} {...navItem} onClick={handleGoDeep} />
+              <div className="sc-menu-level-item" key={navItem.Id}>
+                <MobileNavItem {...navItem} onClick={handleGoDeep} />
               </div>
             ))}
           </>
@@ -239,8 +239,13 @@ const MobileNav = (props: MenuFields) => {
                 )}
               </span>
             </Flex>
-            {currentItem.map((navItem) => (
-              <JSSLink field={getLinkField(navItem)} editable={false} className="text-sm leading-7">
+            {currentItem.map((navItem, index) => (
+              <JSSLink
+                key={`${index}${navItem.Id}`}
+                field={getLinkField(navItem)}
+                editable={false}
+                className="text-sm leading-7"
+              >
                 <Text className="font-semibold">{getLinkTitle(navItem)}</Text>
                 <JSSText className="mb-2" field={navItem.Description} editable={false} />
               </JSSLink>
