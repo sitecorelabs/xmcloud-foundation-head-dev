@@ -9,6 +9,7 @@
     padding-left: $default-padding / 2;
     padding-right: $default-padding / 2;
     max-width: none;
+    flex-wrap: wrap;
 
     > div {
       padding-left: $default-padding;

@@ -17,7 +17,7 @@ export const Default = (props: ContactFormProps): JSX.Element => {
       .create()
       .fetchDictionaryData(sitecoreContext.language || config.defaultLanguage)
       .then((data) => setDictionary(data));
-  }, []);
+  }, [sitecoreContext.language]);
 
   return (
     <div className={`component contact-form ${props.params.styles}`} id={id ? id : undefined}>

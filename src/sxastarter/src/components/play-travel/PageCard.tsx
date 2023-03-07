@@ -40,7 +40,7 @@ export const Default = ({ params, fields }: PageCardProps): JSX.Element => {
       .create()
       .fetchDictionaryData(sitecoreContext.language || config.defaultLanguage)
       .then((data) => setButtonText(data['LEARN_MORE']));
-  }, []);
+  }, [sitecoreContext.language]);
 
   return (
     <div className={`component page-card ${params.styles.trimEnd()}`} id={id ? id : undefined}>
