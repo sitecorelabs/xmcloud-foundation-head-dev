@@ -17,7 +17,6 @@ interface ComponentProps {
 }
 
 export const Default = (props: ComponentProps): JSX.Element => {
-  console.log(props);
   const containerStyles = props.params && props.params.Styles ? props.params.Styles : '';
   const styles = `${props.params.GridParameters} ${containerStyles}`.trimEnd();
   const phKey = `wrapper-${props.params.DynamicPlaceholderId}`;
@@ -34,7 +33,7 @@ export const Default = (props: ComponentProps): JSX.Element => {
   return (
     <div className={`container-wrapper component ${styles}`} id={id ? id : undefined}>
       <div className="component-content" style={backgroundStyle}>
-        <div className="row flex-wrap">
+        <div className="flex-wrap">
           <Placeholder name={phKey} rendering={props.rendering} />
         </div>
       </div>

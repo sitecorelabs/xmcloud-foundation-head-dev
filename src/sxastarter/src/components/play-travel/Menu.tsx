@@ -15,6 +15,7 @@ import {
   TextField,
   Link as JSSLink,
   Text as JSSText,
+  useSitecoreContext,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 type MenuProps = MenuFields & {
@@ -85,6 +86,14 @@ const getNavigationText = (props: MenuItem): JSX.Element | string => {
 };
 
 const DesktopNav = (props: MenuFields) => {
+  const { sitecoreContext } = useSitecoreContext();
+
+  const handleNavClick = (event?: React.MouseEvent<HTMLElement>): void => {
+    if (event && sitecoreContext?.pageEditing) {
+      event.preventDefault();
+    }
+  };
+
   return (
     <Flex className="items-center" h="90px">
       {props.fields.map((navItem: MenuItem, key: number) => (
@@ -102,7 +111,7 @@ const DesktopNav = (props: MenuFields) => {
                 color="white"
               >
                 <JSSLink
-                  onClick={(event: React.MouseEvent<HTMLElement>) => event.preventDefault()}
+                  onClick={handleNavClick}
                   field={getLinkField(navItem)}
                   className="leading-none"
                   editable={true}
@@ -266,7 +275,7 @@ const MobileNav = (props: MenuFields) => {
       onOpen={handlePopoverOpen}
       placement="bottom"
       autoFocus={false}
-      trigger="click"
+      trigger="hover"
       gutter={0}
     >
       <PopoverTrigger>

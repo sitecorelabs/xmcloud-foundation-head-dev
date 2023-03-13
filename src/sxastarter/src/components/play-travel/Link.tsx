@@ -9,16 +9,16 @@ import Image from 'next/future/image';
 import Arrow from '../../assets/images/arrow.svg';
 
 type LinkProps = {
-  params: { [key: string]: string };
-  rendering: ComponentRendering & { params: ComponentParams };
   fields: {
     Link: LinkField;
   };
+  rendering: ComponentRendering & { params: ComponentParams };
+  params?: { [key: string]: string };
   children?: JSX.Element;
 };
 
 export const ButtonWithArrow = (props: LinkProps): JSX.Element => {
-  const datasource = props.rendering.dataSource;
+  const datasource = props.rendering?.dataSource;
 
   return (
     <CommonLinkComponent {...props}>
@@ -33,7 +33,7 @@ export const ButtonWithArrow = (props: LinkProps): JSX.Element => {
 };
 
 export const Button = (props: LinkProps): JSX.Element => {
-  const datasource = props.rendering.dataSource;
+  const datasource = props.rendering?.dataSource;
 
   return (
     <CommonLinkComponent {...props}>
@@ -45,7 +45,7 @@ export const Button = (props: LinkProps): JSX.Element => {
 };
 
 export const Default = (props: LinkProps): JSX.Element => {
-  const datasource = props.rendering.dataSource;
+  const datasource = props.rendering?.dataSource;
 
   return (
     <CommonLinkComponent {...props}>
@@ -57,8 +57,8 @@ export const Default = (props: LinkProps): JSX.Element => {
 };
 
 const CommonLinkComponent = (props: LinkProps): JSX.Element => {
-  const styles = `component link flex ${props.params.styles}`.trimEnd();
-  const id = props.params.RenderingIdentifier;
+  const styles = `component link flex ${props.params?.styles}`.trimEnd();
+  const id = props.params?.RenderingIdentifier;
 
   return (
     <div className={styles} id={id ? id : undefined}>
