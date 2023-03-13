@@ -1,0 +1,15 @@
+.teaser-hero {
+  min-height: 600px;
+
+  @include respond-to(mobile-large) {
+    min-height: auto;
+  }
+
+  .teaser-title {
+    font-family: 'Lora';
+  }
+
+  .teaser-text {
+    font-family: 'Mulish';
+  }
+}
