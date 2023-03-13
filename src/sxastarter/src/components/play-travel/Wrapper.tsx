@@ -32,7 +32,7 @@ export const Default = (props: ComponentProps): JSX.Element => {
 
   return (
     <div className={`container-wrapper component ${styles}`} id={id ? id : undefined}>
-      <div className="component-content" style={backgroundStyle}>
+      <div className="component-content bg-no-repeat bg-top bg-cover" style={backgroundStyle}>
         <div className="flex-wrap">
           <Placeholder name={phKey} rendering={props.rendering} />
         </div>
