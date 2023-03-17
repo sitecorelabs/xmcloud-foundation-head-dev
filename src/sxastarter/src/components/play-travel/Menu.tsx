@@ -95,11 +95,11 @@ const DesktopNav = (props: MenuFields) => {
   };
 
   return (
-    <Flex className="items-center" h="90px">
+    <Flex className="items-center sc-desktop-nav" h="90px">
       {props.fields.map((navItem: MenuItem, key: number) => (
         <div
           key={`${key}${navItem.DisplayName}`}
-          className={`pr-12 ${navItem.Children ? 'sc-desktop-subnav' : ''}`}
+          className={`pr-6 lg:pr-12 ${navItem.Children ? 'sc-desktop-subnav' : ''}`}
         >
           <Popover trigger="hover" placement="bottom-start">
             <PopoverTrigger>
@@ -126,8 +126,8 @@ const DesktopNav = (props: MenuFields) => {
                 borderRadius="0"
                 boxShadow="none"
                 cursor="default"
-                border="0"
                 maxW="100%"
+                border="0"
                 w="100vw"
                 mt="6"
                 p="7"
@@ -280,7 +280,7 @@ const MobileNav = (props: MenuFields) => {
     >
       <PopoverTrigger>
         <Flex className="items-center self-end" h="60px">
-          <Flex className="sc-menu-humburger mr-6" />
+          <Flex className="sc-menu-humburger" />
         </Flex>
       </PopoverTrigger>
       <PopoverContent
@@ -336,7 +336,7 @@ export const Default = (props: MenuProps): JSX.Element => {
   const fields = Object.values(props.fields);
 
   return (
-    <div className={`menu component z-top ${props.params.styles}`} id={id ? id : undefined}>
+    <div className={`menu ${props.params.styles}`} id={id ? id : undefined}>
       <div className="component-content">
         <Box className="hidden md:flex">
           <DesktopNav fields={fields} />

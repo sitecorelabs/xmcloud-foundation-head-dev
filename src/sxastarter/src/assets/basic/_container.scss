@@ -1,11 +1,10 @@
-@import "@sass/abstracts/mixins";
-@import "variables";
+@import '@sass/abstracts/mixins';
+@import 'variables';
 
 body {
   font-family: Roboto;
   color: $main-color;
 }
-
 
 @media (min-width: 1400px) {
   .container {
@@ -66,7 +65,7 @@ main {
         line-height: 32px;
       }
     }
-    
+
     .main-news-header {
       padding-bottom: 35px;
 
@@ -74,6 +73,21 @@ main {
         margin-top: 0;
         font-size: $text-size-18;
         line-height: 22px;
+      }
+    }
+  }
+}
+
+.horizontal-spacing {
+  position: inherit;
+}
+
+@include respond-to(mobile-large) {
+  .horizontal-spacing {
+    .row {
+      > * {
+        margin: auto;
+        padding: inherit;
       }
     }
   }

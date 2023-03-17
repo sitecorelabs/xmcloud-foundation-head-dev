@@ -67,6 +67,11 @@ $footer-link-icon-size: 21px;
           color: $text-black;
           padding-left: 0;
 
+          &:hover {
+            border-bottom: none;
+            text-decoration: underline;
+          }
+
           &:before {
             content: none;
           }

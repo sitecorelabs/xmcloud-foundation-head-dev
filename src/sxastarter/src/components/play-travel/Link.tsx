@@ -57,7 +57,7 @@ export const Default = (props: LinkProps): JSX.Element => {
 };
 
 const CommonLinkComponent = (props: LinkProps): JSX.Element => {
-  const styles = `component link flex ${props.params?.styles}`.trimEnd();
+  const styles = `component link flex items-center ${props.params?.styles}`.trimEnd();
   const id = props.params?.RenderingIdentifier;
 
   return (

@@ -1,19 +1,25 @@
-@import "@sass/abstracts/vars";
-@import "@sass/abstracts/mixins";
+@import '@sass/abstracts/vars';
+@import '@sass/abstracts/mixins';
 
-.content, .rich-text {
-    border: $rich-content-border;
-    line-height: 1.5;
-    font-size: 12px;
-    overflow: hidden;
-    * {
-        max-width: 100%;
-    }
-    @import "@sass/base/richtext";
+.content,
+.rich-text {
+  border: $rich-content-border;
+  line-height: 1.5;
+  font-size: 12px;
+  overflow: hidden;
+  * {
+    max-width: 100%;
+  }
+  @import '@sass/base/richtext';
 }
-.rich-text  {
-    @import "@sass/variants/rich-text";
+.rich-text {
+  @import '@sass/variants/rich-text';
+
+  a {
+    color: $text-black;
+    text-decoration: none;
+  }
 }
 .content {
-    @import "@sass/variants/page-content";
+  @import '@sass/variants/page-content';
 }

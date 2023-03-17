@@ -141,11 +141,6 @@ module.exports = {
       xl: '1280px',
       '2xl': '1536px',
     },
-    extend: {
-      zIndex: {
-        top: '2100000012', // value is needed to overcome "sc-frame" element on the page
-      },
-    },
     colors: {},
   },
 };
