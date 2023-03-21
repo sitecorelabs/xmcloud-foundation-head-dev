@@ -81,14 +81,3 @@ main {
 .horizontal-spacing {
   position: inherit;
 }
-
-@include respond-to(mobile-large) {
-  .horizontal-spacing {
-    .row {
-      > * {
-        margin: auto;
-        padding: inherit;
-      }
-    }
-  }
-}

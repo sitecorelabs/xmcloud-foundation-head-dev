@@ -53,15 +53,18 @@ const CommonTeaserComponent = (props: TeaserProps): JSX.Element => {
           field={props?.fields?.Icon}
         />
       </Box>
-      <Flex className="basis-full md:basis-1/2 flex-col pt-8 md:pt-0" fontFamily="Inter">
+      <Flex className="basis-full md:basis-1/2 flex-col pt-8 md:pt-0">
         <Box
           lineHeight="120%"
           color="white"
-          className="text-2xl md:text-4xl lg:text-6xl font-semibold teaser-title"
+          className="text-2xl md:text-4xl lg:text-6xl font-extrabold font-inter teaser-title"
         >
           <JssRichText field={props.fields?.Title} />
         </Box>
-        <Box color="gray.400" className="py-6 text-xs md:text-base md:leading-8 teaser-text">
+        <Box
+          color="gray.400"
+          className="py-6 text-xs md:text-base md:leading-8 teaser-text font-mulish"
+        >
           <JssRichText field={props.fields?.Text} />
         </Box>
         <ButtonWithArrow fields={props.fields} rendering={props.rendering} />

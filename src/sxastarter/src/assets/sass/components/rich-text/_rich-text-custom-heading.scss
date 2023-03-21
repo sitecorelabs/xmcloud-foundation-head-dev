@@ -1,0 +1,13 @@
+@import '@sass/abstracts/vars';
+
+.rich-text {
+  &.rich-text-custom-heading {
+    h1 {
+      font-size: 3rem;
+
+      @include respond-to(mobile-large) {
+        font-size: $font-extrabig;
+      }
+    }
+  }
+}

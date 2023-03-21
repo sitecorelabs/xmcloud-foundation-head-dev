@@ -37,7 +37,7 @@ export const Default = ({ params, fields }: PageCardProps): JSX.Element => {
 
   useEffect(() => {
     dictionaryServiceFactory
-      .create()
+      .create(config.jssAppName)
       .fetchDictionaryData(sitecoreContext.language || config.defaultLanguage)
       .then((data) => setButtonText(data['LEARN_MORE']));
   }, [sitecoreContext.language]);

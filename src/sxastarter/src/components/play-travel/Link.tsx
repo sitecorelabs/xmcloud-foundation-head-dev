@@ -5,7 +5,7 @@ import {
   Link as JssLink,
   LinkField,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import Arrow from '../../assets/images/arrow.svg';
 
 type LinkProps = {
@@ -22,7 +22,7 @@ export const ButtonWithArrow = (props: LinkProps): JSX.Element => {
 
   return (
     <CommonLinkComponent {...props}>
-      <div className="component-content justify-between button-link flex items-center px-6 py-1 sm:py-4 text-lg rounded-full font-medium">
+      <div className="component-content justify-between button-link font-inter flex items-center px-6 py-1 sm:py-4 text-lg rounded-full font-medium">
         {(datasource && <JssLink field={props.fields.Link} />) || <h3>Link</h3>}
         <Flex className="circle-bg h-6 w-6 lg:h-8 lg:w-8 justify-center rounded-full align-center ml-3.5">
           <Image className="inline" alt={props.fields.Link.value.text || ''} src={Arrow} />
@@ -37,7 +37,7 @@ export const Button = (props: LinkProps): JSX.Element => {
 
   return (
     <CommonLinkComponent {...props}>
-      <div className="component-content justify-center button-link px-6 py-1 text-lg rounded-full font-medium">
+      <div className="component-content justify-center button-link font-inter px-6 py-1 text-lg rounded-full font-medium">
         {(datasource && <JssLink field={props.fields.Link} />) || <h3>[Link]</h3>}
       </div>
     </CommonLinkComponent>

@@ -1,0 +1,9 @@
+@include respond-to(mobile-horizontal) {
+  .flex-wrap:has(> .page-card) {
+    flex-wrap: wrap !important;
+  }
+}
+
+.flex-wrap:has(> .page-card) {
+  flex-wrap: nowrap;
+}

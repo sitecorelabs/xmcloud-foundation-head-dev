@@ -95,7 +95,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
   );
 
   return (
-    <Box id={id ? id : undefined} className={props.params?.styles}>
+    <Box id={id ? id : undefined} className={`component accordion ${props.params?.styles}`}>
       {accordion}
     </Box>
   );

@@ -99,7 +99,7 @@ const DesktopNav = (props: MenuFields) => {
       {props.fields.map((navItem: MenuItem, key: number) => (
         <div
           key={`${key}${navItem.DisplayName}`}
-          className={`pr-6 lg:pr-12 ${navItem.Children ? 'sc-desktop-subnav' : ''}`}
+          className={`pr-5 lg:pr-12 ${navItem.Children ? 'sc-desktop-subnav' : ''}`}
         >
           <Popover trigger="hover" placement="bottom-start">
             <PopoverTrigger>
