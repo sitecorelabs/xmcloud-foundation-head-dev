@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { PersonalizeMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
 import { MiddlewarePlugin } from '..';
 import config from 'temp/config';
-import { PosResolver } from 'lib/pos-resolver';
+import { siteResolver } from 'lib/site-resolver';
 
 /**
  * This is the personalize middleware plugin for Next.js.
@@ -25,7 +25,6 @@ class PersonalizePlugin implements MiddlewarePlugin {
       edgeConfig: {
         endpoint: config.graphQLEndpoint,
         apiKey: config.sitecoreApiKey,
-        siteName: config.jssAppName,
         timeout:
           (process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT &&
             parseInt(process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT)) ||
@@ -48,9 +47,11 @@ class PersonalizePlugin implements MiddlewarePlugin {
       // Certain paths are ignored by default (e.g. files and Next.js API routes), but you may wish to exclude more.
       // This is an important performance consideration since Next.js Edge middleware runs on every request.
       excludeRoute: () => false,
-      // This function resolves point of sale for cdp calls.
-      // Point of sale may differ by locale and middleware will use request language to get the correct value every time it's invoked
-      getPointOfSale: PosResolver.resolve,
+      // Site resolver implementation
+      siteResolver,
+      // Personalize middleware will use PosResolver.resolve(site, language) (same as CdpPageView) by default to get point of sale.
+      // You can also pass a custom point of sale resolver into middleware to override it like so:
+      // getPointOfSale: (site, language) => { ... }
     });
   }
 
