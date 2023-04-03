@@ -34,7 +34,7 @@ type MenuItem = {
   Href: string;
   Querystring: string;
   Children: Array<MenuItem>;
-  Description: TextField;
+  NavigationDescription: TextField;
 };
 
 type MobileNavItemProps = MenuItem & {
@@ -185,7 +185,7 @@ const DesktopSubNav = (navItem: MenuItem) => {
               <Text className="text-sm font-semibold">{getLinkTitle(child)}</Text>
               <JSSText
                 className="pt-2 text-sm leading-7"
-                field={child.Description}
+                field={child.NavigationDescription}
                 editable={false}
               />
             </JSSLink>
@@ -256,7 +256,7 @@ const MobileNav = (props: MenuFields) => {
                 className="text-sm leading-7"
               >
                 <Text className="font-semibold">{getLinkTitle(navItem)}</Text>
-                <JSSText className="mb-2" field={navItem.Description} editable={false} />
+                <JSSText className="mb-2" field={navItem.NavigationDescription} editable={false} />
               </JSSLink>
             ))}
           </>
