@@ -1,0 +1,25 @@
+{
+  "name": "sitecore-contentservices-template",
+  "version": "1.0.0",
+  "description": "## QUICK START",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Merkle-XD/sitecore-contentservices-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Merkle-XD/sitecore-contentservices-template/issues"
+  },
+  "homepage": "https://github.com/Merkle-XD/sitecore-contentservices-template#readme",
+  "dependencies": {
+    "madr": "^3.0.0"
+  }
+}
