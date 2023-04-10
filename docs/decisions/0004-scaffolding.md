@@ -49,6 +49,7 @@ Chosen option: "{title of option 1}", because
 * :x: Requires `npm` package that must be installed before using
 * :x: Difficult to test before scaffolding
 * :x: Doesn't integrate with Visual Studio
+* :x: No packaging options
 
 ### dotnet CLI
 
@@ -58,9 +59,11 @@ Chosen option: "{title of option 1}", because
 * :heavy_check_mark: The scaffolding tool of choice for Sitecore DevEx team
 * :heavy_check_mark: Templates (pre-scaffolded code) testable in Visual Studio
 * :heavy_check_mark: Integrates with Visual Studio allowing for modification of `sln` file
+* :heavy_check_mark: Templates can be packaged into Nuget for easy consumption
 * :heavy_check_mark: Free
 
 #### Cons
 
 * :x: Documentation is more specific to `dotnet` as a whole rather than Sitecore
 * :x: Medium learning curve (can pick it up in a day)
+* :x: Nuget packages are clunky without good documentation
