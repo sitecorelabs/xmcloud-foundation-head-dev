@@ -1,7 +1,7 @@
 ---
 # These are optional elements. Feel free to remove any of them.
 status: proposed
-date: 2023-04-07
+date: 2023-04-10
 deciders: Caitlin O'Toole, Adam Love, Chet Potvin
 consulted: Jeff Rondeau
 informed: Sitecore Practice Team
@@ -10,22 +10,22 @@ informed: Sitecore Practice Team
 
 ## Context and Problem Statement
 
-{Describe the context and problem statement, e.g., in free form using two to three sentences or in the form of an illustrative story.
- You may want to articulate the problem in form of a question and add links to collaboration boards or issue management systems.}
+Ideally, the starter kit should behave like a restaurant.  There is basic service that you'd expect when you sit down at the table, which is the overall solution with core modules.  Then you choose what you'd like based on your tastes and appetite.  This is where module scaffolding comes into play.  These are the features and project modules to use Helix terminology.  The scaffolding 'engine' that we create is the kitchen and we need it to operate efficiently in order for our restaurant to succeed.  
+
+**This is where most of the contributions will happen in the starter kit, so it will need to be intuitive.**
 
 <!-- This is an optional element. Feel free to remove. -->
 ## Decision Drivers
 
-* {decision driver 1, e.g., a force, facing concern, …}
-* {decision driver 2, e.g., a force, facing concern, …}
-* … <!-- numbers of drivers can vary -->
+* Low barrier to entry
+* Small learning curve
+* Testability
+* Documentation / Community Support
 
 ## Considered Options
 
-* {title of option 1}
-* {title of option 2}
-* {title of option 3}
-* … <!-- numbers of options can vary -->
+* [PlopJS](https://plopjs.com/)
+* [dotnet CLI](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new)
 
 ## Decision Outcome
 
@@ -33,47 +33,34 @@ Chosen option: "{title of option 1}", because
 {justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force {force} | … | comes out best (see below)}.
 
 <!-- This is an optional element. Feel free to remove. -->
-### Consequences
-
-* Good, because {positive consequence, e.g., improvement of one or more desired qualities, …}
-* Bad, because {negative consequence, e.g., compromising one or more desired qualities, …}
-* … <!-- numbers of consequences can vary -->
-
-<!-- This is an optional element. Feel free to remove. -->
-## Validation
-
-{describe how the implementation of/compliance with the ADR is validated. E.g., by a review or an ArchUnit test}
-
-<!-- This is an optional element. Feel free to remove. -->
 ## Pros and Cons of the Options
 
-### {title of option 1}
+### PlopJS
 
-<!-- This is an optional element. Feel free to remove. -->
-{example | description | pointer to more information | …}
+#### Pro
 
-* Good, because {argument a}
-* Good, because {argument b}
-<!-- use "neutral" if the given argument weights neither for good nor bad -->
-* Neutral, because {argument c}
-* Bad, because {argument d}
-* … <!-- numbers of pros and cons can vary -->
+* :heavy_check_mark: A team subset has experience with this tool.
+* :heavy_check_mark: Simple and easy to use
+* :heavy_check_mark: Very flexible
+* :heavy_check_mark: Free
 
-### {title of other option}
+#### Cons
 
-{example | description | pointer to more information | …}
+* :x: Requires `npm` package that must be installed before using
+* :x: Difficult to test before scaffolding
+* :x: Doesn't integrate with Visual Studio
 
-* Good, because {argument a}
-* Good, because {argument b}
-* Neutral, because {argument c}
-* Bad, because {argument d}
-* …
+### dotnet CLI
 
-<!-- This is an optional element. Feel free to remove. -->
-## More Information
+#### Pro
 
-{You might want to provide additional evidence/confidence for the decision outcome here and/or
- document the team agreement on the decision and/or
- define when and how this decision should be realized and if/when it should be re-visited and/or
- how the decision is validated.
- Links to other decisions and resources might appear here as well.}
+* :heavy_check_mark: Good documentation and learning tools from Microsoft
+* :heavy_check_mark: The scaffolding tool of choice for Sitecore DevEx team
+* :heavy_check_mark: Templates (pre-scaffolded code) testable in Visual Studio
+* :heavy_check_mark: Integrates with Visual Studio allowing for modification of `sln` file
+* :heavy_check_mark: Free
+
+#### Cons
+
+* :x: Documentation is more specific to `dotnet` as a whole rather than Sitecore
+* :x: Medium learning curve (can pick it up in a day)
