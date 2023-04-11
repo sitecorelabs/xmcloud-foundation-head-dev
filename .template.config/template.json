@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Chet Potvin",
+  "classifications": [
+    "Sitecore"
+  ],
+  "identity": "Merkle.Headless.Solution",
+  "name": "Merkle Headless Solution Template",
+  "shortName": "merkle.headless.solution",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "xmcloudsxastarter",
+  "preferNameDirectory": true,
+  "primaryOutputs": [
+    {
+      "path": "XmCloudSXAStarter.sln"
+    }
+  ],
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "rename": {
+            ".env-template": ".env",
+            "nuget.public.config": "nuget.config"
+          },
+          "exclude": [
+            ".env-disabled",
+            "node_modules/**",
+            ".git/**",
+            ".vs/**",
+            ".vscode/**",
+            ".sitecore/**",
+            "scaffolding/**",
+            "docker/data/cm/*.txt",
+            "docker/data/sql/*.mdf",
+            "docker/data/sql/*.ldf",
+            "docker/build/cm/templates/.sitecore/**",
+            "docker/traefik/certs/*.pem",
+            "src/sxastarter/node_modules/**"
+            
+          ]
+        }
+      ]
+    }
+  ],
+  "forms": {
+    "ItemName": {
+      "identifier": "replace",
+      "pattern": "[\\.]",
+      "replacement": "-",
+      "description": "Replaces dots with dashes for use with Sitecore item names."
+    },
+    "first_uc": {
+      "identifier": "firstUpperCase"
+    }
+  },
+  "symbols": {
+    "Author": {
+      "type": "parameter",
+      "default": "anonymous",
+      "replaces": "anonymous"
+    },
+    "CompanyName": {
+      "type": "parameter",
+      "default": "Merkle",
+      "replaces": "companyname"
+    },
+    "ClientName": {
+      "type": "parameter",
+      "replaces": "merklestarter"
+    },
+    "ItemName": {
+      "type": "derived",
+      "valueSource": "name",
+      "valueTransform": "ItemName",
+      "FileRename": "ProjectName-1",
+      "replaces": "ProjectName-1",
+      "forms": {
+        "global": [
+          "lowerCase"
+        ]
+      },
+      "description": "Transforms and replaces the solution name for use with Sitecore item names."
+    },
+    "CreateYear": {
+      "type": "generated",
+      "generator": "now",
+      "parameters": {
+        "format": "yyyy"
+      },
+      "replaces": "1999",
+      "description": "Replaces the current year."
+    },
+    "ApiKeyId": {
+      "type": "generated",
+      "generator": "guid",
+      "parameters": {
+        "format": "D"
+      },
+      "replaces": "e05269fd-a2e3-4aa9-b31b-bed4ec475aba",
+      "description": "Generates a random guid for replacing the SSC API Key used in this solution."
+    },
+    "MediaHashSharedSecret": {
+      "type": "generated",
+      "generator": "guid",
+      "parameters": {
+        "format": "N",
+        "defaultFormat": "N"
+      },
+      "replaces": "CA972DAE5E21D2D65C945DD21D489",
+      "description": "Generates a random GUI for replacing the media hash secret used in this solution."
+    },
+    "SolutionRename": {
+      "type": "derived",
+      "valueSource": "name",
+      "valueTransform": "first_uc",
+      "fileRename": "XmCloudSXAStarter",
+      "replaces": "XmCloudSXAStarter",
+      "description": "Renames files in the solution to the name specified"
+    }
+  }
+}
