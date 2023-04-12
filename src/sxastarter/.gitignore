@@ -31,3 +31,6 @@ scjssconfig.json
 
 # vercel
 .vercel
+
+#tailwind
+/dist/tailwind.css
