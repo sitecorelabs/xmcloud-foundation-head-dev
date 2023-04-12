@@ -73,6 +73,9 @@
   <ItemGroup>
     <Folder Include="App_Config\Include\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="sitecore\shell\Themes\Standard\PlayTravel.zip" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
