@@ -22,6 +22,7 @@ type TeaserProps = {
   params: ComponentParams;
   fields: Fields;
   isReversed: boolean;
+  hasImage: boolean;
 };
 
 const TeaserDefaultComponent = (): JSX.Element => (
@@ -43,16 +44,18 @@ const CommonTeaserComponent = (props: TeaserProps): JSX.Element => {
       px="4"
       className={`component teaser max-w-6xl mx-auto py-6 md:py-15 flex-col md:flex-row items-center md:gap-x-8 lg:gap-x-16 ${props.params?.styles}`}
     >
-      <Box
-        className={`basis-full md:basis-1/2 ${props.isReversed ? 'md:order-2 justify-end' : ''}`}
-      >
-        <JssImage
-          className="rounded-3xl"
-          width="100%"
-          alt={props.fields.Title.value}
-          field={props?.fields?.Icon}
-        />
-      </Box>
+      {props.hasImage && (
+        <Box
+          className={`basis-full md:basis-1/2 ${props.isReversed ? 'md:order-2 justify-end' : ''}`}
+        >
+          <JssImage
+            className="rounded-3xl"
+            width="100%"
+            alt={props.fields.Title.value}
+            field={props?.fields?.Icon}
+          />
+        </Box>
+      )}
       <Flex className="basis-full md:basis-1/2 flex-col pt-8 md:pt-0">
         <Box
           lineHeight="120%"
@@ -74,9 +77,13 @@ const CommonTeaserComponent = (props: TeaserProps): JSX.Element => {
 };
 
 export const ImageAndContent = (props: TeaserProps): JSX.Element => {
-  return <CommonTeaserComponent {...props} />;
+  return <CommonTeaserComponent {...props} hasImage={true} />;
 };
 
 export const ContentAndImage = (props: TeaserProps): JSX.Element => {
-  return <CommonTeaserComponent {...props} isReversed={true} />;
+  return <CommonTeaserComponent {...props} isReversed={true} hasImage={true} />;
+};
+
+export const Content = (props: TeaserProps): JSX.Element => {
+  return <CommonTeaserComponent {...props} />;
 };
