@@ -8,7 +8,7 @@
         "type": "sxa",
         "lintCommand": "lint",
         "startCommand": "start:production",
-        "buildCommand": "build:production",
+        "buildCommand": "build",
         "runCommand": "run:production"
       }
     },
