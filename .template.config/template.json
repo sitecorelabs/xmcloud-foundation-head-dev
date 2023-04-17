@@ -39,7 +39,7 @@
             "docker/data/sql/*.ldf",
             "docker/build/cm/templates/.sitecore/**",
             "docker/traefik/certs/*.pem",
-            "src/sxastarter/node_modules/**"
+            "src/Project/sxastarter/sxastarter/node_modules/**"
             
           ]
         }
