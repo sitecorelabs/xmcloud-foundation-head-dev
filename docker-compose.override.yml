@@ -3,6 +3,11 @@ services:
   # A Windows-based nodejs base image
   nodejs:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-nodejs:${VERSION:-latest}
+    build:
+      context: ./docker/build/nodejs
+      args:
+        PARENT_IMAGE: ${NODEJS_PARENT_IMAGE}
+        NODEJS_VERSION: ${NODEJS_VERSION}
     scale: 0
 
   rendering:
@@ -76,6 +81,6 @@ services:
       SITECORE_Pages_Client_Host: ${SITECORE_Pages_Client_Host}
       SITECORE_Pages_CORS_Allowed_Origins: ${SITECORE_Pages_CORS_Allowed_Origins}
       ## Development Environment Optimizations
-      # SITECORE_DEVELOPMENT_PATCHES: DevEnvOn,CustomErrorsOff,DebugOn,DiagnosticsOff,InitMessagesOff
+      SITECORE_DEVELOPMENT_PATCHES: DevEnvOn,CustomErrorsOff,DebugOn,DiagnosticsOff,InitMessagesOff
       Sitecore_AppSettings_exmEnabled:define: "no" # remove to turn on EXM
     entrypoint: powershell -Command "& C:/tools/entrypoints/iis/Development.ps1"
