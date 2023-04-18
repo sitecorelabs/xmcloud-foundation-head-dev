@@ -178,7 +178,7 @@ const DesktopSubNav = (navItem: MenuItem) => {
             ))}
         </Stack>
       </Box>
-      <Flex className="grow pl-8 justify-between flex-wrap">
+      <Flex className="grow pl-8 flex-wrap">
         {visibleSubnavChildren?.map((child: MenuItem, index: number) => (
           <Box className="basis-1/3 pb-4 pr-6" key={child.Id + index}>
             <JSSLink editable={false} field={getLinkField(child)} className="sc-menu-link-details">
@@ -293,7 +293,7 @@ const MobileNav = (props: MenuFields) => {
         h="100%"
         p="0"
       >
-        <Box className="basis-full px-4 py-4">{popoverContent()}</Box>
+        <Box className="basis-full px-4 py-4" bgColor="white">{popoverContent()}</Box>
       </PopoverContent>
     </Popover>
   );
