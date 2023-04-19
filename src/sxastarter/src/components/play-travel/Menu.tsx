@@ -26,6 +26,11 @@ type MenuFields = {
   fields: MenuItem[];
 };
 
+type BooleanField = {
+  value: boolean;
+  editable?: string;
+};
+
 type MenuItem = {
   Id: string;
   DisplayName: string;
@@ -35,6 +40,7 @@ type MenuItem = {
   Querystring: string;
   Children: Array<MenuItem>;
   NavigationDescription: TextField;
+  IsLink?: BooleanField;
 };
 
 type MobileNavItemProps = MenuItem & {
@@ -47,12 +53,17 @@ type MobileBackButtonProps = {
 };
 
 class SubNavTitle {
-  constructor(public label = '', public href = '', public isSelected = false) {}
+  constructor(
+    public label = '',
+    public href = '',
+    public isLink = true,
+    public isSelected = false
+  ) {}
 }
 
 const getLinkField = (props: MenuItem): LinkField => ({
   value: {
-    href: props.Href,
+    href: props.IsLink === undefined || (props.IsLink && props.IsLink.value) ? props.Href : '#',
     title: getLinkTitle(props),
     querystring: props.Querystring,
   },
@@ -152,6 +163,7 @@ const DesktopSubNav = (navItem: MenuItem) => {
           new SubNavTitle(
             getLinkTitle(child),
             `${child.Href}?${child.Querystring}`,
+            child.IsLink === undefined || (child.IsLink && child.IsLink.value),
             getLinkTitle(visibleSubnavItem) === getLinkTitle(child)
           )
       ),
@@ -171,7 +183,7 @@ const DesktopSubNav = (navItem: MenuItem) => {
                   subnavTitle.isSelected ? 'font-bold underline' : 'font-normal'
                 }`}
                 key={`${key}${subnavTitle.label}`}
-                href={subnavTitle.href}
+                href={subnavTitle.isLink ? subnavTitle.href : '#'}
               >
                 {subnavTitle.label}
               </Link>
@@ -293,7 +305,9 @@ const MobileNav = (props: MenuFields) => {
         h="100%"
         p="0"
       >
-        <Box className="basis-full px-4 py-4" bgColor="white">{popoverContent()}</Box>
+        <Box className="basis-full px-4 py-4" bgColor="white">
+          {popoverContent()}
+        </Box>
       </PopoverContent>
     </Popover>
   );
