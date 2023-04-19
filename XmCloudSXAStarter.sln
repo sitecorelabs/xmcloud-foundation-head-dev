@@ -11,6 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{F950F2F9-A430-434C-8B15-9FCC9AE9AE9A}"
+	ProjectSection(SolutionItems) = preProject
+		src\Foundation\Base Templates\BaseTemplates.module.json = src\Foundation\Base Templates\BaseTemplates.module.json
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{66A25B28-E628-44DE-BBF4-1229526B2948}"
 EndProject

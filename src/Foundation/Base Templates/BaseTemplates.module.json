@@ -1,0 +1,12 @@
+{
+  "namespace": "Foundation.BaseTemplates",
+  "references": [],
+  "items": {
+    "includes": [
+      {
+        "name": "Templates",
+        "path": "/sitecore/templates/Foundation/Base Templates"
+      }
+    ]
+  }
+}
