@@ -183,7 +183,7 @@ const DesktopSubNav = (navItem: MenuItem) => {
                   subnavTitle.isSelected ? 'font-bold underline' : 'font-normal'
                 }`}
                 key={`${key}${subnavTitle.label}`}
-                href={subnavTitle.isLink ? subnavTitle.href : '#'}
+                href={subnavTitle.isLink ? subnavTitle.href : undefined}
               >
                 {subnavTitle.label}
               </Link>
