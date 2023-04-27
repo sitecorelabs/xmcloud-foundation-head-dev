@@ -9,7 +9,7 @@
         "lintCommand": "lint",
         "startCommand": "start:production",
         "buildCommand": "build",
-        "runCommand": "run:production"
+        "runCommand": "next:start"
       }
     },
     "postActions": {
