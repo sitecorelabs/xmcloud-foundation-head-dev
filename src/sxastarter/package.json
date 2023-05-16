@@ -45,7 +45,7 @@
     "next-localization": "^0.12.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-	"sass": "^1.52.3",
+	  "sass": "^1.52.3",
     "sass-alias": "^1.0.5"
   },
   "devDependencies": {
