@@ -3,6 +3,7 @@ import {
   ComponentPropsCollection,
   LayoutServiceData,
   SiteInfo,
+  HTMLLink,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**
@@ -15,4 +16,5 @@ export type SitecorePageProps = {
   componentProps: ComponentPropsCollection;
   notFound: boolean;
   layoutData: LayoutServiceData;
+  headLinks: HTMLLink[];
 };
