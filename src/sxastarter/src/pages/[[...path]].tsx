@@ -6,17 +6,21 @@ import {
   RenderingType,
   SitecoreContext,
   ComponentPropsContext,
-  handleEditorFastRefresh,
   EditingComponentPlaceholder,
   StaticPath,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import { handleEditorFastRefresh } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
-// different componentFactory method will be used based on whether page is being edited
-import { componentFactory, editingComponentFactory } from 'temp/componentFactory';
+import { componentBuilder } from 'temp/componentBuilder';
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
 
-const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProps): JSX.Element => {
+const SitecorePage = ({
+  notFound,
+  componentProps,
+  layoutData,
+  headLinks,
+}: SitecorePageProps): JSX.Element => {
   useEffect(() => {
     // Since Sitecore editors do not support Fast Refresh, need to refresh editor chromes after Fast Refresh finished
     handleEditorFastRefresh();
@@ -34,7 +38,7 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
   return (
     <ComponentPropsContext value={componentProps}>
       <SitecoreContext
-        componentFactory={isEditing ? editingComponentFactory : componentFactory}
+        componentFactory={componentBuilder.getComponentFactory({ isEditing })}
         layoutData={layoutData}
       >
         {/*
@@ -44,7 +48,7 @@ const SitecorePage = ({ notFound, componentProps, layoutData }: SitecorePageProp
         {isComponentRendering ? (
           <EditingComponentPlaceholder rendering={layoutData.sitecore.route} />
         ) : (
-          <Layout layoutData={layoutData} />
+          <Layout layoutData={layoutData} headLinks={headLinks} />
         )}
       </SitecoreContext>
     </ComponentPropsContext>

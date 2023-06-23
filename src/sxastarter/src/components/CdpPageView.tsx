@@ -52,11 +52,10 @@ const CdpPageView = (): JSX.Element => {
   /**
    * Determines if the page view events should be turned off.
    * IMPORTANT: You should implement based on your cookie consent management solution of choice.
-   * You may also wish to disable in development mode (process.env.NODE_ENV === 'development').
-   * By default it is always enabled.
+   * By default it is disabled in development mode
    */
   const disabled = () => {
-    return false;
+    return process.env.NODE_ENV === 'development';
   };
 
   useEffect(() => {
@@ -71,7 +70,14 @@ const CdpPageView = (): JSX.Element => {
 
     const siteInfo = siteResolver.getByName(site?.name || config.jssAppName);
     const language = route.itemLanguage || config.defaultLanguage;
-    const pageVariantId = CdpHelper.getPageVariantId(route.itemId, language, variantId as string);
+    const scope = process.env.NEXT_PUBLIC_PERSONALIZE_SCOPE;
+
+    const pageVariantId = CdpHelper.getPageVariantId(
+      route.itemId,
+      language,
+      variantId as string,
+      scope
+    );
     createPageView(route.name, language, siteInfo, pageVariantId);
   }, [pageState, route, variantId, site]);
 
