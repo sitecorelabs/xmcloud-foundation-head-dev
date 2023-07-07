@@ -14,7 +14,11 @@ Param (
     [Parameter(Mandatory = $true,
         HelpMessage = "Sets the sitecore\\admin password for this environment via environment variable.",
         ParameterSetName = "env-init")]
-    [string]$AdminPassword
+    [string]$AdminPassword,
+
+    [Parameter(Mandatory = $false, HelpMessage = "Specifies os version of the base image.")]
+    [ValidateSet("ltsc2019", "ltsc2022")]
+    [string]$baseOs = "ltsc2019"
 )
 
 $ErrorActionPreference = "Stop";
@@ -157,6 +161,12 @@ if ($InitEnv) {
 
     # SITECORE_ADMIN_PASSWORD
     Set-EnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value $AdminPassword
+
+    # SITECORE_VERSION
+    Set-EnvFileVariable "SITECORE_VERSION" -Value "1-$baseOS"
+
+    # EXTERNAL_IMAGE_TAG_SUFFIX
+    Set-EnvFileVariable "EXTERNAL_IMAGE_TAG_SUFFIX" -Value $baseOS
 }
 
 Write-Host "Done!" -ForegroundColor Green
