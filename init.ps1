@@ -92,6 +92,14 @@ finally {
 
 
 ################################
+# Create the .env file if needed
+################################
+if (-not (Test-Path ".\.env")) {
+    Copy-Item ".\.env.template" ".\.env"
+}
+
+
+################################
 # Add Windows hosts file entries
 ################################
 
