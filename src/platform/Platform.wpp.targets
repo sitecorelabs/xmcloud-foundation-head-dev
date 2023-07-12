@@ -13,11 +13,9 @@
     Delay executing this target until after Compile in order to
     ensure the NuGet package targets have been evaluated.
   -->
-  <Target Name="ExcludeSitecoreAssemblies" AfterTargets="Compile">
     <ItemGroup>
-      <ExcludeFromPackageFiles Include="@(SitecoreAssemblies -> 'bin\%(Filename)%(Extension)')" />
-      <ExcludeFromPackageFiles Include="@(SitecoreAssemblies -> 'bin\%(Filename).pdb')" />
-      <ExcludeFromPackageFiles Include="@(SitecoreAssemblies -> 'bin\%(Filename).xml')" />
-    </ItemGroup>
-  </Target>
+			<ExcludeFromPackageFiles Include="@(SitecoreAssemblies -> 'bin\%(Filename)%(Extension)')" />
+			<ExcludeFromPackageFiles Include="@(SitecoreAssemblies -> 'bin\%(Filename).pdb')" />
+			<ExcludeFromPackageFiles Include="@(SitecoreAssemblies -> 'bin\%(Filename).xml')" />
+		</ItemGroup>
 </Project>

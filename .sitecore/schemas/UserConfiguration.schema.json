@@ -14,6 +14,10 @@
     },
     "$schema": {
       "type": "string"
+    },
+    "defaultEndpoint": {
+      "type": "string",
+      "description": "Default Sitecore instance to fetch or push data to"
     }
   },
   "definitions": {
@@ -67,6 +71,22 @@
           "additionalProperties": {
             "type": "string"
           }
+        },
+        "expiresIn": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "Preserves access token lifetime. Set during the login operation. Related to LastUpdated property. System use only.",
+          "format": "int32"
+        },
+        "lastUpdated": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Preserve date and time when environmet was updated during the login. System use only.",
+          "format": "date-time"
         },
         "clientId": {
           "type": "string",
