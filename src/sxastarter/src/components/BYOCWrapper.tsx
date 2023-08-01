@@ -17,3 +17,7 @@ export const Default = (props: BYOCProps): JSX.Element => {
     </div>
   );
 };
+
+FEAAS.External.registerComponent(Default, {
+  name: 'BYOCWrapper',
+});
