@@ -1,0 +1,27 @@
+﻿---
+ID: "235158a8-e66d-4108-8376-f438482d9385"
+Parent: "867353a8-3449-4214-b8e6-eb496fec4825"
+Template: "867353a8-3449-4214-b8e6-eb496fec4825"
+Path: "/sitecore/templates/Project/Nishtech/NXA-Headless/Headless Tenant/__Standard Values"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20230526T151206Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "58082b70-e8ee-452b-a390-71a82cd8bd79"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20230526T151206Z

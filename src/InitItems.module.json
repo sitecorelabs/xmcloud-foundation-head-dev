@@ -1,0 +1,20 @@
+{
+    "namespace": "NXA-Headless",
+    "references": [ "InitItems" ],
+    "items": {
+        "includes": [
+            {
+                "name": "placeholders",
+                "path": "/sitecore/layout/Placeholder Settings/Project/Nishtech/"
+            },
+            {
+                "name": "renderings",
+                "path": "/sitecore/layout/Renderings/Project/Nishtech/"
+            },
+            {
+                "name": "templates",
+                "path": "/sitecore/templates/Project/Nishtech/"
+            }
+        ]
+    }
+}

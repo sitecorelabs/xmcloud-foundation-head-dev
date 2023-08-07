@@ -1,0 +1,16 @@
+{
+    "namespace": "NXA-Headless-Content",
+    "references": [ "NXA-Headless" ],
+    "items": {
+        "includes": [
+            {
+                "name": "content",
+                "path": "/sitecore/content/Nishtech"
+            },
+            {
+                "name": "media",
+                "path": "/sitecore/media library/Project/Nishtech"
+            }
+        ]
+    }
+}

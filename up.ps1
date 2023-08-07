@@ -104,7 +104,7 @@ Write-Host "Rebuilding indexes ..." -ForegroundColor Green
 dotnet sitecore index rebuild
 
 Write-Host "Pushing Default rendering host configuration" -ForegroundColor Green
-dotnet sitecore ser push -i RenderingHost
+dotnet sitecore ser push -i NXA-InitItems
 
 Write-Host "Pushing sitecore API key" -ForegroundColor Green
 & docker\build\cm\templates\import-templates.ps1 -RenderingSiteName "xmcloudpreview" -SitecoreApiKey $sitecoreApiKey
