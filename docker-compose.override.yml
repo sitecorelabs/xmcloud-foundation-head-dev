@@ -79,6 +79,7 @@ services:
       JSS_DEPLOYMENT_SECRET_xmcloudpreview: ${JSS_DEPLOYMENT_SECRET_xmcloudpreview}
       SITECORE_JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
       SITECORE_EDITING_HOST_PUBLIC_HOST: "${RENDERING_HOST}"
+      SITECORE_GraphQL_CORS: ${SITECORE_GRAPHQL_CORS}
       SITECORE_Pages_Client_Host: ${SITECORE_Pages_Client_Host}
       SITECORE_Pages_CORS_Allowed_Origins: ${SITECORE_Pages_CORS_Allowed_Origins}
       ## Development Environment Optimizations
