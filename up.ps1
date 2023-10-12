@@ -1,5 +1,9 @@
 $ErrorActionPreference = "Stop";
 
+. .\upFunctions.ps1
+
+Validate-LicenseExpiry
+
 $envContent = Get-Content .env -Encoding UTF8
 $xmCloudHost = $envContent | Where-Object { $_ -imatch "^CM_HOST=.+" }
 $sitecoreDockerRegistry = $envContent | Where-Object { $_ -imatch "^SITECORE_DOCKER_REGISTRY=.+" }
