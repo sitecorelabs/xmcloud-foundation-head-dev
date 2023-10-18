@@ -35,7 +35,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@sitecore-feaas/clientside": "^0.3.10",
+    "@sitecore-feaas/clientside": "^0.3.17",
     "@sitecore-jss/sitecore-jss-nextjs": "~21.5.0",
     "@sitecore/engage": "^1.4.1",
     "bootstrap": "^5.1.3",
