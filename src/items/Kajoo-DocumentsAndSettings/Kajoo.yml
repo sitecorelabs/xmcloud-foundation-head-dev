@@ -1,0 +1,55 @@
+﻿---
+ID: "b0f7ab5e-27c4-4ddc-97bc-f936a88f2feb"
+Parent: "10148dc7-dca6-4aca-ac90-46fbf59a1d1f"
+Template: "72450c9c-98c4-4117-88b7-573110c7e0c0"
+Path: /sitecore/content/Documents and settings/All users/Start menu/Right/Kajoo
+BranchID: "5e8cfcf9-cef2-4bdb-9e35-219c50184066"
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: kajooicons/16x16/kajoo_logo.png
+- ID: "238a40da-15f2-4412-b720-8f192ffa7491"
+  Hint: Icon
+  Value: kajooicons/16x16/kajoo_logo.png
+- ID: "8a1ac797-0304-4c50-aaac-4d9dbbff435f"
+  Hint: Application
+  Value: |
+    <link text="" anchor="" linktype="internal" class="" title="" target="_blank" querystring="" id="{562EC073-CD4A-47F7-AEF8-93A12F3EE24B}" />
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 813
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: 
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20230822T150842Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "77e57d0e-1e31-488a-91f3-e1fe9dd07213"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "bb865e67-0be3-49d8-b8bd-1db4b34ab2e3"
+      Hint: Tool tip
+      Value: Register and manage Sitecore instance in Kajoo
+    - ID: "c032db76-cc34-4f8f-be2d-d2fb35237aab"
+      Hint: Display name
+      Value: Kajoo
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20230822T151037Z

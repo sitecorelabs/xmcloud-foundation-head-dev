@@ -1,0 +1,87 @@
+﻿---
+ID: "4fecd5ee-75d5-4589-ad56-1095cd3a6d22"
+Parent: "a48f33c8-0c29-4f56-a4b5-98c9bcdaf3ad"
+Template: "b11afccd-c286-4384-b694-4465d6c605de"
+Path: /sitecore/client/Your Apps/Kajoo/ProjectSelection
+BranchID: "afe4620b-9880-4cc8-bc24-dc2657a043b4"
+SharedFields:
+- ID: "64da76c1-7bd0-4103-9253-c3e76f26dab0"
+  Hint: IsApplicationRoot
+  Value: 1
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r>
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{5A7CF08C-3647-4F56-B189-9E8C0531FBAF}">
+        <r
+          id="{DAFAFFB8-74AF-4141-A96A-70B16834CEC6}"
+          par="SpeakCoreVersion=%7b3F937240-C16E-4229-9641-4CE5B4CB4ABA%7d"
+          ph="Page.Code"
+          uid="{81914AAB-FA43-433A-A785-15A752560AB5}" />
+        <r
+          id="{78D8260C-4FF9-4627-BF64-0B884ACA4BA1}"
+          ph="GlobalHeader"
+          uid="{2220C29E-607F-4516-A1C3-BB486D5A19D8}" />
+        <r
+          id="{0DD00367-0B7D-4955-BB70-397523711B6D}"
+          par="Id=AccountInformation"
+          ph="GlobalHeader.LoginInfo"
+          uid="{1CBA05A0-02AF-4CAD-AA2D-BFFC8A40E709}" />
+        <r
+          id="{7047D065-727D-481E-A196-B15FE77B0F9E}"
+          ph="Page.Body"
+          uid="{0D2685E7-B721-4367-8FDE-CCD103A12FC1}" />
+        <r
+          id="{1B8A4668-54BF-406A-AC9F-671B0CCF9EBB}"
+          ph="Content"
+          uid="{D5A40BF4-0E24-4E4D-816D-0D8D7288F240}" />
+        <r
+          id="{C220369A-84A3-482B-A936-F75CDCB23736}"
+          par="Id=GlobalLogo"
+          ph="GlobalHeader.StartButton"
+          uid="{8482A810-09F1-4FFF-83E3-5AD59162CC15}" />
+        <r
+          id="{047F31EF-7D7D-42E5-BC9B-F39FEAB0B83B}"
+          ph="ApplicationHeader"
+          uid="{D485D507-5F0E-4513-AC5E-2BD43FB72C9B}" />
+        <r
+          id="{EFCD0AB0-5B9D-4F1D-AB81-BE0336CD273C}"
+          par="Id=TextTitle"
+          ph="ApplicationHeader.Title"
+          uid="{FDD58501-F465-4E10-B36E-E7CB83D593B6}" />
+      </d>
+    </r>
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{88D66385-CE3C-4B69-BAE9-A3209FABAC5E}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200520T170340Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "7205a57f-93b4-413a-aa9a-6b16bbc59565"
+      Hint: BrowserTitle
+      Value: Kajoo Project Import
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "cdae7f90-8561-4428-be7b-a5d07c923ebf"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20201117T191011Z

@@ -12,6 +12,12 @@
         "runCommand": "next:start"
       }
     },
+    "transforms": [
+      {
+          "xdtPath": "app_data/xdts/Web.config.xdt",
+          "targetPath": "/Web.config"
+      }
+    ],
     "postActions": {
         "actions":{
           "warmUpCm": {
@@ -20,6 +26,9 @@
               "/sitecore/shell/Applications/Content%20Editor.aspx?sc_bw=1",
               "/sitecore/client/Applications/Launchpad"
             ]
+          },
+          "scsModules": {
+            "modules": ["Kajoo"]
           },
           "populateSchema": {
             "indexNames": []

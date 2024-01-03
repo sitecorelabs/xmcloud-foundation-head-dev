@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<location path="sitecore">
+		<system.webServer>
+			<httpProtocol>
+				<customHeaders>
+					<add name="Content-Security-Policy" value="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://apps.sitecore.net cdnjs.cloudflare.com   *.kajoo.ca *.auth0.com *.kajoo.ai;  img-src 'self' data: https://s.gravatar.com https://*.wp.com/cdn.auth0.com/avatars; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com cdnjs.cloudflare.com; font-src 'self' 'unsafe-inline' https://fonts.gstatic.com; upgrade-insecure-requests; block-all-mixed-content;" xdt:Transform="Replace" xdt:Locator="Match(name)" />
+				</customHeaders>
+			</httpProtocol>
+		</system.webServer>
+	</location>
+	<runtime>
+		<assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+			<dependentAssembly>
+				<assemblyIdentity name="Azure.Core.Amqp" publicKeyToken="92742159e12e44c8" />
+				<bindingRedirect oldVersion="0.0.0.0-1.1.0.0" newVersion="1.1.0.0" />
+			</dependentAssembly>
+			<dependentAssembly>
+				<assemblyIdentity name="Azure.Core" publicKeyToken="92742159e12e44c8" />
+				<bindingRedirect oldVersion="0.0.0.0-1.25.0.0" newVersion="1.25.0.0" />
+			</dependentAssembly>
+			<dependentAssembly>
+				<assemblyIdentity name="Azure.Messaging.ServiceBus" publicKeyToken="92742159e12e44c8" />
+				<bindingRedirect oldVersion="0.0.0.0-7.2.0.0" newVersion="7.2.0.0" />
+			</dependentAssembly>
+		</assemblyBinding>
+	</runtime>
+</configuration>

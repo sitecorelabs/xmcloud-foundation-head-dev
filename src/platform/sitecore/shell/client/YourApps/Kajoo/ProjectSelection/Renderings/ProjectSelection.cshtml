@@ -1,0 +1,284 @@
+@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecore.Web.UI.Controls.Common.UserControls
+@using Kajoo.Foundation.Common.Services;
+@using Sitecore.DependencyInjection;
+@using Microsoft.Extensions.DependencyInjection;
+@model RenderingModel
+@{
+    var rendering = Html.Sitecore().Controls().GetUserControl(Model.Rendering);
+    rendering.Class = "sc-ProjectSelection";
+    rendering.Requires.Script("client", "ProjectSelection.js");
+    rendering.Requires.Script("client", "TokenValidation.js");
+
+    //Rendering parameters
+    rendering.GetString("listProjects", "listProjects");
+
+    var htmlAttributes = rendering.HtmlAttributes;
+    IInstanceRegistrationValidator instanceRegService = ServiceLocator.ServiceProvider.GetService<IInstanceRegistrationValidator>();
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.20/jsrsasign-all-min.js"></script>
+
+<script type="text/javascript">
+    var getUserProjectsEndPoint = '@Sitecore.Configuration.Settings.GetSetting("KAJOO:GetUserProjects")';
+    var isInstanceRegistered = @instanceRegService.IsInstanceRegisterated().ToString().ToLower();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+<style>
+    .dot-pulse {
+        position: relative;
+        left: -9999px;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: #9880ff;
+        color: #9880ff;
+        box-shadow: 9999px 0 0 -5px #9880ff;
+        animation: dotPulse 1.5s infinite linear;
+        animation-delay: .25s;
+    }
+
+        .dot-pulse::before, .dot-pulse::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: #9880ff;
+            color: #9880ff;
+        }
+
+        .dot-pulse::before {
+            box-shadow: 9984px 0 0 -5px #9880ff;
+            animation: dotPulseBefore 1.5s infinite linear;
+            animation-delay: 0s;
+        }
+
+        .dot-pulse::after {
+            box-shadow: 10014px 0 0 -5px #9880ff;
+            animation: dotPulseAfter 1.5s infinite linear;
+            animation-delay: .5s;
+        }
+
+    .modal {
+        top: 0 !important;
+        left: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    input:not([type]), input[type="text"], input[type="password"], select, textarea {
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        min-height: 34px;
+        padding: 8px 12px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        line-height: 1.42857143;
+        color: #474747;
+        background-color: #ffffff;
+        background-image: none;
+        border: 1px solid #cccccc;
+        border-radius: 2px;
+        box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+
+    .form-group {
+        margin: 15px 0 0 0;
+    }
+
+    .instance-registration-form .form-group {
+        width: 30%;
+    }
+
+    @@keyframes dotPulseBefore {
+        0% {
+            box-shadow: 9984px 0 0 -5px #9880ff;
+        }
+
+        30% {
+            box-shadow: 9984px 0 0 2px #9880ff;
+        }
+
+        60%,
+        100% {
+            box-shadow: 9984px 0 0 -5px #9880ff;
+        }
+    }
+
+    @@keyframes dotPulse {
+        0% {
+            box-shadow: 9999px 0 0 -5px #9880ff;
+        }
+
+        30% {
+            box-shadow: 9999px 0 0 2px #9880ff;
+        }
+
+        60%,
+        100% {
+            box-shadow: 9999px 0 0 -5px #9880ff;
+        }
+    }
+
+    @@keyframes dotPulseAfter {
+        0% {
+            box-shadow: 10014px 0 0 -5px #9880ff;
+        }
+
+        30% {
+            box-shadow: 10014px 0 0 2px #9880ff;
+        }
+
+        60%,
+        100% {
+            box-shadow: 10014px 0 0 -5px #9880ff;
+        }
+    }
+</style>
+
+<div @htmlAttributes>
+    @{
+        var ContactUrl = "mailto:support@kajoo.ai";
+        var DocumentationUrl = "https://kajoo.atlassian.net/wiki/spaces/KD/overview";
+        var dbPropertyProvider = new DbPropertyProvider();
+        var InstanceName = dbPropertyProvider.GetDataPropertyValue(Kajoo.Foundation.Common.Constants.InstanceNamePropertyName);
+        var OrgName = dbPropertyProvider.GetDataPropertyValue(Kajoo.Foundation.Common.Constants.OrgNamePropertyName);
+    }
+
+    <div id="main" class="main-project-selection">
+        <div class="left-project-selection">
+            <div class="left-project-section">
+                <div class="left-section-user">
+                    <div class="left-section-user-info">
+                        <span class="left-section-user-icon" data-bind="text:userName"></span>
+                    </div>
+                    <button id="logoutKajoo" class="right-logout-button" style="height: 40px;">LOG OUT</button>
+                </div>
+            </div>
+            <img src="~/sitecore/Shell/client/YourApps/Kajoo/ProjectSelection/Assets/images/Kajoo_Logo_Horizontal_OneColour_White.png" width="250">
+        </div>
+        <div class="right-project-selection">
+            <div id="resultsDiv" style="width: 70%; display: none; min-height: 100vh" data-bind="visible: true">
+                <div style="display: flex; flex-direction: column; text-align: center; margin: 30px 10px">
+                    <p>This instance is registered in Kajoo as <strong>@InstanceName</strong> to the organization <b>@OrgName</b></p>
+                    <p>To re-register this instance click <a id="instance-reregister" href="#instance-reregistration-modal" rel="modal:open">here</a></p>
+                    <p>
+                        Now that you have logged in, you should be able to see this Sitecore instance listed in the "Instances" tab of the Configuration screen in <a href=@Sitecore.Configuration.Settings.GetSetting("KAJOO:InstancesUrl")>Kajoo</a>.
+                        If you do not see this instance, please refer to the <a href=@DocumentationUrl>documentation</a> for troubleshooting
+                        or <a href=@ContactUrl>contact the Kajoo team.</a>
+                    </p>
+
+                    <hr />
+                    <h2>Quick Links</h2>
+                    <div style="display: flex; flex-direction: row;">
+                        <div style="flex: 1 1 0px">
+                            <h3><a href=@Sitecore.Configuration.Settings.GetSetting("KAJOO:InstancesUrl")>View your Instances</a></h3>
+                        </div>
+                        <div style="flex: 1 1 0px">
+                            <h3><a href=@ContactUrl>Contact the Kajoo Team</a></h3>
+                        </div>
+                        <div style="flex: 1 1 0px">
+                            <h3><a href=@DocumentationUrl>Documentation</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="set-instance-name" style="display: flex; flex-direction: column; margin: 5px 10px;">
+        <div class="instance-registration-form" style="display: flex;justify-content: center;flex-direction: column;align-items: center;">
+            <div class="form-group">
+                <div><label for="instance-name">This instance is not registered yet, please fill in the deatails below to be able to use this Sitecore instance in Kajoo</label></div>
+            </div>
+            <div class="form-group">
+                <label>Instance Name: </label><span> (This name will be used in Kajoo as your instance name)</span>
+                <div>
+                    <input type="text" id="instance-name" name="instance-name" value="@Sitecore.Configuration.Settings.InstanceName" />
+                </div>
+                <div>
+                    <p class="text-danger" id="instance-name-warning"></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="instance-hostname">Hostname:</label>
+                <input type="text" id="instance-hostname" name="instance-new-hostname" />
+                <p class="text-danger" id="instance-hostname-warning"></p>
+            </div>
+            <div class="form-group">
+                <label for="instance-jss-api-key">JSS Api Key:</label><span> (Default API Key to be used for JSS sites linked to this instance):</span>
+                <input type="text" id="instance-jss-api-key" name="instance-jss-api-key" />
+                <p class="text-danger" id="instance-jss-api-key-warning"></p>
+            </div>
+            <div class="form-group">
+                <label for="instance-content-api-key">Content Api Key:</label> <span> (The API key to be used when making GraphQL queries to instance)</span>
+                <input type="text" id="instance-content-api-key" name="instance-content-api-key" />
+                <p class="text-danger" id="instance-content-api-key-warning"></p>
+            </div>
+            <div class="form-group">
+                <label for="instance-gql-endpoint">GraphQL Endpoint:</label> <span> (If empty, the default Kajoo endpoint will be used)</span>
+                <input type="text" id="instance-gql-endpoint" name="instance-gql-endpoint" value="/sitecore/api/graph/items/kajoo/master" />
+                <p class="text-danger" id="instance-gql-endpoint-warning"></p>
+            </div>
+            <div>
+                <input type="button" id="submit-instance-registration" class="btn btn-primary" value="Confirm" />
+            </div>
+
+
+        </div>
+    </div>
+
+    <div id="instance-reregistration-modal" class="modal">
+        <h3>Instance re-registration</h3>
+        <div style="justify-content: center;">
+            <div class="form-group">
+                <label for="instance-new-name">You can rename this instance. This name will be used in Kajoo as your instance name:</label>
+                <input type="text" id="instance-new-name" name="instance-new-name" value="@InstanceName" />
+                <p class="text-danger" id="instance-new-name-warning"></p>
+            </div>
+            <div class="form-group">
+                <label for="instance-new-hostname">Hostname:</label>
+                <input type="text" id="instance-new-hostname" name="instance-new-hostname" />
+                <p class="text-danger" id="instance-new-hostname-warning"></p>
+            </div>
+            <div class="form-group">
+                <label for="instance-new-jss-api-key">JSS Api Key:</label><span> (Default API Key to be used for JSS sites linked to this instance):</span>
+                <input type="text" id="instance-new-jss-api-key" name="instance-new-jss-api-key" />
+                <p class="text-danger" id="instance-new-jss-api-key-warning"></p>
+            </div>
+            <div class="form-group">
+                <label for="instance-new-content-api-key">Content Api Key:</label> <span> (The API key to be used when making GraphQL queries to instance)</span>
+                <input type="text" id="instance-new-content-api-key" name="instance-new-content-api-key" />
+                <p class="text-danger" id="instance-new-content-api-key-warning"></p>
+            </div>
+            <div class="form-group">
+                <label for="instance-new-gql-endpoint">GraphQL Endpoint:</label> <span> (If empty, the default Kajoo endpoint will be used)</span>
+                <input type="text" id="instance-new-gql-endpoint" name="instance-new.-gql-endpoint" value="/sitecore/api/graph/items/kajoo/master" />
+                <p class="text-danger" id="instance-new-gql-endpoint-warning"></p>
+            </div>
+            <div class="form-group">
+                <input type="button" id="submit-instance-reregistration" class="btn btn-primary" value="Confirm" />
+            </div>
+        </div>
+    </div>
+
+    <div class="loading" style="display:none">
+        <div style="width: 384px;border-radius:10px; height: 380px; position:fixed; z-index:999; top:40%;left:40%; display:none; background-color: #fbfbfb" id="loadingNew">
+            <img style="border-radius:10px" width="384" height="216" src="~/sitecore/Shell/client/YourApps/Kajoo/ProjectSelection/Assets/images/Kajoo_Logo_V3.gif" />
+            <div style="font:unset; color:black; font-size:1.8em; font-family:source sans pro; position:relative; bottom:50px; display:block; left:20px" id="importingTextDiv"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("instance-hostname").value = location.hostname;
+</script>

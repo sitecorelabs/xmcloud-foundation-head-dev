@@ -1,0 +1,420 @@
+﻿.refreshbutton {
+    font-size: 40px;
+    color: rgb(75, 41, 111);
+}
+
+    .refreshbutton:hover {
+        text-shadow: 0 3px 6px rgb(229,154,68), 0 3px 6px rgba(0,0,0,0.23);
+    }
+
+.radios {
+    display: grid;
+    grid-gap: 30px;
+    background-color: #fafafa;
+    color: #444;
+    width: 80%;
+    margin: auto;
+}
+
+@media (min-width: 600px) {
+    .radios {
+        grid-template-columns: 40% 40%;
+    }
+}
+
+@media (min-width: 900px) {
+    .radios {
+        grid-template-columns: 30% 30% 30%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .radios {
+        grid-template-columns: 22% 22% 22% 22%;
+    }
+}
+
+@media (min-width: 1400px) {
+    .radios {
+        grid-template-columns: 15% 15% 15% 15% 15% 15%;
+    }
+}
+
+
+.radio, .new-project {
+    background-color: white;
+    display: inline-block;
+    width: 100%;
+    height: 200px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    font-size: 150%;
+}
+
+.new-project {
+    background-color: rgb(80, 166, 155);
+    color: white;
+    padding: 20%;
+    font-size: 200%;
+    font-weight: 200
+}
+
+    .new-project:hover {
+        background-color: #e59a44;
+    }
+
+
+.radios input[type=radio] {
+    display: none;
+}
+
+    .radios input[type=radio]:checked + .radio {
+        background-color: #fff;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.12), 0 6px 12px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    }
+
+input[type=radio]:checked + .radio .label-inside-radio {
+    background-color: rgb(229,154,68);
+}
+
+
+
+.importbutton {
+    background-color: #D3D3D3;
+    border: none;
+    color: #686868;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 10%;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+    .importbutton:hover {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
+
+.label-inside-radio {
+    background-color: rgb(75, 41, 111);
+    width: 100%;
+    height: 18%;
+    padding: 10px 10px;
+    text-align: left !important;
+    color: white;
+    font-weight: 600 !important;
+    font-size: 70%;
+}
+
+/* Absolute Center Spinner */
+.loading {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: visible;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+    /* Transparent Overlay */
+    .loading:before {
+        content: '';
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.3);
+    }
+
+    /* :not(:required) hides these rules from IE9 and below */
+    .loading:not(:required) {
+        /* hide "loading..." text */
+        /*font: 0/0 a;*/
+        color: transparent;
+        text-shadow: none;
+        background-color: transparent;
+        border: 0;
+    }
+
+        .loading:not(:required):after {
+            content: '';
+            display: block;
+            font-size: 10px;
+            width: 1em;
+            height: 1em;
+            margin-top: -0.5em;
+            -webkit-animation: spinner 1500ms infinite linear;
+            -moz-animation: spinner 1500ms infinite linear;
+            -ms-animation: spinner 1500ms infinite linear;
+            -o-animation: spinner 1500ms infinite linear;
+            animation: spinner 1500ms infinite linear;
+            border-radius: 0.5em;
+            -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) -1.5em 0 0 0, rgba(0, 0, 0, 0.5) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+            box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0, rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0, rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) -1.5em 0 0 0, rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0, rgba(0, 0, 0, 0.75) 0 -1.5em 0 0, rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+        }
+
+.main-project-selection {
+    display: flex;
+    font-size: 14px;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.left-project-selection {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    flex: 0 0 auto;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background-color: rgb(75, 41, 111);
+    width: 250px;
+    overflow: auto;
+    color: rgb(255, 255, 255);
+}
+
+.left-project-section {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.19);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.left-section-user {
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    height: 200px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0px 20px;
+}
+
+.left-section-user-info {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 10px;
+    height: 80px;
+}
+
+.left-section-user-icon {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(75, 41, 111);
+    margin-right: 20px;
+}
+
+.right-project-selection {
+    display: flex;
+    justify-content: center;
+    flex: 1 1 0%;
+    width: 100%;
+}
+
+.right-logout-button {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.19);
+    border: 0px;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    min-height: 30px;
+    min-width: 100px;
+    margin: 10px;
+    padding: 0px 10px;
+    transition: all 0.2s ease 0s;
+    border-radius: 3px;
+    opacity: 1;
+    cursor: pointer;
+    width:100%;
+}
+
+    .right-logout-button:hover {
+        background-color: #f5a637
+    }
+
+    .right-logout-button:active {
+        background-color: rgb(80, 166, 155)
+    }
+
+/* Animation */
+@-webkit-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes blink {
+    /**
+     * At the start of the animation the dot
+     * has an opacity of .2
+     */
+    0% {
+        opacity: .2;
+    }
+    /**
+     * At 20% the dot is fully visible and
+     * then fades out slowly
+     */
+    20% {
+        opacity: 1;
+    }
+    /**
+     * Until it reaches an opacity of .2 and
+     * the animation can start again
+     */
+    100% {
+        opacity: .2;
+    }
+}
+
+.saving span {
+    /**
+     * Use the blink animation, which is defined above
+     */
+    animation-name: blink;
+    /**
+     * The animation should take 1.4 seconds
+     */
+    animation-duration: 1.4s;
+    /**
+     * It will repeat itself forever
+     */
+    animation-iteration-count: infinite;
+    /**
+     * This makes sure that the starting style (opacity: .2)
+     * of the animation is applied before the animation starts.
+     * Otherwise we would see a short flash or would have
+     * to set the default styling of the dots to the same
+     * as the animation. Same applies for the ending styles.
+     */
+    animation-fill-mode: both;
+}
+
+    .saving span:nth-child(2) {
+        /**
+     * Starts the animation of the third dot
+     * with a delay of .2s, otherwise all dots
+     * would animate at the same time
+     */
+        animation-delay: .2s;
+    }
+
+    .saving span:nth-child(3) {
+        /**
+     * Starts the animation of the third dot
+     * with a delay of .4s, otherwise all dots
+     * would animate at the same time
+     */
+        animation-delay: .4s;
+    }
+
+:root {
+    --borderWidth: 7px;
+    --height: 24px;
+    --width: 12px;
+    --borderColor: #78b13f;
+}
+
+
+.check {
+    display: inline-block;
+    transform: rotate(45deg);
+    height: var(--height);
+    width: var(--width);
+    border-bottom: var(--borderWidth) solid var(--borderColor);
+    border-right: var(--borderWidth) solid var(--borderColor);
+    margin-left: 15px;
+}

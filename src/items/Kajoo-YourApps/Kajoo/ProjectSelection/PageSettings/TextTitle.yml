@@ -1,0 +1,39 @@
+﻿---
+ID: "d3aecc6b-4f32-4c29-bdb2-8d5e2daa2e8c"
+Parent: "6f5c5381-cd57-4013-b5b8-c56875aa33dc"
+Template: "f68271f5-a737-4074-81bd-0e9d3064828c"
+Path: /sitecore/client/Your Apps/Kajoo/ProjectSelection/PageSettings/TextTitle
+BranchID: "afe4620b-9880-4cc8-bc24-dc2657a043b4"
+SharedFields:
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{ABEBD77E-54A0-42FD-AB6A-2D161FEE1A69}"
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200520T170340Z
+    - ID: "2d028a16-aa3f-437f-a769-284894942747"
+      Hint: Text
+      Value: Sitecore Instance Registration
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "b337fb99-e72a-47db-8e39-70d45bb1da0f"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20201117T191037Z

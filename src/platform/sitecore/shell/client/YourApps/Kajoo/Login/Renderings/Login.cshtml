@@ -1,0 +1,52 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Presentation
+@using Sitecore.Web.UI.Controls.Common.UserControls
+@model RenderingModel
+@{
+    var rendering = Html.Sitecore().Controls().GetUserControl(Model.Rendering);
+    rendering.Class = "sc-Login";
+    rendering.Requires.Script("client", "Login.js");
+    rendering.Requires.Script("client", "TokenValidation.js");
+
+    //Rendering parameters
+    rendering.GetString("responseapi", "responseapi");
+
+    var htmlAttributes = rendering.HtmlAttributes;
+}
+<script type="text/javascript">
+    var authEndpoint = '@Sitecore.Configuration.Settings.GetSetting("KAJOO:AuthEndpoint")';
+    var authorityUrl = '@Sitecore.Configuration.Settings.GetSetting("KAJOO:Authority")';
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/8.0.20/jsrsasign-all-min.js"></script>
+
+<div @htmlAttributes>
+    <div class="wrapper fadeInDown">
+        <div id="formContent" style="margin-top:70px; display: none">
+            <!-- Tabs Titles -->
+            <div style="display:flex">
+                <!-- Icon -->
+                <div class="fadeIn first" style="width: 61%; text-align:right; padding-top: 20px; margin-bottom: 20px">
+                    <img id="login-icon" src="~/sitecore/Shell/client/YourApps/Kajoo/Login/Assets/images/kajoostandardlogo.png" style="width:200px; margin-left:45%; padding-top: 30px" />
+                </div>
+            </div>
+            <div style="padding-bottom:20px">
+                <strong>
+                    <span data-bind="text:responseapi,style:{color:'red'}"></span>
+                </strong>
+            </div>
+            <!-- Icon -->
+            <div style="width: 90%; margin-top:10px">
+                <h2 class="active" style="margin-left:3em;"> Sign In </h2>
+            </div>
+            <!-- Login Form -->
+            <form id="formLoginFull">
+                <div id="formLogin">
+                    <input type="email" id="email" class="fadeIn second" name="username" placeholder="email" required>
+                    <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" required>
+                    <input type="submit" class="fadeIn fourth" value="LogIn" id="loginbutton" style="margin-top:30px">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

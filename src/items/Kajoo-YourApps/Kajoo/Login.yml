@@ -1,0 +1,89 @@
+﻿---
+ID: "562ec073-cd4a-47f7-aef8-93a12f3ee24b"
+Parent: "a48f33c8-0c29-4f56-a4b5-98c9bcdaf3ad"
+Template: "b11afccd-c286-4384-b694-4465d6c605de"
+Path: /sitecore/client/Your Apps/Kajoo/Login
+SharedFields:
+- ID: "3a67ad0f-9530-4b1b-9b70-9230c36ae8d6"
+  Hint: UseFullWidth
+  Value: 
+- ID: "5e642935-a6fc-48e9-b039-fe1136ced488"
+  Hint: Theme
+  Value: Harvard
+- ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
+  Hint: __Renderings
+  Value: |
+    <r>
+      <d
+        id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
+        l="{5A7CF08C-3647-4F56-B189-9E8C0531FBAF}">
+        <r
+          id="{DAFAFFB8-74AF-4141-A96A-70B16834CEC6}"
+          par="SpeakCoreVersion=%7b3F937240-C16E-4229-9641-4CE5B4CB4ABA%7d"
+          ph="Page.Code"
+          uid="{81914AAB-FA43-433A-A785-15A752560AB5}" />
+        <r
+          id="{78D8260C-4FF9-4627-BF64-0B884ACA4BA1}"
+          ph="GlobalHeader"
+          uid="{2220C29E-607F-4516-A1C3-BB486D5A19D8}" />
+        <r
+          id="{0DD00367-0B7D-4955-BB70-397523711B6D}"
+          par="Id=AccountInformation"
+          ph="GlobalHeader.LoginInfo"
+          uid="{1CBA05A0-02AF-4CAD-AA2D-BFFC8A40E709}" />
+        <r
+          id="{7047D065-727D-481E-A196-B15FE77B0F9E}"
+          ph="Page.Body"
+          uid="{0D2685E7-B721-4367-8FDE-CCD103A12FC1}" />
+        <r
+          id="{C3C5CD25-DA72-4526-8FB8-24E712A0A649}"
+          ph="Content"
+          uid="{A3DEA4D4-9CDC-4C88-959D-A69EC67054A1}" />
+        <r
+          id="{C220369A-84A3-482B-A936-F75CDCB23736}"
+          par="Id=GlobalLogo"
+          ph="GlobalHeader.StartButton"
+          uid="{8482A810-09F1-4FFF-83E3-5AD59162CC15}" />
+        <r
+          id="{047F31EF-7D7D-42E5-BC9B-F39FEAB0B83B}"
+          ph="ApplicationHeader"
+          uid="{D485D507-5F0E-4513-AC5E-2BD43FB72C9B}" />
+        <r
+          id="{EFCD0AB0-5B9D-4F1D-AB81-BE0336CD273C}"
+          par="Id=TextTitle"
+          ph="ApplicationHeader.Title"
+          uid="{FDD58501-F465-4E10-B36E-E7CB83D593B6}" />
+      </d>
+    </r>
+- ID: "f7b4ebc1-2335-4eb8-afae-3444923a38be"
+  Hint: Subthemes
+  Value: 
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20200430T151329Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\admin
+    - ID: "7205a57f-93b4-413a-aa9a-6b16bbc59565"
+      Hint: BrowserTitle
+      Value: Login
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "05b440dc-7387-441a-ad76-341d2a3c0c83"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20200525T143316Z

@@ -1,0 +1,36 @@
+{
+    "$schema": "../.sitecore/schemas/ModuleFile.schema.json",
+    "namespace": "Kajoo",
+    "items": {
+        "includes": [
+            {
+                "name": "Kajoo-ContentResolvers",
+                "allowedPushOperations": "CreateOnly",
+                "path": "/sitecore/system/Modules/Layout Service/Rendering Contents Resolvers/Kajoo",
+                "database": "master",
+                "scope": "ItemAndDescendants"
+            },
+            {
+                "name": "Kajoo-YourApps",
+                "allowedPushOperations": "CreateOnly",
+                "database": "core",
+                "path": "/sitecore/client/Your Apps/Kajoo",
+                "scope": "itemAndDescendants"
+            },
+            {
+                "name": "Kajoo-LaunchpadApps",
+                "allowedPushOperations": "CreateOnly",
+                "database": "core",
+                "path": "/sitecore/client/Applications/Launchpad/PageSettings/Buttons/Kajoo",
+                "scope": "itemAndDescendants"
+            },
+            {
+                "name": "Kajoo-DocumentsAndSettings",
+                "allowedPushOperations": "CreateOnly",
+                "database": "core",
+                "path": "/sitecore/content/Documents and settings/All users/Start menu/Right/Kajoo",
+                "scope": "itemAndDescendants"
+            }
+        ]
+    }
+}
