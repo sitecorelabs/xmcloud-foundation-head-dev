@@ -24,13 +24,6 @@
           },
           "reindex": {
             "indexNames": []
-          },
-          "publish": {
-            "path": "",
-            "languages": [],
-            "itemIds": [],
-            "targets": [],
-            "republish": true
           }
         }
     }
