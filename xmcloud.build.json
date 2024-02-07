@@ -6,8 +6,6 @@
         "jssDeploymentSecret": "110F1C44A496B45478640DD36F80C18C9",
         "enabled": true,
         "type": "sxa",
-        "lintCommand": "lint",
-        "startCommand": "start:production",
         "buildCommand": "build",
         "runCommand": "next:start"
       }
@@ -26,6 +24,13 @@
           },
           "reindex": {
             "indexNames": []
+          },
+          "publish": {
+            "path": "",
+            "languages": [],
+            "itemIds": [],
+            "targets": [],
+            "republish": true
           }
         }
     }
