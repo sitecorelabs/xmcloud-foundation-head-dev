@@ -19,6 +19,11 @@ if (Test-Path $modulesPath) {
 }
 
 Copy-Item -Path (Join-Path $PSScriptRoot "modules_template") -Destination $modulesPath -Recurse -Force
+
+$sitecoreJson = Get-Content "sitecore.json" | ConvertFrom-Json
+$defaultSerializationPath = $sitecoreJson.serialization.defaultModuleRelativeSerializationPath
+if ($defaultSerializationPath -ne 'items') {Rename-Item -Path (Join-Path $PSScriptRoot "modules\items") -NewName $defaultSerializationPath}
+
 Copy-Item -Path ".\.sitecore"  -Destination $PSScriptRoot -Recurse -Force
 $files = Get-ChildItem -Path $modulesPath -Recurse -File | ForEach-Object {$_.FullName}
 foreach ($item in $files) {
