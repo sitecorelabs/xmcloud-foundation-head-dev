@@ -1,4 +1,7 @@
-﻿# may contain OAuth secrets, do not commit
+﻿# ignore the license file
+license.xml
+
+# may contain OAuth secrets, do not commit
 .sitecore/user.json
 
 # NuGet cache for Sitecore CLI

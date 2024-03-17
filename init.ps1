@@ -4,10 +4,10 @@ Param (
         ParameterSetName = "env-init")]
     [switch]$InitEnv,
 
-    [Parameter(Mandatory = $true,
+    [Parameter(Mandatory = $false,
         HelpMessage = "The path to a valid Sitecore license.xml file.",
         ParameterSetName = "env-init")]
-    [string]$LicenseXmlPath,
+    [string]$LicenseXmlPath =".\license\license.xml",
 
     # We do not need to use [SecureString] here since the value will be stored unencrypted in .env,
     # and used only for transient local development environments.
