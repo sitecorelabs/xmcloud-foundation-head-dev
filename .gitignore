@@ -73,7 +73,6 @@ packages/
 /src/rendering/**/.env.local
 /src/rendering/**/.env.*.local
 /src/rendering/**/*.log*
-/src/rendering/.vercel
 /src/rendering/src/temp/*
 /src/rendering/src/temp/!.gitignore
 /src/rendering/src/temp/!GraphQLFragmentTypes.json
