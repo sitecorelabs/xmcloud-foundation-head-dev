@@ -27,4 +27,4 @@ For developers new to XM Cloud you can follow the Getting Started Guide on the [
 ## Disconnected offline development
 It is possible to mock a small subset of the XM Cloud Application elements to enable offline development. This can allow for a disconnected development experience, however it is recommend to work in the default connected mode.
 
-You can find more information about how setup the offline development experience [here](./localcontainers/README.md)
+You can find more information about how setup the offline development experience [here](./localContainers/README.md)
