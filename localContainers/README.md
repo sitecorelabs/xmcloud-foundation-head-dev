@@ -6,6 +6,9 @@ Below are the instructions for how to mock a small subset of the XM Cloud Applic
 - Docker (https://www.docker.com/products/docker-desktop)
 - A windows based machine is required to run the local containers
 
+## Base Image Versions  
+The containers configured here are setup to use the latest LTSC base container version released by Microsoft. If you are running a BaseOS that isn't compatible, you will need to ammend the `./localContainers/.env` file and use the `baseOs` parameter when running the `./localContainers/scripts/init.ps1` script. You can read more about the different base container versions on the [Microsoft Learn Site](https://learn.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2022%2Cwindows-11)
+
 ## Running the Containers
 A number of PowerShell scripts have been provided to help you configure the repository and interact with the containers. These scripts are located in the `./localContainers/scripts` folder.
 

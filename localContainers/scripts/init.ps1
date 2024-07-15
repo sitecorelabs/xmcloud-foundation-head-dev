@@ -18,7 +18,7 @@ Param (
 
     [Parameter(Mandatory = $false, HelpMessage = "Specifies os version of the base image.")]
     [ValidateSet("ltsc2019", "ltsc2022")]
-    [string]$baseOs = "ltsc2019"
+    [string]$baseOs = "ltsc2022"
 )
 
 $ErrorActionPreference = "Stop";
