@@ -1,10 +1,16 @@
 $ErrorActionPreference = "Stop";
 
-. .\upFunctions.ps1
+# Set the root of the repository
+$RepoRoot = Resolve-Path "$PSScriptRoot\..\.."
 
-Validate-LicenseExpiry -EnvFileName "../.env"
+# Store the location of the .env file
+$envFileLocation = "$RepoRoot/localContainers/.env"
 
-$envContent = Get-Content "../.env" -Encoding UTF8
+. $RepoRoot\localContainers\scripts\upFunctions.ps1
+
+Validate-LicenseExpiry -EnvFileName $envFileLocation
+
+$envContent = Get-Content $envFileLocation -Encoding UTF8
 $xmCloudHost = $envContent | Where-Object { $_ -imatch "^CM_HOST=.+" }
 $sitecoreDockerRegistry = $envContent | Where-Object { $_ -imatch "^SITECORE_DOCKER_REGISTRY=.+" }
 $sitecoreVersion = $envContent | Where-Object { $_ -imatch "^SITECORE_VERSION=.+" }
@@ -28,10 +34,10 @@ if ($ClientCredentialsLogin -eq "true") {
 }
 
 #set nuget version
-$xmCloudBuild = Get-Content "../../xmcloud.build.json" | ConvertFrom-Json
+$xmCloudBuild = Get-Content "$RepoRoot/xmcloud.build.json" | ConvertFrom-Json
 $nodeVersion = $xmCloudBuild.renderingHosts.nextjsStarter.nodeVersion
 if (![string]::IsNullOrWhitespace($nodeVersion)) {
-    Set-EnvFileVariable "NODEJS_VERSION" -Value $xmCloudBuild.renderingHosts.nextjsStarter.nodeVersion -Path "../.env"
+    Set-EnvFileVariable "NODEJS_VERSION" -Value $xmCloudBuild.renderingHosts.nextjsStarter.nodeVersion -Path $envFileLocation
 }
 
 # Double check whether init has been run
@@ -49,7 +55,7 @@ docker pull "$($xmcloudDockerToolsImage):$($sitecoreVersion)"
 
 # Moving into the Local Containers Folder
 Write-Host "Moving location into Local Containers folder..." -ForegroundColor Green
-Push-Location ".."
+Push-Location $RepoRoot\localContainers
 
 # Build all containers in the Sitecore instance, forcing a pull of latest base containers
 Write-Host "Building containers..." -ForegroundColor Green
@@ -122,7 +128,7 @@ Write-Host "Pushing Default rendering host configuration" -ForegroundColor Green
 dotnet sitecore ser push -i RenderingHost
 
 Write-Host "Pushing sitecore API key" -ForegroundColor Green 
-& ..\docker\build\cm\templates\import-templates.ps1 -RenderingSiteName "NextJs-Starter" -SitecoreApiKey $sitecoreApiKey
+& $RepoRoot\localContainers\docker\build\cm\templates\import-templates.ps1 -RenderingSiteName "NextJs-Starter" -SitecoreApiKey $sitecoreApiKey
 
 if ($ClientCredentialsLogin -ne "true") {
     Write-Host "Opening site..." -ForegroundColor Green

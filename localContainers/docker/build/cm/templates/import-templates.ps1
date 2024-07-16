@@ -18,8 +18,12 @@ if (Test-Path $modulesPath) {
     Remove-Item $modulesPath -Recurse -Force
 }
 
+# Set the root of the repository
+$RepoRoot = Resolve-Path "$PSScriptRoot\..\..\..\..\.."
+Write-Host @RepoRoot
+
 Copy-Item -Path (Join-Path $PSScriptRoot "modules_template") -Destination $modulesPath -Recurse -Force
-Copy-Item -Path "..\..\.sitecore"  -Destination $PSScriptRoot -Recurse -Force
+Copy-Item -Path "$RepoRoot\.sitecore"  -Destination $PSScriptRoot -Recurse -Force
 $files = Get-ChildItem -Path $modulesPath -Recurse -File | ForEach-Object {$_.FullName}
 foreach ($item in $files) {
     (Get-Content -Path $item -Encoding UTF8).Replace("<SITENAME>", $RenderingSiteName).Replace("<SITECORE-API-KEY>", $SitecoreApiKey) `
@@ -27,7 +31,6 @@ foreach ($item in $files) {
 }
 
 $localConfig = (Join-Path $PSScriptRoot "sitecore.json")
-ReplaceExistingModules -srcConfig "..\..\sitecore.json" -dstConfig $localConfig
+ReplaceExistingModules -srcConfig "$RepoRoot\sitecore.json" -dstConfig $localConfig
 Write-Host "Pushing sitecore api key to Sitecore..." -ForegroundColor Green
 dotnet sitecore ser push -s --config $PSScriptRoot
-
