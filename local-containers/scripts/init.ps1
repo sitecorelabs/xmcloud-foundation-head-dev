@@ -68,7 +68,7 @@ Write-SitecoreDockerWelcome
 # Configure TLS/HTTPS certificates
 ##################################
 
-Push-Location $RepoRoot\localContainers\docker\traefik\certs
+Push-Location $RepoRoot\local-containers\docker\traefik\certs
 try {
     $mkcert = ".\mkcert.exe"
     if ($null -ne (Get-Command mkcert.exe -ErrorAction SilentlyContinue)) {
@@ -97,7 +97,7 @@ finally {
     Pop-Location
 }
 
-$envFileLocation = "$RepoRoot/localContainers/.env"
+$envFileLocation = "$RepoRoot/local-containers/.env"
 
 ################################
 # Add Windows hosts file entries
@@ -178,7 +178,7 @@ if ($InitEnv) {
 Write-Host "Done!" -ForegroundColor Green
 
 Pop-Location
-Push-Location $RepoRoot\localContainers\docker\traefik\certs
+Push-Location $RepoRoot\local-containers\docker\traefik\certs
 try
 {
     Write-Host

@@ -4,9 +4,9 @@ $ErrorActionPreference = "Stop";
 $RepoRoot = Resolve-Path "$PSScriptRoot\..\.."
 
 # Store the location of the .env file
-$envFileLocation = "$RepoRoot/localContainers/.env"
+$envFileLocation = "$RepoRoot/local-containers/.env"
 
-. $RepoRoot\localContainers\scripts\upFunctions.ps1
+. $RepoRoot\local-containers\scripts\upFunctions.ps1
 
 Validate-LicenseExpiry -EnvFileName $envFileLocation
 
@@ -55,7 +55,7 @@ docker pull "$($xmcloudDockerToolsImage):$($sitecoreVersion)"
 
 # Moving into the Local Containers Folder
 Write-Host "Moving location into Local Containers folder..." -ForegroundColor Green
-Push-Location $RepoRoot\localContainers
+Push-Location $RepoRoot\local-containers
 
 # Build all containers in the Sitecore instance, forcing a pull of latest base containers
 Write-Host "Building containers..." -ForegroundColor Green
@@ -128,7 +128,7 @@ Write-Host "Pushing Default rendering host configuration" -ForegroundColor Green
 dotnet sitecore ser push -i RenderingHost
 
 Write-Host "Pushing sitecore API key" -ForegroundColor Green 
-& $RepoRoot\localContainers\docker\build\cm\templates\import-templates.ps1 -RenderingSiteName "NextJs-Starter" -SitecoreApiKey $sitecoreApiKey
+& $RepoRoot\local-containers\docker\build\cm\templates\import-templates.ps1 -RenderingSiteName "NextJs-Starter" -SitecoreApiKey $sitecoreApiKey
 
 if ($ClientCredentialsLogin -ne "true") {
     Write-Host "Opening site..." -ForegroundColor Green
