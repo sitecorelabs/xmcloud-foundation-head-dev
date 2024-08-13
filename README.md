@@ -15,10 +15,10 @@ For developers new to XM Cloud you can follow the Getting Started Guide on the [
 - Log into the Sitecore XM Cloud Deploy Portal, locate your Environment and select the `Developer Settings` tab.
 - Ensure that the `Preview` toggle is enabled.
 - In the `Local Development` section, click to copy the sample `.env` file contents to your clipboard.
-- Create a new `.env.local` file in the `./headapps/nextjs-starter/app` folder of this repository and paste the contents from your clipboard.
+- Create a new `.env.local` file in the `./headapps/nextjs-starter` folder of this repository and paste the contents from your clipboard.
 - Run the following commands in the root of the repository to start the NextJs application:
     ```bash
-    cd headapps/nextjs-starter/app
+    cd headapps/nextjs-starter
     npm install
     npm run start:connected
     ```
