@@ -123,6 +123,14 @@ Set-EnvFileVariable "SITECORE_API_KEY_xmcloudpreview" -Value $sitecoreApiKey
 $jssEditingSecret = Get-SitecoreRandomString 64 -DisallowSpecial
 Set-EnvFileVariable "JSS_EDITING_SECRET" -Value $jssEditingSecret
 
+#######################################
+# Create .env.local file if needed
+#######################################
+$LocalEnvPath = ".\.env.local"
+if (-not (Test-Path $LocalEnvPath)) {
+    New-Item $LocalEnvPath
+}
+
 ###############################
 # Populate the environment file
 ###############################
@@ -132,41 +140,48 @@ if ($InitEnv) {
     Write-Host "Populating required .env file values..." -ForegroundColor Green
 
     # HOST_LICENSE_FOLDER
-    Set-EnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath
+    Set-EnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath -Path $LocalEnvPath
 
     # CM_HOST
-    Set-EnvFileVariable "CM_HOST" -Value "xmcloudcm.localhost"
+    Set-EnvFileVariable "CM_HOST" -Value "xmcloudcm.localhost" -Path $LocalEnvPath
 
     # RENDERING_HOST
-    Set-EnvFileVariable "RENDERING_HOST" -Value "www.sxastarter.localhost"
+    Set-EnvFileVariable "RENDERING_HOST" -Value "www.sxastarter.localhost" -Path $LocalEnvPath
 
     # REPORTING_API_KEY = random 64-128 chars
-    Set-EnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial)
+    Set-EnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial) -Path $LocalEnvPath
 
     # TELERIK_ENCRYPTION_KEY = random 64-128 chars
-    Set-EnvFileVariable "TELERIK_ENCRYPTION_KEY" -Value (Get-SitecoreRandomString 128)
+    Set-EnvFileVariable "TELERIK_ENCRYPTION_KEY" -Value (Get-SitecoreRandomString 128) -Path $LocalEnvPath
 
     # MEDIA_REQUEST_PROTECTION_SHARED_SECRET
-    Set-EnvFileVariable "MEDIA_REQUEST_PROTECTION_SHARED_SECRET" -Value (Get-SitecoreRandomString 64)
+    Set-EnvFileVariable "MEDIA_REQUEST_PROTECTION_SHARED_SECRET" -Value (Get-SitecoreRandomString 64) -Path $LocalEnvPath
 
     # SQL_SA_PASSWORD
     # Need to ensure it meets SQL complexity requirements
-    Set-EnvFileVariable "SQL_SA_PASSWORD" -Value (Get-SitecoreRandomString 19 -DisallowSpecial -EnforceComplexity)
+    Set-EnvFileVariable "SQL_SA_PASSWORD" -Value (Get-SitecoreRandomString 19 -DisallowSpecial -EnforceComplexity) -Path $LocalEnvPath
 
     # SQL_SERVER
-    Set-EnvFileVariable "SQL_SERVER" -Value "mssql"
+    Set-EnvFileVariable "SQL_SERVER" -Value "mssql" -Path $LocalEnvPath
 
     # SQL_SA_LOGIN
-    Set-EnvFileVariable "SQL_SA_LOGIN" -Value "sa"
+    Set-EnvFileVariable "SQL_SA_LOGIN" -Value "sa" -Path $LocalEnvPath
 
     # SITECORE_ADMIN_PASSWORD
-    Set-EnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value $AdminPassword
+    Set-EnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value $AdminPassword -Path $LocalEnvPath
 
     # SITECORE_VERSION
-    Set-EnvFileVariable "SITECORE_VERSION" -Value "1-$baseOS"
+    Set-EnvFileVariable "SITECORE_VERSION" -Value "1-$baseOS" -Path $LocalEnvPath
 
     # EXTERNAL_IMAGE_TAG_SUFFIX
-    Set-EnvFileVariable "EXTERNAL_IMAGE_TAG_SUFFIX" -Value $baseOS
+    Set-EnvFileVariable "EXTERNAL_IMAGE_TAG_SUFFIX" -Value $baseOS -Path $LocalEnvPath
+
+    #set node version
+    $xmCloudBuild = Get-Content "xmcloud.build.json" | ConvertFrom-Json
+    $nodeVersion = $xmCloudBuild.renderingHosts.xmcloudpreview.nodeVersion
+    if (![string]::IsNullOrWhitespace($nodeVersion)) {
+        Set-EnvFileVariable "NODEJS_VERSION" -Value $xmCloudBuild.renderingHosts.xmcloudpreview.nodeVersion
+    }
 }
 
 Write-Host "Done!" -ForegroundColor Green

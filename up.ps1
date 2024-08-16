@@ -2,12 +2,13 @@ $ErrorActionPreference = "Stop";
 
 . .\upFunctions.ps1
 
-Validate-LicenseExpiry
+Validate-LicenseExpiry -EnvFileName ".env.local"
 
 $envContent = Get-Content .env -Encoding UTF8
-$xmCloudHost = $envContent | Where-Object { $_ -imatch "^CM_HOST=.+" }
+$envLocalContent = Get-Content .env.local -Encoding UTF8
+$xmCloudHost = $envLocalContent | Where-Object { $_ -imatch "^CM_HOST=.+" }
 $sitecoreDockerRegistry = $envContent | Where-Object { $_ -imatch "^SITECORE_DOCKER_REGISTRY=.+" }
-$sitecoreVersion = $envContent | Where-Object { $_ -imatch "^SITECORE_VERSION=.+" }
+$sitecoreVersion = $envLocalContent | Where-Object { $_ -imatch "^SITECORE_VERSION=.+" }
 $ClientCredentialsLogin = $envContent | Where-Object { $_ -imatch "^SITECORE_FedAuth_dot_Auth0_dot_ClientCredentialsLogin=.+" }
 $sitecoreApiKey = ($envContent | Where-Object { $_ -imatch "^SITECORE_API_KEY_xmcloudpreview=.+" }).Split("=")[1]
 $xmcloudDockerToolsImage = ($envContent | Where-Object { $_ -imatch "^TOOLS_IMAGE=.+" }).Split("=")[1]
@@ -27,16 +28,10 @@ if ($ClientCredentialsLogin -eq "true") {
 	$xmCloudClientCredentialsLoginClientSecret = $xmCloudClientCredentialsLoginClientSecret.Split("=")[1]
 }
 
-#set nuget version
-$xmCloudBuild = Get-Content "xmcloud.build.json" | ConvertFrom-Json
-$nodeVersion = $xmCloudBuild.renderingHosts.xmcloudpreview.nodeVersion
-if (![string]::IsNullOrWhitespace($nodeVersion)) {
-    Set-EnvFileVariable "NODEJS_VERSION" -Value $xmCloudBuild.renderingHosts.xmcloudpreview.nodeVersion
-}
-
 # Double check whether init has been run
+$envPath = ".env.local";
 $envCheckVariable = "HOST_LICENSE_FOLDER"
-$envCheck = $envContent | Where-Object { $_ -imatch "^$envCheckVariable=.+" }
+$envCheck = $envLocalContent | Where-Object { $_ -imatch "^$envCheckVariable=.+" }
 if (-not $envCheck) {
     throw "$envCheckVariable does not have a value. Did you run 'init.ps1 -InitEnv'?"
 }
@@ -49,14 +44,14 @@ docker pull "$($xmcloudDockerToolsImage):$($sitecoreVersion)"
 
 # Build all containers in the Sitecore instance, forcing a pull of latest base containers
 Write-Host "Building containers..." -ForegroundColor Green
-docker compose build
+docker compose --env-file .env --env-file .env.local build
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Container build failed, see errors above."
 }
 
 # Start the Sitecore instance
 Write-Host "Starting Sitecore environment..." -ForegroundColor Green
-docker compose up -d
+docker compose --env-file .env --env-file .env.local up -d
 
 # Wait for Traefik to expose CM route
 Write-Host "Waiting for CM to become available..." -ForegroundColor Green
