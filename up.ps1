@@ -1,3 +1,7 @@
+# Stop the IIS
+Write-Host "Stopping IIS..." -ForegroundColor Yellow
+iisreset.exe /stop
+
 $ErrorActionPreference = "Stop";
 
 . .\upFunctions.ps1
