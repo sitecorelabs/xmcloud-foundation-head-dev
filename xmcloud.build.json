@@ -1,6 +1,6 @@
 {
     "renderingHosts": {
-      "nextjsStarter": {
+      "nextjsstarter": {
         "path": "./headapps/nextjs-starter",
         "nodeVersion": "20.14.0",
         "jssDeploymentSecret": "110F1C44A496B45478640DD36F80C18C9",
