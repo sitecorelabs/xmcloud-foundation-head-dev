@@ -112,7 +112,7 @@ Add-HostsEntry "www.nextjs-starter.localhost"
 # Generate scjssconfig
 ###############################
 
-Set-EnvFileVariable "SITECORE_API_KEY_NEXTJS_STARTER" -Value $xmCloudBuild.renderingHosts.nextjsStarter.jssDeploymentSecret -Path $envFileLocation
+Set-EnvFileVariable "SITECORE_API_KEY_NEXTJS_STARTER" -Value $xmCloudBuild.renderingHosts.nextjsstarter.jssDeploymentSecret -Path $envFileLocation
 
 ################################
 # Generate Sitecore Api Key

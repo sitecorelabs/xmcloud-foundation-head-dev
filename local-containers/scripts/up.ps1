@@ -35,9 +35,9 @@ if ($ClientCredentialsLogin -eq "true") {
 
 #set nuget version
 $xmCloudBuild = Get-Content "$RepoRoot/xmcloud.build.json" | ConvertFrom-Json
-$nodeVersion = $xmCloudBuild.renderingHosts.nextjsStarter.nodeVersion
+$nodeVersion = $xmCloudBuild.renderingHosts.nextjsstarter.nodeVersion
 if (![string]::IsNullOrWhitespace($nodeVersion)) {
-    Set-EnvFileVariable "NODEJS_VERSION" -Value $xmCloudBuild.renderingHosts.nextjsStarter.nodeVersion -Path $envFileLocation
+    Set-EnvFileVariable "NODEJS_VERSION" -Value $xmCloudBuild.renderingHosts.nextjsstarter.nodeVersion -Path $envFileLocation
 }
 
 # Double check whether init has been run
