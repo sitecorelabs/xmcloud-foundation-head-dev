@@ -1,0 +1,5 @@
+packages:
+  # headless apps
+  - 'headapps/**'
+  # reusable packages, not present out of box
+  - 'packages/*'
