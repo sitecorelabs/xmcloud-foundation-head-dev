@@ -6,7 +6,32 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular": {
+    "angular-e2e": {
+      "root": "",
+      "sourceRoot": "",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "./protractor.conf.js",
+            "devServerTarget": "sitecore-jss-app:serve"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/angular-eslint",
+          "options": {
+            "tsConfig": [
+              "e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "sitecore-jss-app": {
       "architect": {
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
@@ -72,7 +97,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular:build"
+            "browserTarget": "sitecore-jss-app:build"
           }
         },
         "lint": {
@@ -87,13 +112,13 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "angular:build",
+            "browserTarget": "sitecore-jss-app:build",
             "port": 3000,
             "proxyConfig": "proxy.conf.js"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular:build:production"
+              "browserTarget": "sitecore-jss-app:build:production"
             }
           }
         },
@@ -147,31 +172,6 @@
       "projectType": "application",
       "root": ".",
       "sourceRoot": "src"
-    },
-    "angular-e2e": {
-      "root": "",
-      "sourceRoot": "",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "angular:serve"
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/angular-eslint",
-          "options": {
-            "tsConfig": [
-              "e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
     }
   },
   "schematics": {

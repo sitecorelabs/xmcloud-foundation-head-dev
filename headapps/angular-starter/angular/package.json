@@ -1,9 +1,9 @@
 {
-  "name": "angular",
-  "version": "22.2.0-canary",
+  "name": "sitecore-jss-app",
+  "version": "22.3.0-canary",
   "description": "Application utilizing Sitecore JavaScript Services and Angular (angular-cli).",
   "config": {
-    "appName": "angular",
+    "appName": "sitecore-jss-app",
     "buildArtifactsPath": "./dist",
     "graphQLEndpointPath": "/sitecore/api/graph/edge",
     "language": "en",
@@ -22,12 +22,12 @@
     "bootstrap": "ts-node --project src/tsconfig.webpack-server.json scripts/bootstrap.ts",
     "build": "npm-run-all --serial bootstrap build:client build:server",
     "build:client": "cross-env-shell ng build --configuration=production --base-href $npm_package_config_sitecoreDistPath/browser/ --output-path=$npm_package_config_buildArtifactsPath/browser/",
-    "build:server": "cross-env-shell ng run angular:server:production --output-path=$npm_package_config_buildArtifactsPath",
+    "build:server": "cross-env-shell ng run sitecore-jss-app:server:production --output-path=$npm_package_config_buildArtifactsPath",
     "e2e": "ng e2e",
     "graphql:update": "ts-node --project src/tsconfig.webpack-server.json ./scripts/update-graphql-fragment-data.ts",
     "install-pre-push-hook": "ts-node --project src/tsconfig.webpack-server.json ./scripts/install-pre-push-hook.ts",
     "jss": "jss",
-    "lint": "ng lint angular --fix",
+    "lint": "ng lint sitecore-jss-app --fix",
     "ng": "ng",
     "postbuild:server": "npm-run-all --serial prepare:build prepare:proxy-build",
     "prepare:build": "move-cli ./dist/main.js ./dist/server.bundle.js",
@@ -35,7 +35,7 @@
     "scaffold": "ng generate @sitecore-jss/sitecore-jss-angular-schematics:jss-component --no-manifest",
     "start:angular": "ng serve -o",
     "start:connected": "npm-run-all --serial bootstrap start:angular start:watch-components",
-    "start:watch-components": "ts-node --project src/tsconfig.webpack-server.json scripts/generate-component-factory.ts --watch"
+    "start:watch-components": "ts-node --project src/tsconfig.webpack-server.json scripts/generate-component-factory/index.ts --watch"
   },
   "private": true,
   "author": {
@@ -52,6 +52,7 @@
   "homepage": "https://jss.sitecore.com",
   "license": "Apache-2.0",
   "dependencies": {
+    "reflect-metadata": "0.2.2",
     "@angular/animations": "~17.3.11",
     "@angular/common": "~17.3.11",
     "@angular/compiler": "~17.3.11",
@@ -64,7 +65,9 @@
     "@apollo/client": "^3.3.12",
     "@ngx-translate/core": "~15.0.0",
     "@ngx-translate/http-loader": "~8.0.0",
-    "@sitecore-jss/sitecore-jss-angular": "~22.2.0-canary",
+    "@sitecore-cloudsdk/core": "^0.4.0-rc.0",
+    "@sitecore-cloudsdk/events": "^0.4.0-rc.0",
+    "@sitecore-jss/sitecore-jss-angular": "~22.3.0-canary",
     "apollo-angular": "~6.0.0",
     "bootstrap": "^5.3.3",
     "core-js": "~3.37.1",
@@ -78,7 +81,6 @@
     "zone.js": "~0.14.7"
   },
   "devDependencies": {
-    "reflect-metadata": "^0.2.2",
     "@angular-builders/custom-webpack": "^17.0.2",
     "@angular-devkit/build-angular": "^17.3.8",
     "@angular-eslint/builder": "^17.5.2",
@@ -89,9 +91,9 @@
     "@angular/cli": "~17.3.8",
     "@angular/compiler-cli": "~17.3.11",
     "@angular/language-service": "~17.3.11",
-    "@sitecore-jss/sitecore-jss-angular-schematics": "~22.2.0-canary",
-    "@sitecore-jss/sitecore-jss-cli": "~22.2.0-canary",
-    "@sitecore-jss/sitecore-jss-dev-tools": "~22.2.0-canary",
+    "@sitecore-jss/sitecore-jss-angular-schematics": "~22.3.0-canary",
+    "@sitecore-jss/sitecore-jss-cli": "~22.3.0-canary",
+    "@sitecore-jss/sitecore-jss-dev-tools": "~22.3.0-canary",
     "@types/jasmine": "~3.6.7",
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "~20.14.10",
@@ -118,7 +120,7 @@
     "karma-jasmine": "~4.0.1",
     "karma-jasmine-html-reporter": "~1.5.4",
     "move-cli": "^2.0.0",
-    "npm-run-all2": "~6.2.3",
+    "npm-run-all2": "^6.0.0",
     "protractor": "^7.0.0",
     "ts-node": "~10.9.2",
     "typescript": "~5.2.2"

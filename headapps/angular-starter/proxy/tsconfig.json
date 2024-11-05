@@ -4,6 +4,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noFallthroughCasesInSwitch": true,
+    "rootDir": ".",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -15,11 +16,7 @@
     "downlevelIteration": true,
     "moduleResolution": "node",
     "isolatedModules": true,
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
-    "rootDir": ".",
-    "outDir": "./dist",
-    "paths": { "src/*": ["./src/*"] }
+    "allowSyntheticDefaultImports": true
   },
-  "exclude": ["node_modules", "dist", "build"]
+  "exclude": ["node_modules", "dist"]
 }

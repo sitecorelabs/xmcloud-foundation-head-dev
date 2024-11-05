@@ -6,7 +6,6 @@ import { debug } from '@sitecore-jss/sitecore-jss';
 import { editingRouter } from '@sitecore-jss/sitecore-jss-proxy';
 import { healthCheck } from '@sitecore-jss/sitecore-jss-proxy';
 import { config } from './config';
-import serverless from 'serverless-http';
 
 const server = express();
 
@@ -209,5 +208,3 @@ server.use(async (req, res) => {
 server.listen(config.port, () => {
   console.log(`server listening on port ${config.port}!`);
 });
-
-export const handler = serverless(server);
