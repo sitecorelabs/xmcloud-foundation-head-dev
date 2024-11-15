@@ -15,7 +15,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "sitecore-jss-app:serve"
+            "devServerTarget": "angular-starter:serve"
           }
         },
         "lint": {
@@ -31,7 +31,7 @@
         }
       }
     },
-    "sitecore-jss-app": {
+    "angular-starter": {
       "architect": {
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
@@ -97,7 +97,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sitecore-jss-app:build"
+            "browserTarget": "angular-starter:build"
           }
         },
         "lint": {
@@ -112,13 +112,13 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "sitecore-jss-app:build",
+            "browserTarget": "angular-starter:build",
             "port": 3000,
             "proxyConfig": "proxy.conf.js"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sitecore-jss-app:build:production"
+              "browserTarget": "angular-starter:build:production"
             }
           }
         },
