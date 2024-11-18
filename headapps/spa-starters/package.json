@@ -6,7 +6,7 @@
   "scripts": {
     "install-build": "pnpm install && pnpm build:angular",
     "install-all": "pnpm install",
-    "build:angular": "pnpm -F=sitecore-jss-app build",
+    "build:angular": "pnpm -F=angular-starter build",
     "start:angular": "pnpm -F=node-xmcloud-sample start"
   },
   "license": "ISC",

@@ -56,7 +56,7 @@ For more information on the Angular for xmcloud starter template and its feature
 - Log into the Sitecore XM Cloud Deploy Portal, locate your Environment and select the `Developer Settings` tab.
 - Ensure that the `Preview` toggle is enabled.
 - In the `Local Development` section, click to copy the sample `.env` file contents to your clipboard.
-- Create a new `.env.local` file in the `./headapps/spa-starters/angular` folder of this repository and paste the contents from your clipboard.
+- Open the `.env` file in the `./headapps/spa-starters/angular` folder and paste the contents from your clipboard.
 - From the `Local Development section` copy the value of the JSS_EDITING_SECRET env variable and paste it as the value of JSS_EDITING_SECRET in the `.env` file of the proxy app `./headapps/spa-starters/proxy`
 - Run the following commands in the root of the repository to start the NextJs application:
     ```bash
