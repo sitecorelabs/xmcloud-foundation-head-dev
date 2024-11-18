@@ -1,5 +1,6 @@
-# XM Cloud Next.js Starter Kit
+# XM Cloud Next.js and SPA Starter Kits
 This repository contains the Next.js Starter Kit for Sitecore XM Cloud Development. It is intended to get developers up and running quickly with a new Next.js project that is integrated with Sitecore XM Cloud.
+The repository also contains the Angular SPA + Node Proxy starter kit which at the moment is considered experimental.
 
 ## GitHub Template
 This Github repository is a template that can be used to create your own repository. To get started, click the `Use this template` button at the top of the repository. 
@@ -23,6 +24,9 @@ For developers new to XM Cloud you can follow the Getting Started Guide on the [
     npm run start:connected
     ```
 - You should now be able to access your site on `http://localhost:3000` and see your changes in real-time as you make them.
+
+### SPA Starters Monorepo and Angular SPA
+A new starter SPA based on Angular has been introduced with JSS v22.3.0. The Angular starter has been designed to be compatible with XM Cloud and should be used with the provided node XM Cloud proxy application to handle server-side rendering (SSR), data queries, personalization and more. For more details and information on how to run and deploy the Angular starter and proxy to XM Cloud have a look at [SPA starters monorepo](headapps/spa-starters/)
 
 ## Disconnected offline development
 It is possible to mock a small subset of the XM Cloud Application elements to enable offline development. This can allow for a disconnected development experience, however it is recommend to work in the default connected mode.
