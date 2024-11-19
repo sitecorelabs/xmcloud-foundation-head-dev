@@ -19,7 +19,7 @@ For more information on the Angular for xmcloud starter template and its feature
 ## Deplopying the Angular SPA Starter + Proxy to XM CLoud
 
 - Create your repository based on this one;
-- The default configuration would deploy the NsxtJS starter application, so to deploy Angular SPA + Proxy we need to make update `xmcloud.build.json`:
+- The default configuration would deploy the NsxtJS starter application, so to deploy Angular SPA + Proxy we need to make few updates in `xmcloud.build.json`:
     - choose a name for your rendering host and replace 'nextjsstarter' with it under `renderingHosts`
     - update the `path` property of your rendering host to `./headapps/spa-starters`
     - update `buildCommand` to `install-build`
@@ -41,13 +41,13 @@ For more information on the Angular for xmcloud starter template and its feature
 - Push the updates;
 - Log into the Sitecore XM Cloud Deploy Portal, create a project and a deployment using your code and select your repository;
 - Sitename resolution in the NextJS starter is being done by the multisite plugin, since Angular does not support multisite yet we need to specify the name of the site in the environment variables. So when you create a site you need to go to your environment, open 'variables' tab and create a new variable with:
-    - name: 'SITECORE_SITE+NAME'
+    - name: 'SITECORE_SITE_NAME'
     - value: the name of your site
     - target: 'Rendering host'
     - rendering host name: your host name from `xmcloud.build.json`
 - you should now be able to see your site in Pages
 
-## Running your Angular SPA Starter + Proxy against the XM CLoud instance
+## Running your local Angular SPA Starter + Proxy against the XM CLoud instance
 
 - Log into the Sitecore XM Cloud Deploy Portal, locate your Environment and select the `Developer Settings` tab.
 - Ensure that the `Preview` toggle is enabled.
