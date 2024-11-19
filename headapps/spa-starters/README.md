@@ -10,13 +10,9 @@ The monorepo is set up using [pnpm workspaces](https://pnpm.io/workspaces), so y
 
 ## Node XM Cloud Proxy
 
-> Sitecore JSS Proxy for XM Cloud is considered experimental.
-
 For more information on the XM Cloud Proxy application and its features take a look at [Node XM Cloud Proxy](proxy/)
 
 ## Angular SPA for xmcloud 
-
-> Sitecore JSS Angular App for XM Cloud. For the current release this feature is experimental.
 
 For more information on the Angular for xmcloud starter template and its features take a look at [Angular for XM Cloud starter app](angular/)
 
