@@ -2,4 +2,4 @@
 # dependencies
 /node_modules
 
-.netlify
+/.pnpm-store
