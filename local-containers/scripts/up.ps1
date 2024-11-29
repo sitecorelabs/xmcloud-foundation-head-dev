@@ -15,7 +15,7 @@ $xmCloudHost = $envContent | Where-Object { $_ -imatch "^CM_HOST=.+" }
 $sitecoreDockerRegistry = $envContent | Where-Object { $_ -imatch "^SITECORE_DOCKER_REGISTRY=.+" }
 $sitecoreVersion = $envContent | Where-Object { $_ -imatch "^SITECORE_VERSION=.+" }
 $ClientCredentialsLogin = $envContent | Where-Object { $_ -imatch "^SITECORE_FedAuth_dot_Auth0_dot_ClientCredentialsLogin=.+" }
-$sitecoreApiKey = ($envContent | Where-Object { $_ -imatch "^SITECORE_API_KEY_NEXTJS_STARTER=.+" }).Split("=")[1]
+$sitecoreApiKey = ($envContent | Where-Object { $_ -imatch "^SITECORE_API_KEY_APP_STARTER=.+" }).Split("=")[1]
 $xmcloudDockerToolsImage = ($envContent | Where-Object { $_ -imatch "^TOOLS_IMAGE=.+" }).Split("=")[1]
 
 $xmCloudHost = $xmCloudHost.Split("=")[1]
@@ -33,7 +33,7 @@ if ($ClientCredentialsLogin -eq "true") {
 	$xmCloudClientCredentialsLoginClientSecret = $xmCloudClientCredentialsLoginClientSecret.Split("=")[1]
 }
 
-#set nuget version
+#set node version
 $xmCloudBuild = Get-Content "$RepoRoot/xmcloud.build.json" | ConvertFrom-Json
 $nodeVersion = $xmCloudBuild.renderingHosts.nextjsstarter.nodeVersion
 if (![string]::IsNullOrWhitespace($nodeVersion)) {

@@ -84,7 +84,7 @@ try {
     }
     Write-Host "Generating Traefik TLS certificate..." -ForegroundColor Green
     & $mkcert -install
-    & $mkcert "*.nextjs-starter.localhost"
+    & $mkcert "*.xmc-starter-js.localhost"
     & $mkcert "xmcloudcm.localhost"
 
     # stash CAROOT path for messaging at the end of the script
@@ -106,20 +106,20 @@ $envFileLocation = "$RepoRoot/local-containers/.env"
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 
 Add-HostsEntry "xmcloudcm.localhost"
-Add-HostsEntry "www.nextjs-starter.localhost"
+Add-HostsEntry "www.xmc-starter-js.localhost"
 
 ###############################
 # Generate scjssconfig
 ###############################
 
-Set-EnvFileVariable "SITECORE_API_KEY_NEXTJS_STARTER" -Value $xmCloudBuild.renderingHosts.nextjsstarter.jssDeploymentSecret -Path $envFileLocation
+Set-EnvFileVariable "SITECORE_API_KEY_APP_STARTER" -Value $xmCloudBuild.renderingHosts.nextjsstarter.jssDeploymentSecret -Path $envFileLocation
 
 ################################
 # Generate Sitecore Api Key
 ################################
 
 $sitecoreApiKey = (New-Guid).Guid
-Set-EnvFileVariable "SITECORE_API_KEY_NEXTJS_STARTER" -Value $sitecoreApiKey -Path $envFileLocation
+Set-EnvFileVariable "SITECORE_API_KEY_APP_STARTER" -Value $sitecoreApiKey -Path $envFileLocation
 
 ################################
 # Generate JSS_EDITING_SECRET
@@ -144,7 +144,7 @@ if ($InitEnv) {
     Set-EnvFileVariable "CM_HOST" -Value "xmcloudcm.localhost" -Path $envFileLocation
 
     # RENDERING_HOST
-    Set-EnvFileVariable "RENDERING_HOST" -Value "www.nextjs-starter.localhost" -Path $envFileLocation
+    Set-EnvFileVariable "RENDERING_HOST" -Value "www.xmc-starter-js.localhost" -Path $envFileLocation
 
     # REPORTING_API_KEY = random 64-128 chars
     Set-EnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial) -Path $envFileLocation
