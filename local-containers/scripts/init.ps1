@@ -39,6 +39,10 @@ if ($InitEnv) {
 
 Write-Host "Preparing your Sitecore Containers environment!" -ForegroundColor Green
 
+$renderingHostName = "xmc-starter-js.localhost"
+$angularHostName = "angular.$renderingHostName"
+$nextjsHostName = "nextjs.$renderingHostName"
+
 ################################################
 # Retrieve and import SitecoreDockerTools module
 ################################################
@@ -84,7 +88,7 @@ try {
     }
     Write-Host "Generating Traefik TLS certificate..." -ForegroundColor Green
     & $mkcert -install
-    & $mkcert "*.xmc-starter-js.localhost"
+    & $mkcert "*.$renderingHostName"
     & $mkcert "xmcloudcm.localhost"
 
     # stash CAROOT path for messaging at the end of the script
@@ -106,20 +110,25 @@ $envFileLocation = "$RepoRoot/local-containers/.env"
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 
 Add-HostsEntry "xmcloudcm.localhost"
-Add-HostsEntry "www.xmc-starter-js.localhost"
+Add-HostsEntry $angularHostName
+Add-HostsEntry $nextjsHostName
 
 ###############################
 # Generate scjssconfig
 ###############################
 
-Set-EnvFileVariable "SITECORE_API_KEY_APP_STARTER" -Value $xmCloudBuild.renderingHosts.nextjsstarter.jssDeploymentSecret -Path $envFileLocation
+Set-EnvFileVariable "SITECORE_API_KEY_NEXTJS_STARTER" -Value $xmCloudBuild.renderingHosts.nextjsstarter.jssDeploymentSecret -Path $envFileLocation
+Set-EnvFileVariable "SITECORE_API_KEY_ANGULAR_STARTER" -Value $xmCloudBuild.renderingHosts.angularstarter.jssDeploymentSecret -Path $envFileLocation
 
 ################################
 # Generate Sitecore Api Key
 ################################
 
-$sitecoreApiKey = (New-Guid).Guid
-Set-EnvFileVariable "SITECORE_API_KEY_APP_STARTER" -Value $sitecoreApiKey -Path $envFileLocation
+$sitecoreApiKeyNextjs = (New-Guid).Guid
+$sitecoreApiKeyAngular = (New-Guid).Guid
+
+Set-EnvFileVariable "SITECORE_API_KEY_NEXTJS_STARTER" -Value $sitecoreApiKeyNextjs -Path $envFileLocation
+Set-EnvFileVariable "SITECORE_API_KEY_ANGULAR_STARTER" -Value $sitecoreApiKeyAngular -Path $envFileLocation
 
 ################################
 # Generate JSS_EDITING_SECRET
@@ -144,7 +153,8 @@ if ($InitEnv) {
     Set-EnvFileVariable "CM_HOST" -Value "xmcloudcm.localhost" -Path $envFileLocation
 
     # RENDERING_HOST
-    Set-EnvFileVariable "RENDERING_HOST" -Value "www.xmc-starter-js.localhost" -Path $envFileLocation
+    Set-EnvFileVariable "RENDERING_HOST_NEXTJS" -Value $nextjsHostName -Path $envFileLocation
+    Set-EnvFileVariable "RENDERING_HOST_ANGULAR" -Value $angularHostName -Path $envFileLocation
 
     # REPORTING_API_KEY = random 64-128 chars
     Set-EnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial) -Path $envFileLocation
@@ -179,7 +189,7 @@ Write-Host "Done!" -ForegroundColor Green
 
 Pop-Location
 Push-Location $RepoRoot\local-containers\docker\traefik\certs
-try
+try 
 {
     Write-Host
     Write-Host ("#"*75) -ForegroundColor Cyan

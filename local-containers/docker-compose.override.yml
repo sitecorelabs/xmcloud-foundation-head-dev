@@ -1,5 +1,4 @@
 services:
-
   # A Windows-based nodejs base image
   nodejs:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-nodejs:${VERSION:-latest}
@@ -11,10 +10,10 @@ services:
     deploy:
       replicas: 0
 
-  rendering:
-    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-rendering:${VERSION:-latest}
+  nextjs:
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-rendering-nextjs:${VERSION:-latest}
     build:
-      context: ./docker/build/rendering
+      context: ./docker/build/nextjs
       target: ${BUILD_CONFIGURATION}
       args:
         PARENT_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-nodejs:${VERSION:-latest}
@@ -23,25 +22,50 @@ services:
     environment:
       SITECORE_API_HOST: "http://cm"
       NEXTJS_DIST_DIR: ".next-container"
-      PUBLIC_URL: "https://${RENDERING_HOST}"
+      PUBLIC_URL: "https://${RENDERING_HOST_NEXTJS}"
       JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
-      SITECORE_API_KEY: "${SITECORE_API_KEY_APP_STARTER}"
+      SITECORE_API_KEY: "${SITECORE_API_KEY_NEXTJS_STARTER}"
       DISABLE_SSG_FETCH: ${DISABLE_SSG_FETCH}
     depends_on:
       - cm
       - nodejs
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.rendering-secure.entrypoints=websecure"
-      - "traefik.http.routers.rendering-secure.rule=Host(`${RENDERING_HOST}`)"
-      - "traefik.http.routers.rendering-secure.tls=true"
+      - "traefik.http.routers.rendering-secure-nextjs.entrypoints=websecure"
+      - "traefik.http.routers.rendering-secure-nextjs.rule=Host(`${RENDERING_HOST_NEXTJS}`)"
+      - "traefik.http.routers.rendering-secure-nextjs.tls=true"
+
+  angular:
+    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-rendering-angular:${VERSION:-latest}
+    build:
+      context: ./docker/build/angular
+      target: ${BUILD_CONFIGURATION}
+      args:
+        PARENT_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-nodejs:${VERSION:-latest}
+    volumes:
+      - ../headapps/spa-starters:C:\app
+    environment:
+      SITECORE_API_HOST: "http://cm"
+      PUBLIC_URL: "https://${RENDERING_HOST_ANGULAR}"
+      JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
+      SITECORE_API_KEY: "${SITECORE_API_KEY_ANGULAR_STARTER}"
+      DISABLE_SSG_FETCH: ${DISABLE_SSG_FETCH}
+    depends_on:
+      - cm
+      - nodejs
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.rendering-secure-angular.entrypoints=websecure"
+      - "traefik.http.routers.rendering-secure-angular.rule=Host(`${RENDERING_HOST_ANGULAR}`)"
+      - "traefik.http.routers.rendering-secure-angular.tls=true"
 
   # Mount the Traefik configuration and certs.
   traefik:
     volumes:
       - ./docker/traefik:C:/etc/traefik
     depends_on:
-      - rendering
+      - nextjs
+      - angular
 
   # Mount our SQL data folder and use our custom image with the Headless Services (JSS)
   # module data added. See Dockerfile for details.
@@ -77,7 +101,7 @@ services:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       RENDERING_HOST_INTERNAL_URI: "http://rendering:3000"
       SITECORE_JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
-      SITECORE_EDITING_HOST_PUBLIC_HOST: "${RENDERING_HOST}"
+      SITECORE_EDITING_HOST_PUBLIC_HOST: "${RENDERING_HOST_NEXTJS}"
       SITECORE_GraphQL_CORS: ${SITECORE_GRAPHQL_CORS}
       SITECORE_Pages_Client_Host: ${SITECORE_Pages_Client_Host}
       SITECORE_Pages_CORS_Allowed_Origins: ${SITECORE_Pages_CORS_Allowed_Origins}
