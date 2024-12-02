@@ -56,37 +56,4 @@ For more information on the included applications follow the lnks:
 
 ## Running your local Angular SPA Starter + Proxy in local containers
 
-By default the setup and scripts for running [local-containers](../../local-conatiners/) will deploy the NextJs application to the rendering container. If you want to run your SPA application you will have to make the following adjustments:
-
-- in the [docker-compose.override.yml](../../local-conatiners/docker-compose.override.yml) file you have to point rendering service to use the spa-starters folder (instead of `../headapps/nextjs-starter`):
-  ```yml
-    rendering:
-        ...
-        volumes:
-        - ../headapps/spa-starters:C:\app
-        ...
-  ```
-- you need to update the rendering [docker file](../../local-conatiners/docker/build/rendering/Dockerfile):
-
-  - set User to be ContainerAdministrator
-  - install pnpm globally
-  - adjust the entry point command
-
-  See example below for Angular SPA:
-
-```dockerfile
-    ARG PARENT_IMAGE
-    FROM ${PARENT_IMAGE} as debug
-
-    RUN ECHO "setting up rendering app..."
-
-    USER ContainerAdministrator
-
-    RUN npm install -g pnpm
-
-    WORKDIR /app
-
-    EXPOSE 3000
-
-    ENTRYPOINT "pnpm install && pnpm build:angular && pnpm start:angular"
-```
+By default the setup and scripts for running local containers will create containers for both NextJS and Angular SPA + Node Proxy rendering hosts. For more information refer to [local-containers](../../local-conatiners/).
