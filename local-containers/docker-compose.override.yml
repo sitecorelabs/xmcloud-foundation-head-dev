@@ -10,7 +10,7 @@ services:
     deploy:
       replicas: 0
 
-  nextjs:
+  rendering-nextjs:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-rendering-nextjs:${VERSION:-latest}
     build:
       context: ./docker/build/nextjs
@@ -24,7 +24,7 @@ services:
       NEXTJS_DIST_DIR: ".next-container"
       PUBLIC_URL: "https://${RENDERING_HOST_NEXTJS}"
       JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
-      SITECORE_API_KEY: "${SITECORE_API_KEY_NEXTJS_STARTER}"
+      SITECORE_API_KEY: "${SITECORE_API_KEY_APP_STARTER}"
       DISABLE_SSG_FETCH: ${DISABLE_SSG_FETCH}
     depends_on:
       - cm
@@ -35,7 +35,7 @@ services:
       - "traefik.http.routers.rendering-secure-nextjs.rule=Host(`${RENDERING_HOST_NEXTJS}`)"
       - "traefik.http.routers.rendering-secure-nextjs.tls=true"
 
-  angular:
+  rendering-angular:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-rendering-angular:${VERSION:-latest}
     build:
       context: ./docker/build/angular
@@ -48,7 +48,7 @@ services:
       SITECORE_API_HOST: "http://cm"
       PUBLIC_URL: "https://${RENDERING_HOST_ANGULAR}"
       JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
-      SITECORE_API_KEY: "${SITECORE_API_KEY_ANGULAR_STARTER}"
+      SITECORE_API_KEY: "${SITECORE_API_KEY_APP_STARTER}"
       DISABLE_SSG_FETCH: ${DISABLE_SSG_FETCH}
     depends_on:
       - cm
@@ -64,8 +64,8 @@ services:
     volumes:
       - ./docker/traefik:C:/etc/traefik
     depends_on:
-      - nextjs
-      - angular
+      - rendering-nextjs
+      - rendering-angular
 
   # Mount our SQL data folder and use our custom image with the Headless Services (JSS)
   # module data added. See Dockerfile for details.
@@ -99,7 +99,7 @@ services:
       - ${HOST_LICENSE_FOLDER}:c:\license
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
-      RENDERING_HOST_INTERNAL_URI: "http://rendering:3000"
+      RENDERING_HOST_INTERNAL_URI: "http://rendering-nextjs:3000"
       SITECORE_JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
       SITECORE_EDITING_HOST_PUBLIC_HOST: "${RENDERING_HOST_NEXTJS}"
       SITECORE_GraphQL_CORS: ${SITECORE_GRAPHQL_CORS}

@@ -15,8 +15,7 @@ $xmCloudHost = $envContent | Where-Object { $_ -imatch "^CM_HOST=.+" }
 $sitecoreDockerRegistry = $envContent | Where-Object { $_ -imatch "^SITECORE_DOCKER_REGISTRY=.+" }
 $sitecoreVersion = $envContent | Where-Object { $_ -imatch "^SITECORE_VERSION=.+" }
 $ClientCredentialsLogin = $envContent | Where-Object { $_ -imatch "^SITECORE_FedAuth_dot_Auth0_dot_ClientCredentialsLogin=.+" }
-$sitecoreApiKeyNextjs = ($envContent | Where-Object { $_ -imatch "^SITECORE_API_KEY_NEXTJS_STARTER=.+" }).Split("=")[1]
-$sitecoreApiKeyAngular = ($envContent | Where-Object { $_ -imatch "^SITECORE_API_KEY_ANGULAR_STARTER=.+" }).Split("=")[1]
+$sitecoreApiKey = ($envContent | Where-Object { $_ -imatch "^SITECORE_API_KEY_APP_STARTER=.+" }).Split("=")[1]
 $xmcloudDockerToolsImage = ($envContent | Where-Object { $_ -imatch "^TOOLS_IMAGE=.+" }).Split("=")[1]
 
 $xmCloudHost = $xmCloudHost.Split("=")[1]
@@ -129,8 +128,7 @@ Write-Host "Pushing Default rendering host configuration" -ForegroundColor Green
 dotnet sitecore ser push -i nextjs-starter
 
 Write-Host "Pushing sitecore API key" -ForegroundColor Green 
-& $RepoRoot\local-containers\docker\build\cm\templates\import-templates.ps1 -RenderingSiteName "NextJs-Starter" -SitecoreApiKey $sitecoreApiKeyNextjs
-& $RepoRoot\local-containers\docker\build\cm\templates\import-templates.ps1 -RenderingSiteName "Angular-Starter" -SitecoreApiKey $sitecoreApiKeyAngular
+& $RepoRoot\local-containers\docker\build\cm\templates\import-templates.ps1 -RenderingSiteName "App-Starter" -SitecoreApiKey $sitecoreApiKey
 
 if ($ClientCredentialsLogin -ne "true") {
     Write-Host "Opening site..." -ForegroundColor Green

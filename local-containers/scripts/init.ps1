@@ -117,18 +117,14 @@ Add-HostsEntry $nextjsHostName
 # Generate scjssconfig
 ###############################
 
-Set-EnvFileVariable "SITECORE_API_KEY_NEXTJS_STARTER" -Value $xmCloudBuild.renderingHosts.nextjsstarter.jssDeploymentSecret -Path $envFileLocation
-Set-EnvFileVariable "SITECORE_API_KEY_ANGULAR_STARTER" -Value $xmCloudBuild.renderingHosts.angularstarter.jssDeploymentSecret -Path $envFileLocation
+Set-EnvFileVariable "SITECORE_API_KEY_APP_STARTER" -Value $xmCloudBuild.renderingHosts.nextjsstarter.jssDeploymentSecret -Path $envFileLocation
 
 ################################
 # Generate Sitecore Api Key
 ################################
 
-$sitecoreApiKeyNextjs = (New-Guid).Guid
-$sitecoreApiKeyAngular = (New-Guid).Guid
-
-Set-EnvFileVariable "SITECORE_API_KEY_NEXTJS_STARTER" -Value $sitecoreApiKeyNextjs -Path $envFileLocation
-Set-EnvFileVariable "SITECORE_API_KEY_ANGULAR_STARTER" -Value $sitecoreApiKeyAngular -Path $envFileLocation
+$sitecoreApiKey = (New-Guid).Guid
+Set-EnvFileVariable "SITECORE_API_KEY_APP_STARTER" -Value $sitecoreApiKey -Path $envFileLocation
 
 ################################
 # Generate JSS_EDITING_SECRET
