@@ -40,7 +40,6 @@ if ($InitEnv) {
 Write-Host "Preparing your Sitecore Containers environment!" -ForegroundColor Green
 
 $renderingHostName = "xmc-starter-js.localhost"
-$angularHostName = "angular.$renderingHostName"
 $nextjsHostName = "nextjs.$renderingHostName"
 
 ################################################
@@ -110,7 +109,6 @@ $envFileLocation = "$RepoRoot/local-containers/.env"
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 
 Add-HostsEntry "xmcloudcm.localhost"
-Add-HostsEntry $angularHostName
 Add-HostsEntry $nextjsHostName
 
 ###############################
@@ -150,7 +148,6 @@ if ($InitEnv) {
 
     # RENDERING_HOST
     Set-EnvFileVariable "RENDERING_HOST_NEXTJS" -Value $nextjsHostName -Path $envFileLocation
-    Set-EnvFileVariable "RENDERING_HOST_ANGULAR" -Value $angularHostName -Path $envFileLocation
 
     # REPORTING_API_KEY = random 64-128 chars
     Set-EnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial) -Path $envFileLocation

@@ -8,8 +8,6 @@
 ARG PARENT_IMAGE
 FROM ${PARENT_IMAGE} as debug
 
-RUN ECHO "starting up nextjs rendering app..."
-
 USER ContainerAdministrator
 
 WORKDIR /app

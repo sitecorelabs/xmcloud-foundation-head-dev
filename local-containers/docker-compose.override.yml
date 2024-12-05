@@ -13,7 +13,7 @@ services:
   rendering-nextjs:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-rendering-nextjs:${VERSION:-latest}
     build:
-      context: ./docker/build/nextjs
+      context: ./docker/build/rendering-nextjs
       target: ${BUILD_CONFIGURATION}
       args:
         PARENT_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-nodejs:${VERSION:-latest}
@@ -35,37 +35,12 @@ services:
       - "traefik.http.routers.rendering-secure-nextjs.rule=Host(`${RENDERING_HOST_NEXTJS}`)"
       - "traefik.http.routers.rendering-secure-nextjs.tls=true"
 
-  rendering-angular:
-    image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-rendering-angular:${VERSION:-latest}
-    build:
-      context: ./docker/build/angular
-      target: ${BUILD_CONFIGURATION}
-      args:
-        PARENT_IMAGE: ${REGISTRY}${COMPOSE_PROJECT_NAME}-nodejs:${VERSION:-latest}
-    volumes:
-      - ../headapps/spa-starters:C:\app
-    environment:
-      SITECORE_API_HOST: "http://cm"
-      PUBLIC_URL: "https://${RENDERING_HOST_ANGULAR}"
-      JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
-      SITECORE_API_KEY: "${SITECORE_API_KEY_APP_STARTER}"
-      DISABLE_SSG_FETCH: ${DISABLE_SSG_FETCH}
-    depends_on:
-      - cm
-      - nodejs
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.rendering-secure-angular.entrypoints=websecure"
-      - "traefik.http.routers.rendering-secure-angular.rule=Host(`${RENDERING_HOST_ANGULAR}`)"
-      - "traefik.http.routers.rendering-secure-angular.tls=true"
-
   # Mount the Traefik configuration and certs.
   traefik:
     volumes:
       - ./docker/traefik:C:/etc/traefik
     depends_on:
       - rendering-nextjs
-      - rendering-angular
 
   # Mount our SQL data folder and use our custom image with the Headless Services (JSS)
   # module data added. See Dockerfile for details.
