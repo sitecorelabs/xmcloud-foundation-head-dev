@@ -53,8 +53,6 @@ For more information on the included applications follow the lnks:
   pnpm start:<your-spa-app>
   ```
 - You should now be able to access your site on `http://localhost:3000`
+- You can also [connect your localhost to Pages](https://doc.sitecore.com/xmc/en/developers/xm-cloud/connect-your-local-host-to-pages.html) to use it as editing host
 
-## Running your local Angular SPA Starter + Proxy in local containers
-
-By default the setup and scripts for running local containers will create containers for both NextJS and Angular SPA + Node Proxy rendering hosts. For more information refer to [local-containers](../../local-conatiners/). 
-Please note that running Angular + Proxy with local containers has limited functionality, due to it not supporting Experience Editor and limited communitcation with the CM container. During development we encourage running your local Angular SPA and Proxy directly against an XM Cloud instance both as rendering and editing host. 
+> Running your local Angular SPA Starter + Proxy in local containers is not supported, since Angular + Proxy do not support Experience Editor and the above should cover all development flow use cases 
