@@ -1,27 +1,27 @@
 # SPA Starter Kit Monorepo
 
-The Starter Kit contains:
+The SPA starter kit contains:
 
 * [Node XM Cloud Proxy](proxy/)
 * [Angular SPA](angular/)
 
-It is designed to support various frameworks in the future as well as to enable users to create their own starter applications.
+It's designed to enable users to create their own starter applications and in the future, support additional frameworks.
 
 The monorepo is set up using [pnpm workspaces](https://pnpm.io/workspaces)
 
 ## Getting Started
 
-1. Install PNPM
+1. Install PNPM:
 ```shell
 npm i pnpm -g
 ```
 
-2. Install all the dependencies of the monorepo and build the SPA
+2. Install all the dependencies of the monorepo and build the SPA:
 ```shell
 npm run install-build:<your-spa-app>
 ```
 
-3. [Optional] Re-build your SPA once you made changes
+3. [Optional] After making changes, re-build your SPA:
 ```shell
 npm run build:<your-spa-app>
 ```
@@ -31,12 +31,12 @@ npm run build:<your-spa-app>
 npm run start:<your-spa-app>
 ```
 
-> \<your-spa-app\> - your SPA application. Currently the only one availble framework is Angular.
+> \<your-spa-app\> - your SPA application. Currently the only availble framework is Angular.
 
 ## Deployment
 
-- Create your repository based on this one
-- The default configuration would deploy the `Next.js` application. To deploy your `SPA + Proxy` you need to enable rendering host in `xmcloud.build.json` and disable `nextjsstarter` rendering host (provided example below is for Angular SPA):
+1. Create your repository based on this one.
+2. The default configuration deploys the `Next.js` application. To deploy your `SPA + Proxy` instead, you need to enable the relevant rendering host in `xmcloud.build.json` and disable the `nextjsstarter` rendering host. The following example is for Angular SPA:
   ```json
       "renderingHosts": {
           "nextjsstarter": {
@@ -51,25 +51,24 @@ npm run start:<your-spa-app>
           }
       },
   ```
-- Push the updates
-- Log into the Sitecore XM Cloud Deploy Portal, create a project and a deployment using your code and select your repository
-- When deployment finishes succesfully create your site
-- When site creation finishes succesfully, you should be able to see your site in Pages
+3. Push the updates.
+4. Log into the [XM Cloud Deploy app](https://deploy.sitecorecloud.io/), create a project and a deployment using your code and select your repository.
+5. After the deployment finishes succesfully, [create a site and a page](https://doc.sitecore.com/xmc/en/developers/xm-cloud/create-a-site-and-a-page.html). You should now be able to see your site page in Pages.
 
 ## Local development against the XM Cloud instance
 
-- Log into the Sitecore XM Cloud Deploy Portal, locate your `Environment` and select the `Developer Settings` tab.
-- Ensure that the `Preview` toggle is enabled.
-- In the `Local Development` section, click to copy the sample `.env` file contents to your clipboard.
-- Open the `.env` file in the `./headapps/spa-starters/<your-spa-app>` folder and paste the contents from your clipboard. You can remove the JSS_EDITING_SECRET since it is not needed in your spa app's env.
-- From the `Local Development section` copy and paste the value of the JSS_EDITING_SECRET env variable in the `.env` file of the proxy app `./headapps/spa-starters/proxy`
-- Run the following commands in the root of the repository to start the your SPA application:
+1. Log into the Deploy app, locate your `Environment` and select the `Developer Settings` tab.
+2. Ensure that the context switch is set to `Preview`.
+3. In the `Local Development` section, click to copy the sample `.env` file contents to your clipboard.
+4. Open the `.env` file in the `./headapps/spa-starters/<your-spa-app>` folder and paste. You can remove the JSS_EDITING_SECRET since it is not needed in your SPA app environment.
+5. From the `Local Development section` copy the value of the JSS_EDITING_SECRET variable and paste it into the `.env` file of the proxy app `./headapps/spa-starters/proxy`
+6. Run the following commands in the root of the repository to start the your SPA application:
   ```bash
   cd headapps/spa-starters
   pnpm build:<your-spa-app>
   pnpm start:<your-spa-app>
   ```
-- You should now be able to access your site on `http://localhost:3000`
-- You can also [connect your localhost to Pages](https://doc.sitecore.com/xmc/en/developers/xm-cloud/connect-your-local-host-to-pages.html) to use it as editing host
+7. Make sure you can access your site on `http://localhost:3000`
+8. You can also [connect your local host to Pages](https://doc.sitecore.com/xmc/en/developers/xm-cloud/connect-your-local-host-to-pages.html) to use it as editing host.
 
-> Running your local SPA + Proxy in local containers is not supported, since SPA + Proxy do not support Experience Editor and the above should cover all development flow use cases 
+> Running your SPA + Proxy in local containers is not supported, since SPA + Proxy does not support Experience Editor, and the above should cover all development flow use cases.
