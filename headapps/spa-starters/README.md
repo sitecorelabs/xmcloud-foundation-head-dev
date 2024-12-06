@@ -17,7 +17,6 @@ npm i pnpm -g
 ```
 
 2. Install all the dependencies of the monorepo and build the SPA
-*[TODO] Should we change "install-build" to "install-build:angular"?*
 ```shell
 npm run install-build:<your-spa-app>
 ```
@@ -62,7 +61,7 @@ npm run start:<your-spa-app>
 - Log into the Sitecore XM Cloud Deploy Portal, locate your `Environment` and select the `Developer Settings` tab.
 - Ensure that the `Preview` toggle is enabled.
 - In the `Local Development` section, click to copy the sample `.env` file contents to your clipboard.
-- Open the `.env` file in the `./headapps/spa-starters/<your-spa-app>` folder and paste the contents from your clipboard. *[TODO] JSS_EDITING_SECRET is not supposed to be copied in SPA*
+- Open the `.env` file in the `./headapps/spa-starters/<your-spa-app>` folder and paste the contents from your clipboard. You can remove the JSS_EDITING_SECRET since it is not needed in your spa app's env.
 - From the `Local Development section` copy and paste the value of the JSS_EDITING_SECRET env variable in the `.env` file of the proxy app `./headapps/spa-starters/proxy`
 - Run the following commands in the root of the repository to start the your SPA application:
   ```bash
