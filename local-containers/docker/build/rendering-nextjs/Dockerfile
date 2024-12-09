@@ -8,6 +8,8 @@
 ARG PARENT_IMAGE
 FROM ${PARENT_IMAGE} as debug
 
+USER ContainerAdministrator
+
 WORKDIR /app
 
 EXPOSE 3000

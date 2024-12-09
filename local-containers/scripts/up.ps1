@@ -15,7 +15,7 @@ $xmCloudHost = $envContent | Where-Object { $_ -imatch "^CM_HOST=.+" }
 $sitecoreDockerRegistry = $envContent | Where-Object { $_ -imatch "^SITECORE_DOCKER_REGISTRY=.+" }
 $sitecoreVersion = $envContent | Where-Object { $_ -imatch "^SITECORE_VERSION=.+" }
 $ClientCredentialsLogin = $envContent | Where-Object { $_ -imatch "^SITECORE_FedAuth_dot_Auth0_dot_ClientCredentialsLogin=.+" }
-$sitecoreApiKey = ($envContent | Where-Object { $_ -imatch "^SITECORE_API_KEY_NEXTJS_STARTER=.+" }).Split("=")[1]
+$sitecoreApiKey = ($envContent | Where-Object { $_ -imatch "^SITECORE_API_KEY_APP_STARTER=.+" }).Split("=")[1]
 $xmcloudDockerToolsImage = ($envContent | Where-Object { $_ -imatch "^TOOLS_IMAGE=.+" }).Split("=")[1]
 
 $xmCloudHost = $xmCloudHost.Split("=")[1]
@@ -23,17 +23,17 @@ $sitecoreDockerRegistry = $sitecoreDockerRegistry.Split("=")[1]
 $sitecoreVersion = $sitecoreVersion.Split("=")[1]
 $ClientCredentialsLogin = $ClientCredentialsLogin.Split("=")[1]
 if ($ClientCredentialsLogin -eq "true") {
-	$xmCloudClientCredentialsLoginDomain = $envContent | Where-Object { $_ -imatch "^SITECORE_FedAuth_dot_Auth0_dot_Domain=.+" }
-	$xmCloudClientCredentialsLoginAudience = $envContent | Where-Object { $_ -imatch "^SITECORE_FedAuth_dot_Auth0_dot_ClientCredentialsLogin_Audience=.+" }
-	$xmCloudClientCredentialsLoginClientId = $envContent | Where-Object { $_ -imatch "^SITECORE_FedAuth_dot_Auth0_dot_ClientCredentialsLogin_ClientId=.+" }
-	$xmCloudClientCredentialsLoginClientSecret = $envContent | Where-Object { $_ -imatch "^SITECORE_FedAuth_dot_Auth0_dot_ClientCredentialsLogin_ClientSecret=.+" }
-	$xmCloudClientCredentialsLoginDomain = $xmCloudClientCredentialsLoginDomain.Split("=")[1]
-	$xmCloudClientCredentialsLoginAudience = $xmCloudClientCredentialsLoginAudience.Split("=")[1]
-	$xmCloudClientCredentialsLoginClientId = $xmCloudClientCredentialsLoginClientId.Split("=")[1]
-	$xmCloudClientCredentialsLoginClientSecret = $xmCloudClientCredentialsLoginClientSecret.Split("=")[1]
+    $xmCloudClientCredentialsLoginDomain = $envContent | Where-Object { $_ -imatch "^SITECORE_FedAuth_dot_Auth0_dot_Domain=.+" }
+    $xmCloudClientCredentialsLoginAudience = $envContent | Where-Object { $_ -imatch "^SITECORE_FedAuth_dot_Auth0_dot_ClientCredentialsLogin_Audience=.+" }
+    $xmCloudClientCredentialsLoginClientId = $envContent | Where-Object { $_ -imatch "^SITECORE_FedAuth_dot_Auth0_dot_ClientCredentialsLogin_ClientId=.+" }
+    $xmCloudClientCredentialsLoginClientSecret = $envContent | Where-Object { $_ -imatch "^SITECORE_FedAuth_dot_Auth0_dot_ClientCredentialsLogin_ClientSecret=.+" }
+    $xmCloudClientCredentialsLoginDomain = $xmCloudClientCredentialsLoginDomain.Split("=")[1]
+    $xmCloudClientCredentialsLoginAudience = $xmCloudClientCredentialsLoginAudience.Split("=")[1]
+    $xmCloudClientCredentialsLoginClientId = $xmCloudClientCredentialsLoginClientId.Split("=")[1]
+    $xmCloudClientCredentialsLoginClientSecret = $xmCloudClientCredentialsLoginClientSecret.Split("=")[1]
 }
 
-#set nuget version
+#set node version
 $xmCloudBuild = Get-Content "$RepoRoot/xmcloud.build.json" | ConvertFrom-Json
 $nodeVersion = $xmCloudBuild.renderingHosts.nextjsstarter.nodeVersion
 if (![string]::IsNullOrWhitespace($nodeVersion)) {
@@ -90,7 +90,7 @@ if (-not $status.status -eq "enabled") {
 Pop-Location
 
 Write-Host "Restoring Sitecore CLI..." -ForegroundColor Green
-    dotnet tool restore
+dotnet tool restore
 Write-Host "Installing Sitecore CLI Plugins..."
 dotnet sitecore --help | Out-Null
 if ($LASTEXITCODE -ne 0) {
@@ -128,7 +128,7 @@ Write-Host "Pushing Default rendering host configuration" -ForegroundColor Green
 dotnet sitecore ser push -i nextjs-starter
 
 Write-Host "Pushing sitecore API key" -ForegroundColor Green 
-& $RepoRoot\local-containers\docker\build\cm\templates\import-templates.ps1 -RenderingSiteName "NextJs-Starter" -SitecoreApiKey $sitecoreApiKey
+& $RepoRoot\local-containers\docker\build\cm\templates\import-templates.ps1 -RenderingSiteName "App-Starter" -SitecoreApiKey $sitecoreApiKey
 
 if ($ClientCredentialsLogin -ne "true") {
     Write-Host "Opening site..." -ForegroundColor Green
