@@ -47,10 +47,10 @@ importers:
         specifier: ~8.0.0
         version: 8.0.0(@angular/common@17.3.12(@angular/core@17.3.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@17.3.12(rxjs@7.8.1)(zone.js@0.14.10))(@ngx-translate/core@15.0.0(@angular/common@17.3.12(@angular/core@17.3.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@17.3.12(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(rxjs@7.8.1)
       '@sitecore-cloudsdk/core':
-        specifier: ^0.4.1
+        specifier: ^0.4.2
         version: 0.4.2
       '@sitecore-cloudsdk/events':
-        specifier: ^0.4.1
+        specifier: ^0.4.2
         version: 0.4.2
       '@sitecore-jss/sitecore-jss-angular':
         specifier: ~22.3.1-canary
