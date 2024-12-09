@@ -53,8 +53,8 @@ importers:
         specifier: ^0.4.2
         version: 0.4.2
       '@sitecore-jss/sitecore-jss-angular':
-        specifier: ~22.3.1-canary
-        version: 22.3.1-canary.6(@sitecore-cloudsdk/events@0.4.2)(@types/debug@4.1.12)(rxjs@7.8.1)
+        specifier: ~22.3.1
+        version: 22.3.1(@sitecore-cloudsdk/events@0.4.2)(@types/debug@4.1.12)(rxjs@7.8.1)
       apollo-angular:
         specifier: ~6.0.0
         version: 6.0.0(@angular/core@17.3.12(rxjs@7.8.1)(zone.js@0.14.10))(@apollo/client@3.11.10(graphql@15.5.0))(graphql@15.5.0)(rxjs@7.8.1)
@@ -123,14 +123,14 @@ importers:
         specifier: ~17.3.11
         version: 17.3.12
       '@sitecore-jss/sitecore-jss-angular-schematics':
-        specifier: ~22.3.1-canary
-        version: 22.3.1-canary.6(chokidar@3.6.0)
+        specifier: ~22.3.1
+        version: 22.3.1(chokidar@3.6.0)
       '@sitecore-jss/sitecore-jss-cli':
-        specifier: ~22.3.1-canary
-        version: 22.3.1-canary.6(@types/node@22.9.4)(typescript@5.4.5)
+        specifier: ~22.3.1
+        version: 22.3.1(@types/node@22.9.4)(typescript@5.4.5)
       '@sitecore-jss/sitecore-jss-dev-tools':
-        specifier: ~22.3.1-canary
-        version: 22.3.1-canary.6(@types/node@22.9.4)(typescript@5.4.5)
+        specifier: ~22.3.1
+        version: 22.3.1(@types/node@22.9.4)(typescript@5.4.5)
       '@types/jasmine':
         specifier: ~3.6.7
         version: 3.6.11
@@ -225,8 +225,8 @@ importers:
   proxy:
     dependencies:
       '@sitecore-jss/sitecore-jss-proxy':
-        specifier: ~22.3.1-canary
-        version: 22.3.1-canary.6(@types/express@4.17.21)(encoding@0.1.13)(express@4.21.1)
+        specifier: ~22.3.1
+        version: 22.3.1(@types/express@4.17.21)(encoding@0.1.13)(express@4.21.1)
       compression:
         specifier: ^1.7.4
         version: 1.7.5
@@ -241,8 +241,8 @@ importers:
         version: 3.0.3
     devDependencies:
       '@sitecore-jss/sitecore-jss':
-        specifier: ~22.3.1-canary
-        version: 22.3.1-canary.6(encoding@0.1.13)
+        specifier: ~22.3.1
+        version: 22.3.1(encoding@0.1.13)
       '@types/compression':
         specifier: ^1.7.2
         version: 1.7.5
@@ -1752,36 +1752,36 @@ packages:
     resolution: {integrity: sha512-l7/D18lQuKaoXPTwe9RNpM7XpnFqPg2Fy1bE7UIIzf4WTfONQ25/0G9wYWa9ujUMwJC/GDAAtrzNE/jmekueUw==}
     engines: {node: '>=18'}
 
-  '@sitecore-jss/sitecore-jss-angular-schematics@22.3.1-canary.6':
-    resolution: {integrity: sha512-TzwMAenKO3CLPXg/jjW1HiXzekP92OHPo/acKZbkeFtPgcyMcqe2qEulhISw8GsxqWWBWyYDmAoS0BFL9FLLww==}
+  '@sitecore-jss/sitecore-jss-angular-schematics@22.3.1':
+    resolution: {integrity: sha512-/psKw0K8fmGsZ44tdKMj83zwle6lRXbBnvtMxhr1eiPwmzWAK7/gAzT5hwEYF/FDITbG6wZtakgwzlK5Kq623Q==}
     engines: {node: '>=22'}
 
-  '@sitecore-jss/sitecore-jss-angular@22.3.1-canary.6':
-    resolution: {integrity: sha512-IFflZjKjnyjQpXp1ORJr7O6e1UHb6+wIQ90HmEoscjA9CwL7YYd3lZoTKT26bAZHajwyrfY+gzHw+M6UzEmM5g==}
+  '@sitecore-jss/sitecore-jss-angular@22.3.1':
+    resolution: {integrity: sha512-mkYrcQHiLZiUQt8jt4YQt55QdHZnAeANjwlPkdnQKqItN6djN/3x6D9KVpKZjMCSSwJRQ5ibMZZE01vxb195SQ==}
     engines: {node: '>=22'}
     peerDependencies:
-      '@sitecore-cloudsdk/events': ^0.4.1
+      '@sitecore-cloudsdk/events': ^0.4.2
       '@types/debug': ^4.1.12
       rxjs: ~7.8.1
 
-  '@sitecore-jss/sitecore-jss-cli@22.3.1-canary.6':
-    resolution: {integrity: sha512-h6joIZ10+keG8S5xljdGPgQmzvQ0Jgh6Un87OzQzuuOODkf4nWrf3e4e60wHahoJuDMNJzAe80aUdVCxMnqPsw==}
+  '@sitecore-jss/sitecore-jss-cli@22.3.1':
+    resolution: {integrity: sha512-XJrHyoOoakG0kDc86c9ZnZ4A2+AEZMkfYm9TljQcB8WKhOqTzDyigV5o4xkJ0FvF6zchmqiuHqxaW9FaRfpIdQ==}
     engines: {node: '>=22'}
     hasBin: true
 
-  '@sitecore-jss/sitecore-jss-dev-tools@22.3.1-canary.6':
-    resolution: {integrity: sha512-+ohVe0VKOrY2lTUoiamqi1bx+d0Q6F76fGlSlz+UTkB2LHG4xychq8XWYYtxEIZfrCTsBK4cM3tq1wzc5UonHA==}
+  '@sitecore-jss/sitecore-jss-dev-tools@22.3.1':
+    resolution: {integrity: sha512-3evkANRv9Hp2Ot0ojY0WtYW282HficSr4GJzATj4yjUIrE3JniZcCTYziQuD8Au/6dotVP10fW43BXCHUHJtJg==}
     engines: {node: '>=22'}
     hasBin: true
 
-  '@sitecore-jss/sitecore-jss-proxy@22.3.1-canary.6':
-    resolution: {integrity: sha512-a4N1tfoR/QTLOnUoxrtmxRd2qH/6X6D7J1nqWmtM4olVneN/+4ULqxpBvCmtGAkIx54xONb63pOu1o0Bn4S0Kw==}
+  '@sitecore-jss/sitecore-jss-proxy@22.3.1':
+    resolution: {integrity: sha512-YwZ7hIwSztPe8u97/ddm/WMGSIN3tP3OzHydMwqU9i+0fwkVizZF8Sz8CDp57TJFP7iBnQsvA1Pa4E5dDcw9iQ==}
     engines: {node: '>=22'}
     peerDependencies:
       express: ^4.19.2
 
-  '@sitecore-jss/sitecore-jss@22.3.1-canary.6':
-    resolution: {integrity: sha512-sAphrm7O8S6AFzARl9gexbu6mE/EDeY7WxuOJO3tsrL3jddPBfttaKuUar2/9L0bjI4q32fip2bAhVtZdQB2lw==}
+  '@sitecore-jss/sitecore-jss@22.3.1':
+    resolution: {integrity: sha512-lVPvrr8rLAsmJT63gwhNUIIURf1lAKKHAADTnhiyB586XWBCRwcfnVf8obVKyz4bPJLcBFEairt2C7tH9SXP/A==}
     engines: {node: '>=22'}
 
   '@socket.io/component-emitter@3.1.2':
@@ -7759,7 +7759,7 @@ snapshots:
 
   '@sitecore-cloudsdk/utils@0.4.2': {}
 
-  '@sitecore-jss/sitecore-jss-angular-schematics@22.3.1-canary.6(chokidar@3.6.0)':
+  '@sitecore-jss/sitecore-jss-angular-schematics@22.3.1(chokidar@3.6.0)':
     dependencies:
       '@angular-devkit/core': 17.3.11(chokidar@3.6.0)
       '@angular-devkit/schematics': 17.3.11(chokidar@3.6.0)
@@ -7768,19 +7768,19 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@sitecore-jss/sitecore-jss-angular@22.3.1-canary.6(@sitecore-cloudsdk/events@0.4.2)(@types/debug@4.1.12)(rxjs@7.8.1)':
+  '@sitecore-jss/sitecore-jss-angular@22.3.1(@sitecore-cloudsdk/events@0.4.2)(@types/debug@4.1.12)(rxjs@7.8.1)':
     dependencies:
       '@sitecore-cloudsdk/events': 0.4.2
-      '@sitecore-jss/sitecore-jss': 22.3.1-canary.6(encoding@0.1.13)
+      '@sitecore-jss/sitecore-jss': 22.3.1(encoding@0.1.13)
       '@types/debug': 4.1.12
       rxjs: 7.8.1
     transitivePeerDependencies:
       - encoding
       - supports-color
 
-  '@sitecore-jss/sitecore-jss-cli@22.3.1-canary.6(@types/node@22.9.4)(typescript@5.4.5)':
+  '@sitecore-jss/sitecore-jss-cli@22.3.1(@types/node@22.9.4)(typescript@5.4.5)':
     dependencies:
-      '@sitecore-jss/sitecore-jss-dev-tools': 22.3.1-canary.6(@types/node@22.9.4)(typescript@5.4.5)
+      '@sitecore-jss/sitecore-jss-dev-tools': 22.3.1(@types/node@22.9.4)(typescript@5.4.5)
       chalk: 4.1.2
       cross-spawn: 7.0.6
       dotenv: 16.4.5
@@ -7798,10 +7798,10 @@ snapshots:
       - supports-color
       - typescript
 
-  '@sitecore-jss/sitecore-jss-dev-tools@22.3.1-canary.6(@types/node@22.9.4)(typescript@5.4.5)':
+  '@sitecore-jss/sitecore-jss-dev-tools@22.3.1(@types/node@22.9.4)(typescript@5.4.5)':
     dependencies:
       '@babel/parser': 7.26.2
-      '@sitecore-jss/sitecore-jss': 22.3.1-canary.6(encoding@0.1.13)
+      '@sitecore-jss/sitecore-jss': 22.3.1(encoding@0.1.13)
       axios: 1.7.8
       chalk: 4.1.2
       chokidar: 3.6.0
@@ -7831,11 +7831,11 @@ snapshots:
       - supports-color
       - typescript
 
-  '@sitecore-jss/sitecore-jss-proxy@22.3.1-canary.6(@types/express@4.17.21)(encoding@0.1.13)(express@4.21.1)':
+  '@sitecore-jss/sitecore-jss-proxy@22.3.1(@types/express@4.17.21)(encoding@0.1.13)(express@4.21.1)':
     dependencies:
       '@sitecore-cloudsdk/core': 0.4.2
       '@sitecore-cloudsdk/personalize': 0.4.2
-      '@sitecore-jss/sitecore-jss': 22.3.1-canary.6(encoding@0.1.13)
+      '@sitecore-jss/sitecore-jss': 22.3.1(encoding@0.1.13)
       express: 4.21.1
       http-proxy-middleware: 2.0.7(@types/express@4.17.21)
       http-status-codes: 2.3.0
@@ -7846,7 +7846,7 @@ snapshots:
       - encoding
       - supports-color
 
-  '@sitecore-jss/sitecore-jss@22.3.1-canary.6(encoding@0.1.13)':
+  '@sitecore-jss/sitecore-jss@22.3.1(encoding@0.1.13)':
     dependencies:
       axios: 0.21.4(debug@4.3.7)
       chalk: 4.1.2
