@@ -77,7 +77,8 @@ try {
     if ($null -ne (Get-Command mkcert.exe -ErrorAction SilentlyContinue)) {
         # mkcert installed in PATH
         $mkcert = "mkcert"
-    } elseif (-not (Test-Path $mkcert)) {
+    }
+    elseif (-not (Test-Path $mkcert)) {
         Write-Host "Downloading and installing mkcert certificate tool..." -ForegroundColor Green
         Invoke-WebRequest "https://github.com/FiloSottile/mkcert/releases/download/v1.4.1/mkcert-v1.4.1-windows-amd64.exe" -UseBasicParsing -OutFile mkcert.exe
         if ((Get-FileHash mkcert.exe).Hash -ne "1BE92F598145F61CA67DD9F5C687DFEC17953548D013715FF54067B34D7C3246") {
@@ -182,16 +183,15 @@ Write-Host "Done!" -ForegroundColor Green
 
 Pop-Location
 Push-Location $RepoRoot\local-containers\docker\traefik\certs
-try 
-{
+try {
     Write-Host
-    Write-Host ("#"*75) -ForegroundColor Cyan
+    Write-Host ("#" * 75) -ForegroundColor Cyan
     Write-Host "To avoid HTTPS errors, set the NODE_EXTRA_CA_CERTS environment variable" -ForegroundColor Cyan
     Write-Host "using the following commmand:" -ForegroundColor Cyan
     Write-Host "setx NODE_EXTRA_CA_CERTS $caRoot"
     Write-Host
     Write-Host "You will need to restart your terminal or VS Code for it to take effect." -ForegroundColor Cyan
-    Write-Host ("#"*75) -ForegroundColor Cyan
+    Write-Host ("#" * 75) -ForegroundColor Cyan
 }
 catch {
     Write-Error "An error occurred while attempting to generate TLS certificate: $_"
