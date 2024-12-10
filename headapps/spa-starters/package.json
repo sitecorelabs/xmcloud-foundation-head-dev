@@ -1,0 +1,17 @@
+{
+  "name": "xmcloud-foundation",
+  "private": true,
+  "version": "22.3.1",
+  "description": "This repository contains the Starter Kits for Sitecore XM Cloud Development.",
+  "scripts": {
+    "install-build:angular": "pnpm install && pnpm build:angular",
+    "build:angular": "pnpm -F=angular-starter build",
+    "start:angular": "pnpm -F=node-xmcloud-sample start"
+  },
+  "license": "ISC",
+  "packageManager": "pnpm@9.11.0",
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=9.11.0"
+  }
+}
