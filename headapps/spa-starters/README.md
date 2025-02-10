@@ -54,6 +54,9 @@ npm run start:<your-spa-app>
 3. Push the updates.
 4. Log into the [XM Cloud Deploy app](https://deploy.sitecorecloud.io/), create a project and a deployment using your code and select your repository.
 5. After the deployment finishes succesfully, [create a site and a page](https://doc.sitecore.com/xmc/en/developers/xm-cloud/create-a-site-and-a-page.html). You should now be able to see your the new page in Pages.
+6. In case you have previously deployed and created site based on a different starter application, you may see an error when you open Pages: `The remote name could not be resolved: ...`. To resolve it you will need to change the editing host configuration of your site:
+  - open the content editor and find your site configuration item `/sitecore/content/<your-site-collection-name>/<your-site-name>/Settings/Site Grouping/<your-site-name>`
+  - in the `settings` section, in the `Predefined application editing host` field choose the the name of your SPA renderinghost configuration (can be seen in `xmcloud.build.json`), for example, for Angular SPA, by default it should be `angularstarter`.
 
 ## Local development against the XM Cloud instance
 
