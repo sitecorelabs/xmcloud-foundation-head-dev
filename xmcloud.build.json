@@ -35,5 +35,6 @@
             "indexNames": []
           }
         }
-    }
+    },
+    "authoringPath": "./authoring"
 }
