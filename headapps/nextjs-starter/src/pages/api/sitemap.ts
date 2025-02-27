@@ -24,10 +24,11 @@ const sitemapApi = async (
     siteName: site.name,
   });
 
-  // if url has sitemap-{n}.xml type. The id - can be null if it's sitemap.xml request
+  // The id is present if url has sitemap-{n}.xml type.
+  // The id can be null if it's index sitemap.xml request
   const sitemapPath = await sitemapXmlService.getSitemap(id as string);
 
-  // if sitemap is match otherwise redirect to 404 page
+  // regular sitemap
   if (sitemapPath) {
     const isAbsoluteUrl = sitemapPath.match(ABSOLUTE_URL_REGEXP);
     const sitemapUrl = isAbsoluteUrl ? sitemapPath : `${config.sitecoreApiHost}${sitemapPath}`;
@@ -43,7 +44,7 @@ const sitemapApi = async (
     }
   }
 
-  // this approache if user go to /sitemap.xml - under it generate xml page with list of sitemaps
+  // index /sitemap.xml that includes links to all sitemaps
   const sitemaps = await sitemapXmlService.fetchSitemaps();
 
   if (!sitemaps.length) {
