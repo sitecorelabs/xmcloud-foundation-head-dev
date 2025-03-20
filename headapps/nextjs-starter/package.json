@@ -1,7 +1,7 @@
 {
   "name": "nextjs-starter",
   "description": "Application utilizing Sitecore JavaScript Services and Next.js",
-  "version": "22.5.3",
+  "version": "0.1.0",
   "private": true,
   "config": {
     "appName": "nextjs-starter",
