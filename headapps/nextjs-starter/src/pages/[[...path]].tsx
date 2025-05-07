@@ -11,6 +11,7 @@ import { handleEditorFastRefresh } from '@sitecore-jss/sitecore-jss-nextjs/utils
 import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentBuilder } from 'temp/componentBuilder';
+import config from 'temp/config';
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
 
 const SitecorePage = ({
@@ -36,6 +37,12 @@ const SitecorePage = ({
       <SitecoreContext
         componentFactory={componentBuilder.getComponentFactory({ isEditing })}
         layoutData={layoutData}
+        api={{
+          edge: {
+            contextId: config.sitecoreEdgeContextId,
+            edgeUrl: config.sitecoreEdgeUrl,
+          },
+        }}
       >
         <Layout layoutData={layoutData} headLinks={headLinks} />
       </SitecoreContext>
