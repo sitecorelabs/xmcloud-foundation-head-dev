@@ -4,7 +4,10 @@ import * as Events from '@sitecore-cloudsdk/events/browser';
 import '@sitecore/components/context';
 import dynamic from 'next/dynamic';
 import config from 'sitecore.config';
-import { LayoutServicePageState, SitecoreProviderReactContext } from '@sitecore-content-sdk/nextjs';
+import {
+  LayoutServicePageState,
+  SitecoreProviderReactContext,
+} from '@sitecore-content-sdk/nextjs';
 /**
  * This is an out-of-box bundler for External components (BYOC) (see Sitecore documentation for more details)
  * It enables registering components in client-only or SSR/hybrid contexts

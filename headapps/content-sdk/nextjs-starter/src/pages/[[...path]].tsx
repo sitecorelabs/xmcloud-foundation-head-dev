@@ -6,13 +6,14 @@ import {
   SitecoreProvider,
   ComponentPropsContext,
   SitecorePageProps,
-  StaticPath,
-} from '@sitecore-content-sdk/nextjs';
+    StaticPath
+  } from '@sitecore-content-sdk/nextjs';
 import { extractPath, handleEditorFastRefresh } from '@sitecore-content-sdk/nextjs/utils';
 import { isDesignLibraryPreviewData } from '@sitecore-content-sdk/nextjs/editing';
 import client from 'lib/sitecore-client';
 import components from '.sitecore/component-map';
 import scConfig from 'sitecore.config';
+
 
 const SitecorePage = ({ notFound, componentProps, layout }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
@@ -27,7 +28,11 @@ const SitecorePage = ({ notFound, componentProps, layout }: SitecorePageProps): 
 
   return (
     <ComponentPropsContext value={componentProps || {}}>
-      <SitecoreProvider componentMap={components} layoutData={layout} api={scConfig.api}>
+      <SitecoreProvider
+        componentMap={components}
+        layoutData={layout}
+        api={scConfig.api}
+      >
         <Layout layoutData={layout} />
       </SitecoreProvider>
     </ComponentPropsContext>
@@ -48,7 +53,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   let paths: StaticPath[] = [];
   let fallback: boolean | 'blocking' = 'blocking';
 
-  if (process.env.NODE_ENV !== 'development' && !scConfig.disableStaticPaths) {
+  if (process.env.NODE_ENV !== 'development' && scConfig.generateStaticPaths) {
     try {
       paths = await client.getPagePaths(context?.locales || []);
     } catch (error) {
@@ -85,18 +90,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
       ...page,
       dictionary: await client.getDictionary({ site: page.site?.name, locale: page.locale }),
       componentProps: await client.getComponentData(page.layout, context, components),
-    };
+    }
   }
   return {
     props,
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
     // - At most once every 5 seconds
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 5 seconds
-    revalidate: 5, // In seconds
-    notFound: !page,
+          // Next.js will attempt to re-generate the page:
+      // - When a request comes in
+      // - At most once every 5 seconds
+      revalidate: 5, // In seconds
+          notFound: !page,
   };
 };
 
