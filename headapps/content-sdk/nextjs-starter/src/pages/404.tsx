@@ -20,7 +20,7 @@ const Custom404 = (props: SitecorePageProps): JSX.Element => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async context => {
+export const getStaticProps: GetStaticProps = async (context) => {
   let resultErrorPages: ErrorPages | null = null;
 
   if (scConfig.generateStaticPaths) {
